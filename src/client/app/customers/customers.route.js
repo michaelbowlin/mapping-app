@@ -15,7 +15,7 @@
             {
                 state: 'customer',
                 config: {
-                    abstract: true,
+                    absract: true,
                     template: '<ui-view class="shuffle-animation"/>',
                     url: '/customer'
                 }

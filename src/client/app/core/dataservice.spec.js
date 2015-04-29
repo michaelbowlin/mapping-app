@@ -1,11 +1,10 @@
 /* jshint -W117, -W030 */
 describe('dataservice', function() {
     var customers = mockData.getMockCustomers();
-    var $httpFlush;
 
     beforeEach(function() {
         bard.appModule('app.core');
-        bard.inject(this, '$httpBackend', '$rootScope', 'dataservice');
+        bard.inject('$httpBackend', '$rootScope', 'dataservice');
     });
 
     beforeEach(function() {
