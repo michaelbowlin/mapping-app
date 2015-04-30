@@ -15,7 +15,6 @@
         'app.marketing',
 
         /* Feature areas */
-        'app.customers',
         'app.dashboard',
         'app.inventory',
         'app.dashboard',

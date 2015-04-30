@@ -1,7 +1,15 @@
-<nav class="col-xs-3 menu">
+<!-- Sidebar -->
+<nav  class="col-xs-3 menu" ng-controller="Sidebar as vm">
+    <ul>
+        <li class="withripple" ng-repeat="r in vm.navRoutes">
+            <a ui-sref="{{r.name}}"
+               ng-bind-html="r.settings.content"></a>
+        </li>
+    </ul>
+</nav>
+
+<!-- <nav class="col-xs-3 menu"  ng-controller="Sidebar as vm">
   <ul>
     <li class="active withripple" data-target="#about">Material Design for Bootstrap</li>
-    <li class="withripple" data-target="#getting-started">Getting Started</li>
-    <li class="withripple" data-target="#material-colors">Material Colors</li>
   </ul>
-</nav>
+</nav> -->
