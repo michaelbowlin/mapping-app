@@ -1,9 +1,9 @@
 {
-  "name": "Gulp-Patterns-Demo",
+  "name": "Appraiseio",
   "version": "0.1.1",
   "description": "Gulp Patterns Demo",
   "authors": [
-    "John Papa"
+    "Web5280"
   ],
   "license": "MIT",
   "homepage": "https://github.com/johnpapa/gulp-patterns",
@@ -32,6 +32,7 @@
     "angular-animate": "~1.3.8",
     "angular-bootstrap": "~0.12.1",
     "bootstrap-sass": "~3.3.4",
-    "geocoder-service": "~0.0.5"
+    "geocoder-service": "~0.0.5",
+    "angular-resource": "~1.3.14"
   }
 }

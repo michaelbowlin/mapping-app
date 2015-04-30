@@ -18,12 +18,13 @@
         'app.dashboard',
         'app.inventory',
         'app.dashboard',
-        'app.layout'
+        'app.layout',
          /* ng-starter additions */
-        // 'geocoder-service',
+        'geocoder-service',
         // 'highcharts-ng',
-        // 'ui.bootstrap',
-        // 'uiGmapgoogle-maps'        
+        'ngResource',
+        'ui.bootstrap',
+        'uiGmapgoogle-maps'        
     ]);
 
 })();

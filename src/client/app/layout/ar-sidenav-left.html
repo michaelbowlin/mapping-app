@@ -1,173 +1,91 @@
- <!-- TopNav inject 
-    <div class="row">
-        <div class="col-xs-12">
-            <nav id="ar-header" class="clearfix navbar navbar-default">
-                <ht-top-nav title="vm.title" tagline="vm.tagline"></ht-top-nav>
-            </nav>       
-        </div>
+<map-st-header-main></map-st-header-main>
+
+ <!-- Loader inject ** NEED to put in spinner
+    <div ngplus-overlay
+         ngplus-overlay-delay-in="50"
+         ngplus-overlay-delay-out="700"
+         ngplus-overlay-animation="dissolve-animation">
+        <img src="images/busy.gif"/>
+
+        <div class="page-spinner-message overlay-message">{{vm.busyMessage}}</div>
     </div>-->
 
-    <!-- Sidebar inject 
-    <div ng-include="'app/layout/sidebar.html'" ></div>-->
-
-
-
-
-
-
-
-    <map-st-header-main></map-st-header-main>
-
-
-
-    <div class="container-fluid main">
-      <div class="row">
-
-            <map-st-nav></map-st-nav>
-                <!--    <nav class="col-xs-3 menu">
-                          <ul>
-                            <li class="active withripple" data-target="#about">Material Design for Bootstrap</li>
-                            <li class="withripple" data-target="#getting-started">Getting Started</li>
-                            <li class="withripple" data-target="#material-colors">Material Colors</li>
-                          </ul>
-                        </nav> -->
-
+<div class="container-fluid main">
+  <div class="row">
+        <map-st-nav></map-st-nav>
         <div class="pages col-xs-9">
-          <div class="col-xs-11">
-            <div class="well page active" id="about">
-                           <!-- Content inject -->
-             <div ui-view></div>
-            </div>
+      <div class="col-xs-11">
+        <div class="well page active" id="about">
+         <!-- Content inject -->
+         <div ui-view></div>
+        </div>
 
-            <div class="well page" id="getting-started">
-             <h3>Page2</h3>
-            </div> 
- 
-            <div class="well page" id="material-colors">
-             <h3>Page3</h3>
-            </div>
-          </div><!--/. col-xs-11 -->
-      </div><!--/. pages -->
+        <div class="well page" id="getting-started">
+         <h3>Page2</h3>
+        </div> 
+
+        <div class="well page" id="material-colors">
+         <h3>Page3</h3>
+        </div>
+      </div><!--/. col-xs-11 -->
     </div><!--/. row -->
-  </div><!--/. container-fluid main -->
+</div><!--/. container-fluid main -->
 
  
 
 
     <!-- Open source code -->
     <script>
-      window.page = window.location.hash || "#about";
+      // window.page = window.location.hash || "#about";
 
-      $(document).ready(function() {
-        if (window.page != "#about") {
-          $(".menu").find("li[data-target=" + window.page + "]").trigger("click");
-        }
-      });
+      // $(document).ready(function() {
+      //   if (window.page != "#about") {
+      //     $(".menu").find("li[data-target=" + window.page + "]").trigger("click");
+      //   }
+      // });
 
-      $(window).on("resize", function() {
-        $("html, body").height($(window).height());
-        $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
-        $(".pages").height($(window).height());
-      }).trigger("resize");
+      // $(window).on("resize", function() {
+      //   $("html, body").height($(window).height());
+      //   $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
+      //   $(".pages").height($(window).height());
+      // }).trigger("resize");
 
-      $(".menu li").click(function() {
-        // Menu
-        if (!$(this).data("target")) return;
-        if ($(this).is(".active")) return;
-        $(".menu li").not($(this)).removeClass("active");
-        $(".page").not(page).removeClass("active").hide();
-        window.page = $(this).data("target");
-        var page = $(window.page);
-        window.location.hash = window.page;
-        $(this).addClass("active");
+      // $(".menu li").click(function() {
+      //   // Menu
+      //   if (!$(this).data("target")) return;
+      //   if ($(this).is(".active")) return;
+      //   $(".menu li").not($(this)).removeClass("active");
+      //   $(".page").not(page).removeClass("active").hide();
+      //   window.page = $(this).data("target");
+      //   var page = $(window.page);
+      //   window.location.hash = window.page;
+      //   $(this).addClass("active");
 
 
-        page.show();
+      //   page.show();
 
-        var totop = setInterval(function() {
-          $(".pages").animate({scrollTop:0}, 0);
-        }, 1);
+      //   var totop = setInterval(function() {
+      //     $(".pages").animate({scrollTop:0}, 0);
+      //   }, 1);
 
-        setTimeout(function() {
-          page.addClass("active");
-          setTimeout(function() {
-            clearInterval(totop);
-          }, 1000);
-        }, 100);
-      });
+      //   setTimeout(function() {
+      //     page.addClass("active");
+      //     setTimeout(function() {
+      //       clearInterval(totop);
+      //     }, 1000);
+      //   }, 100);
+      // });
 
  
 
-      $("#opensource").click(function() {
-        $.get(window.location.href, function(data){
-          var html = $(data).find(window.page).html();
-          html = cleanSource(html);
-          $("#source-modal pre").text(html);
-          $("#source-modal").modal();
-        });
-      });
+      // $("#opensource").click(function() {
+      //   $.get(window.location.href, function(data){
+      //     var html = $(data).find(window.page).html();
+      //     html = cleanSource(html);
+      //     $("#source-modal pre").text(html);
+      //     $("#source-modal").modal();
+      //   });
+      // });
     </script>
 
  
-
-
-   
-
- 
- 
-
-
-<!-- 
-
-
-
-
-    <div id="wrap" class="wrapper">
-                        
-        <div id="ar-content" class="row">
-            <div class="col-xs-12">
-
-
-
-
-                <!-- Page Content - ->
-                <div id="page-content-wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="col-xs-12 padding-none" id="main-content">
-                                    
-                                    <!-- Header - ->
-                                    <div class="header-panel shadow-z-2">
-                                      <div class="container-fluid">
-                                        <div class="row">
-                                          <div class="col-xs-3">
-                                            <h1>APPRAISEio</h1>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <!-- Content inject - ->
-                                    <div ui-view></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /# page content - ->
-
-            </div>
-        </div>
-
-        <!-- Loader inject - ->
-        <div ngplus-overlay
-             ngplus-overlay-delay-in="50"
-             ngplus-overlay-delay-out="700"
-             ngplus-overlay-animation="dissolve-animation">
-            <img src="images/busy.gif"/>
-
-            <div class="page-spinner-message overlay-message">{{vm.busyMessage}}</div>
-        </div>
-    </div>
-    <!-- /#wrapper -->   -->
