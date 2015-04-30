@@ -1,0 +1,236 @@
+
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+             Mapping <small> Overview</small>
+        </h1>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-xs-12">
+        <div id="map"></div>
+    </div>
+</div>
+
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+             Inventory <small> Overview</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <p></p>
+                <button class="btn btn-primary btn-lg" ng-click="open()">Add Location</button>
+
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-xs-12">
+        <div class="widget wblue">
+            <div class="widget-content user">
+                    
+                <label>Results per page</label>
+                <select  ng-model="numberItemsSelected" ng-change="changedValue(numberItemsSelected)" 
+                     data-ng-options="numberItemsTemplate as numberItemsTemplate.name for numberItemsTemplate in numberItems">
+                    <option value="">Select</option>
+                </select>
+
+                <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                      <th>Markerrr</th>
+                      <th>Markerrr</th>
+                      <th>Type</th>
+                      <th>Completion Date</th>
+                      <th>Address</th>
+                      <th>Improvement Size</th>
+                      <th>Acres</th>
+                      <th>Condition</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <!--<tr ng-repeat="marker in cities1 | orderBy : 'title' | limitTo:pageSize">-->
+                      <tr ng-repeat="marker in markers | orderBy : 'title'">
+                      <!--<tr ng-repeat="marker in cities1 | orderBy : 'title'"> *** NEED to sync these 2 loops -->
+                        <td><button class="btn btn-primary btn-sm" ng-click="openInfoWindow($event, marker)">{{marker.city}}</button></td>
+                        <td><a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a></td>
+                      
+                        
+                        
+
+
+                        <td>{{marker.city}}</td>
+                        <td>{{marker.productType}}</td>
+                        <td>{{marker.dateOfCompletion | date:'MM/dd/yyyy @ h:mma'}}</td>
+                        <td>{{marker.propertyAddress}}</td>
+                        <td>{{marker.improvementSize}}</td>
+                        <td>{{marker.acres}}</td>
+                        <td>{{marker.relevantCondition}}</td>
+                        <td>{{marker.propertyAddress}} {{c.city}},
+                          
+                          {{c.zip}}
+
+                        </td>
+                        <td>
+                          <button class="btn btn-info btn-sm" ng-click="editItem1(marker.id)">
+                            <i class="fa fa-edit"></i>
+                          </button>
+                        </td>
+                        <td>
+                          <button class="btn btn-danger btn-sm" ng-click="deleteItem(marker.id)">
+                            <i class="fa fa-remove"></i>
+                          </button>
+                        </td>
+                      </tr>
+                  </tbody>
+                </table>
+            </div>
+
+
+            <!-- Pagination Example -->
+            <h4>Limit the maximum visible buttons</h4>
+            <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" max-size="maxPaginationSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="itemsPerPage"></pagination>
+            <pre>Page: {{currentPage}} / {{numPages}}</pre>
+            <pre>{{currentPage}}</pre>
+
+
+            <div class="widget-foot">
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/ng-template" id="myModalContent22.html">
+        <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!</h3>
+        </div>
+                              <div class="modal-body">
+                        <google-places location="location"></google-places> 
+                        <form class="form-horizontal" role="form">
+                          <div class="form-group">
+                            
+                            <!-- type -->
+                            <label for="partnumber" class="col-sm-12 control-label">
+                              <p class="pull-left">Type</p>
+                            </label>
+                            <div class="col-sm-12">
+                                <p>
+                                <fieldset class="inline">
+                                    <label>
+                                      <input type="radio"  ng-model="newprop.level" name="homeOption1" ng-checked="true"  value="Residential"/>
+                                      Home
+                                    </label>
+                                    <label>
+                                      <input type="radio"  ng-model="newprop.level" name="commercialpOption2" value="Commercial" />
+                                      Commercial
+                                    </label> 
+                                </fieldset>
+                                </p>
+                            </div>
+                            
+                            <!-- date of completion -->
+                            <label for="partnumber" class="col-sm-12 control-label">
+                              <p class="pull-left">Date of Completion</p>
+                            </label>
+                            <div class="col-sm-12">
+                              <input class="form-control" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newprop.dateOfCompletion"  is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                              <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="openDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                              </span>
+                            </div> 
+                            
+                            <!-- address -->
+                            <label for="partnumber" class="col-sm-12 control-label">
+                              <p class="pull-left">Address</p>
+                            </label>
+                            <div class="col-sm-12">
+                              <input placeholder="Enter Address Here" id="google_places_ac" name="google_places_ac" type="text" class="input-block-level" ng-model="newprop.latlon" />
+                            </div>
+                            
+                            
+                            <!-- improvement size -->
+                            <label for="partnumber" class="col-sm-12 control-label">
+                              <p class="pull-left">City</p>
+                            </label>
+                            <div class="col-sm-12">
+                              <input class="form-control" type="text" ng-model="newprop.city" placeholder=" City " />
+                            </div>     
+
+                            <!-- improvement size -->
+                            <label for="partnumber" class="col-sm-12 control-label">
+                              <p class="pull-left">Improvement Size</p>
+                            </label>
+                            <div class="col-sm-12">
+                              <input class="form-control" type="text" ng-model="newprop.improvementSize" placeholder=" Improvement Size " />
+                            </div>
+                            
+                            <!-- acres -->
+                            <label for="partnumber" class="col-sm-12 control-label">
+                              <p class="pull-left">Acres</p>
+                            </label>
+                            <div class="col-sm-12">
+                              <input class="form-control" type="text" ng-model="newprop.acres" placeholder=" Acres " />
+                            </div>
+                            
+                            <!-- relevant condition -->
+                            <label for="partnumber" class="col-sm-12 control-label">
+                              <p class="pull-left">Relevant Condition</p>
+                            </label>
+                            <div class="col-sm-12">
+                              
+                              
+                              <p>
+                                  <fieldset class="inline">
+                                 
+                                  <label>
+                                      <input type="radio"  ng-model="newprop.level2" name="goodOption1" ng-checked="true"  value="Good"/>
+                                      Good
+                                  </label>
+                                  <label>
+                                      <input type="radio"  ng-model="newprop.level2" name="poorOption2" value="Poor" />
+                                      Poor
+                                  </label> 
+      
+                              </fieldset>
+                               
+                          </p>
+                              
+                            </div>
+                            
+                            
+                            
+                            
+                          </div>
+                        </form>
+                      </div>
+        <div class="modal-footer">
+              <button ng-click="doSearch(newprop)" class="btn btn-large btn-primary">Add Property</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
