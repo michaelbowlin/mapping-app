@@ -26,6 +26,16 @@ body {
     text-align:center;
   }
 
+#map {
+  height: 420px;
+  width: 101%;
+  position: absolute !important;
+  top: -19px;
+  left: -5px;
+}
+#map-holder {
+  height:410px;
+}
 
 #gmaps {
     width: 100%;
