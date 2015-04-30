@@ -44,7 +44,7 @@ module.exports = function() {
             '**/*.module.js',
             '**/*.js'
         ],
-        sass: client + 'styles/scss/_bootstrap-material.scss',
+        sass: client + 'styles/scss/_bootstrap.scss',
         report: report,
         root: root,
         server: server,

@@ -50,4 +50,41 @@
 @import "bootstrap/responsive-utilities";
 
 // Starter App Layout
-@import "starterapp/main"
+@import "starterapp/main";
+
+
+// Bootstrap Material
+
+@import "material-sass/variables";
+@import "material-sass/mixins";
+@import "material-sass/material";
+@import "material-sass/icons-material-design";
+@import "material-sass/icons";
+@import "material-sass/plugin-nouislider";
+@import "material-sass/plugin-snackbarjs";
+@import "material-sass/ripples";
+@import "material-sass/shadows";
+@import "material-sass/material-wfont";
+@import "material-sass/buttons";
+@import "material-sass/animations";
+@import "material-sass/cards";
+@import "material-sass/checkboxes";
+@import "material-sass/tabs";
+@import "material-sass/radios";
+@import "material-sass/inputs";
+@import "material-sass/navbar";
+@import "material-sass/alerts";
+@import "material-sass/progress";
+@import "material-sass/lists";
+@import "material-sass/popups";
+@import "material-sass/welljumbo";
+
+
+
+
+
+
+
+
+
+

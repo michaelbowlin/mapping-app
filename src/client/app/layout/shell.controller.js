@@ -14,8 +14,8 @@
         vm.isBusy = true;
         vm.showSplash = true;
         vm.tagline = {
-            text: 'Created by John Papa',
-            link: 'http://twitter.com/john_papa'
+            text: 'Created by Web5280',
+            link: 'http://web5280.com/'
         };
 
         activate();
