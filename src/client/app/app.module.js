@@ -11,12 +11,8 @@
         'app.home',
         'app.map',
         'app.profile',
-        'app.analytics',
-        'app.marketing',
 
         /* Feature areas */
-        'app.dashboard',
-        'app.inventory',
         'app.dashboard',
         'app.layout',
          /* ng-starter additions */
