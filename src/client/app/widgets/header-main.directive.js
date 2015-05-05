@@ -2,13 +2,13 @@
     'use strict';
 
     angular
-        .module('app.home')
+        .module('app.widgets')
         .directive('mapStHeaderMain', mapStHeaderMain);
 
     /* @ngInject */
     function mapStHeaderMain (){
         return {
-            templateUrl: 'app/home/header-main.html',
+            templateUrl: 'app/widgets/header-main.html',
             restrict: 'E'
         }
     };
