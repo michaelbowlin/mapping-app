@@ -27,6 +27,7 @@ module.exports = function() {
         build: './build/',
         client: client,
         css: temp + 'styles.css',
+        sasscss: temp + '_bootstrap.css',
         fonts: bower.directory + 'font-awesome/fonts/**/*.*',
         html: client + '**/*.html',
         htmltemplates: clientApp + '**/*.html',
@@ -43,7 +44,7 @@ module.exports = function() {
             '**/*.module.js',
             '**/*.js'
         ],
-        less: client + 'styles/styles.less',
+        sass: client + 'styles/scss/_bootstrap.scss',
         report: report,
         root: root,
         server: server,
@@ -52,6 +53,7 @@ module.exports = function() {
             bower.directory + 'angular-mocks/angular-mocks.js',
             client + 'stubs/**/*.js'
         ],
+        //temp2: 'styles/bootstrap.scss',
         temp: temp,
 
         /**
