@@ -1,39 +1,47 @@
-/* jshint -W117, -W030 */
-describe('layout', function() {
-    describe('sidebar', function() {
-        var controller;
-        var views = {
-            dashboard: 'app/dashboard/dashboard.html',
-            customers: 'app/customers/customers.html'
-        };
+// /* jshint -W117, -W030 */
+// describe('layout', function() {
+//     describe('sidebar', function() {
+//         var controller;
+//         var views = {
+//             dashboard: 'app/dashboard/dashboard.html',
+//             customers: 'app/customers/customers.html'
+//         };
 
+<<<<<<< HEAD
         beforeEach(function() {
             module('app.layout', bard.fakeToastr);
             bard.inject(this, '$controller', '$httpBackend', '$location',
                           '$rootScope', '$state', 'routerHelper');
         });
+=======
+//         beforeEach(function() {
+//             module('app.layout', bard.fakeToastr);
+//             bard.inject(this, '$controller', '$httpBackend', '$location',
+//                           '$rootScope', '$state', 'routerHelper');
+//         });
+>>>>>>> 049bd7d85991a7e441e84cb6c954afc3a4e0b507
 
-        beforeEach(function() {
-            routerHelper.configureStates(mockData.getMockStates(), '/');
-            controller = $controller('Sidebar');
-            $rootScope.$apply();
-        });
+//         beforeEach(function() {
+//             routerHelper.configureStates(mockData.getMockStates(), '/');
+//             controller = $controller('Sidebar');
+//             $rootScope.$apply();
+//         });
 
-        bard.verifyNoOutstandingHttpRequests();
+//         bard.verifyNoOutstandingHttpRequests();
 
-        it('should have isCurrent() for / to return `current`', function() {
-            $location.path('/');
-            expect(controller.isCurrent($state.current)).to.equal('current');
-        });
+//         it('should have isCurrent() for / to return `current`', function() {
+//             $location.path('/');
+//             expect(controller.isCurrent($state.current)).to.equal('current');
+//         });
 
-        it('should have isCurrent() for /customers to return `current`', function() {
-            $location.path('/customers');
-            expect(controller.isCurrent($state.current)).to.equal('current');
-        });
+//         it('should have isCurrent() for /customers to return `current`', function() {
+//             $location.path('/customers');
+//             expect(controller.isCurrent($state.current)).to.equal('current');
+//         });
 
-        it('should have isCurrent() for non route not return `current`', function() {
-            $location.path('/invalid');
-            expect(controller.isCurrent({title: 'invalid'})).not.to.equal('current');
-        });
-    });
-});
+//         it('should have isCurrent() for non route not return `current`', function() {
+//             $location.path('/invalid');
+//             expect(controller.isCurrent({title: 'invalid'})).not.to.equal('current');
+//         });
+//     });
+// });

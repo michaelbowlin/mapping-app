@@ -8,9 +8,25 @@
         'app.widgets',
 
         /* Feature areas */
-        'app.customers',
+        'app.home',
+        'app.map',
+        'app.profile',
+        'app.analytics',
+        'app.marketing',
+
+        /* Feature areas */
         'app.dashboard',
-        'app.layout'
+        'app.inventory',
+        'app.dashboard',
+        'app.layout',
+         /* ng-starter additions */
+        'geocoder-service',
+        // 'highcharts-ng',
+        'ngResource',
+        'ui.bootstrap',
+        'uiGmapgoogle-maps'        
     ]);
 
 })();
+
+ 

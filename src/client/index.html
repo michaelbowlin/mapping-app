@@ -10,6 +10,24 @@
         /* This helps the ng-show/ng-hide animations start at the right place. */
         /* Since Angular has this but needs to load, this gives us the class early. */
         .ng-hide { display: none!important; }
+
+        /* Mapping */
+        .mainMap .class{
+
+        }
+        #map {
+          height: 420px;
+          width: 100%;
+        }
+        .modal-backdrop
+        {
+          z-index:1 !important;
+        }
+        .modal
+        {
+          z-index:2 !important;
+        }
+ 
     </style>
 
     <!-- build:css styles/lib.css -->
@@ -22,9 +40,10 @@
 
     <!-- build:css styles/app.css-->
     <!-- inject:css -->
-    <link rel="stylesheet" href="/.tmp/styles.css">
+    <link rel="stylesheet" href="/.tmp/_bootstrap.css">
     <!-- endinject -->
     <!-- endbuild -->
+
 </head>
 <body>
     <div>
@@ -52,45 +71,101 @@
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/toastr/toastr.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="/bower_components/geocoder-service/geocoder-service.js"></script>
+    <script src="/bower_components/geocoder-service/geocoder-service.min.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+
+    
+    <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/pablojim/highcharts-ng/master/dist/highcharts-ng.js"></script>
+
 
     <!-- build:js js/app.js-->
     <!-- inject:js -->
     <script src="/src/client/app/app.module.js"></script>
+    <script src="/src/client/app/analytics/analytics.module.js"></script>
     <script src="/src/client/app/blocks/diagnostics/diagnostics.module.js"></script>
     <script src="/src/client/app/blocks/exception/exception.module.js"></script>
     <script src="/src/client/app/blocks/logger/logger.module.js"></script>
     <script src="/src/client/app/blocks/router/router.module.js"></script>
+    <script src="/src/client/app/cards/cards.module.js"></script>
     <script src="/src/client/app/core/core.module.js"></script>
-    <script src="/src/client/app/customers/customers.module.js"></script>
     <script src="/src/client/app/dashboard/dashboard.module.js"></script>
+    <script src="/src/client/app/home/home.module.js"></script>
+    <script src="/src/client/app/inventory/inventory.module.js"></script>
     <script src="/src/client/app/layout/layout.module.js"></script>
+    <script src="/src/client/app/map/map.module.js"></script>
+    <script src="/src/client/app/marketing/marketing.module.js"></script>
+    <script src="/src/client/app/profile/profile.module.js"></script>
+    <script src="/src/client/app/validations/validations.module.js"></script>
     <script src="/src/client/app/widgets/widgets.module.js"></script>
+    <script src="/src/client/app/analytics/analytics.controller.js"></script>
+    <script src="/src/client/app/analytics/analytics.route.js"></script>
     <script src="/src/client/app/blocks/diagnostics/diagnostics.decorator.js"></script>
     <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
     <script src="/src/client/app/blocks/exception/exception.js"></script>
     <script src="/src/client/app/blocks/logger/logger.js"></script>
     <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
+    <script src="/src/client/app/cards/cards.controller.js"></script>
+    <script src="/src/client/app/cards/cards.route.js"></script>
+    <script src="/src/client/app/cards/cards.service.js"></script>
     <script src="/src/client/app/core/config.js"></script>
     <script src="/src/client/app/core/constants.js"></script>
     <script src="/src/client/app/core/core.route.js"></script>
     <script src="/src/client/app/core/dataservice.js"></script>
-    <script src="/src/client/app/customers/customer-detail.controller.js"></script>
-    <script src="/src/client/app/customers/customers.controller.js"></script>
     <script src="/src/client/app/customers/customers.route.js"></script>
     <script src="/src/client/app/dashboard/dashboard.controller.js"></script>
     <script src="/src/client/app/dashboard/dashboard.route.js"></script>
+    <script src="/src/client/app/home/header-main.directive.js"></script>
+    <script src="/src/client/app/home/home.controller.js"></script>
+    <script src="/src/client/app/home/home.route.js"></script>
+    <script src="/src/client/app/home/nav-main.directive.js"></script>
+    <script src="/src/client/app/inventory/inventory.controller.js"></script>
+    <script src="/src/client/app/inventory/inventory.route.js"></script>
+    <script src="/src/client/app/inventory/inventory.service.js"></script>
     <script src="/src/client/app/layout/ht-sidebar.directive.js"></script>
     <script src="/src/client/app/layout/ht-top-nav.directive.js"></script>
     <script src="/src/client/app/layout/shell.controller.js"></script>
     <script src="/src/client/app/layout/sidebar.controller.js"></script>
+    <script src="/src/client/app/map/directives/map.directives.js"></script>
+    <script src="/src/client/app/map/map-google-places.directive.js"></script>
+    <script src="/src/client/app/map/map.controller.js"></script>
+    <script src="/src/client/app/map/map.route.js"></script>
+    <script src="/src/client/app/map/map.service.js"></script>
+    <script src="/src/client/app/marketing/marketing.controller.js"></script>
+    <script src="/src/client/app/marketing/marketing.route.js"></script>
+    <script src="/src/client/app/profile/profile.controller.js"></script>
+    <script src="/src/client/app/profile/profile.route.js"></script>
+    <script src="/src/client/app/validations/validations.controller.js"></script>
+    <script src="/src/client/app/validations/validations.route.js"></script>
     <script src="/src/client/app/widgets/ht-img-person.directive.js"></script>
     <script src="/src/client/app/widgets/ht-widget-header.directive.js"></script>
     <!-- endinject -->
 
     <!-- inject:templates:js -->
     <!-- endinject -->
+   
+    <!--<script src= "//maps.googleapis.com/maps/api/js?sensor=false"></script>-->
+    <script src = "bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src ="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+ 
+<!-- Geo Coder -->
+<script>
+    !function(a){"use strict";a.module("geocoder-service",[]).factory("geocoderService",["$document","$window","$q",function(a,b,c){var d,e=!1,f=!1,g=[];b.__initMaps=function(){f=!0,d=new b.google.maps.Geocoder;for(var a=0;a<g.length;++a)g[a].resolve();delete b.__initMaps};var h=function(a,c){d.geocode({address:c},function(c,d){d===b.google.maps.GeocoderStatus.OK&&c.length>0?a.resolve(c[0].geometry.location):a.reject()})},i=function(){if(!e){e=!0;var b=a[0],c=b.createElement("script");c.type="text/javascript",c.src="https://maps.googleapis.com/maps/api/js?v=3.exp&callback=__initMaps",b.body.appendChild(c)}};return{getLatLong:function(a){var b=c.defer();if(f)h(b,a);else{var d=c.defer();g.push(d),d.promise.then(function(){h(b,a)}),i()}return b.promise}}}])}(angular);
+</script>
+ 
+<!-- Added for mapping ** NEED to put into build process -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script> -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&libraries=places&language=en-US"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+
+
 
     <!-- endbuild -->
 </body>
