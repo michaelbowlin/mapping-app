@@ -53,7 +53,7 @@
         }
 
         /* Create City */
-        function createCity(myData){
+        function createProperty(myData){
             return restRequest('https://dummy-data.azure-mobile.net/tables/data/', 'POST', myData)
                 .then(createdCity);
 
@@ -61,17 +61,6 @@
                 return data;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
         /* Reusable REST Request */
