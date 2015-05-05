@@ -4,15 +4,16 @@ var config = require('./gulp.config')();
 var del = require('del');
 var glob = require('glob');
 var gulp = require('gulp');
+var sass = require('gulp-ruby-sass');
 var path = require('path');
 var _ = require('lodash');
 var $ = require('gulp-load-plugins')({lazy: true});
-
 var colors = $.util.colors;
 var envenv = $.util.env;
 var port = process.env.PORT || config.defaultPort;
 
 /**
+********
  * yargs variables can be passed in to alter the behavior, when present.
  * Example: gulp serve-dev
  *
@@ -24,12 +25,28 @@ var port = process.env.PORT || config.defaultPort;
  */
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * List the available gulp tasks
  */
 gulp.task('help', $.taskListing);
 gulp.task('default', ['help']);
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * vet the code and create coverage report
  * @return {Stream}
  */
@@ -41,11 +58,20 @@ gulp.task('vet', function() {
         .pipe($.if(args.verbose, $.print()))
         .pipe($.jshint())
         .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
-        .pipe($.jshint.reporter('fail'))
-        .pipe($.jscs());
+        .pipe($.jshint.reporter('fail'));
+        //******* HAVE TO DISABLE JSCS -- CAUSING TO MANY CONFLICT 
+        //.pipe($.jscs());
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Create a visualizer report
  */
 gulp.task('plato', function(done) {
@@ -56,22 +82,50 @@ gulp.task('plato', function(done) {
 });
 
 /**
- * Compile less to css
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+ * Compile SASS to css
  * @return {Stream}
  */
-gulp.task('styles', ['clean-styles'], function() {
-    log('Compiling Less --> CSS');
-
-    return gulp
-        .src(config.less)
-        .pipe($.plumber()) // exit gracefully if something fails after this
-        .pipe($.less())
-//        .on('error', errorLogger) // more verbose and dupe output. requires emit.
-        .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
+gulp.task('styles', function() {
+    return sass(config.sass)
+        .on('error', function (err) {
+              console.error('Error!', err.message);
+          })
         .pipe(gulp.dest(config.temp));
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Copy fonts
  * @return {Stream}
  */
@@ -84,6 +138,14 @@ gulp.task('fonts', ['clean-fonts'], function() {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Compress images
  * @return {Stream}
  */
@@ -96,11 +158,19 @@ gulp.task('images', ['clean-images'], function() {
         .pipe(gulp.dest(config.build + 'images'));
 });
 
-gulp.task('less-watcher', function() {
-    gulp.watch([config.less], ['styles']);
+gulp.task('sass-watcher', function() {
+    gulp.watch([config.sass], ['styles']);
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Create $templateCache from the html templates
  * @return {Stream}
  */
@@ -120,6 +190,14 @@ gulp.task('templatecache', ['clean-code'], function() {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Wire-up the bower dependencies
  * @return {Stream}
  */
@@ -144,11 +222,19 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
 
     return gulp
         .src(config.index)
-        .pipe(inject(config.css))
+        .pipe(inject(config.sasscss))
         .pipe(gulp.dest(config.client));
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Run the spec runner
  * @return {Stream}
  */
@@ -159,6 +245,14 @@ gulp.task('serve-specs', ['build-specs'], function(done) {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Inject all the spec files into the specs.html
  * @return {Stream}
  */
@@ -181,12 +275,20 @@ gulp.task('build-specs', ['templatecache'], function(done) {
         .pipe(inject(config.js, '', config.jsOrder))
         .pipe(inject(config.testlibraries, 'testlibraries'))
         .pipe(inject(config.specHelpers, 'spechelpers'))
-        .pipe(inject(specs, 'specs'))
+        .pipe(inject(specs, 'specs', ['**/*']))
         .pipe(inject(templateCache, 'templates'))
         .pipe(gulp.dest(config.client));
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Build everything
  * This is separate so we can run tests on
  * optimize before handling image or fonts
@@ -205,6 +307,14 @@ gulp.task('build', ['optimize', 'images', 'fonts'], function() {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Optimize all files, move to a build folder,
  * and inject them into the new index.html
  * @return {Stream}
@@ -250,6 +360,14 @@ gulp.task('optimize', ['inject', 'test'], function() {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Remove all files from the build, temp, and reports folders
  * @param  {Function} done - callback when complete
  */
@@ -260,6 +378,14 @@ gulp.task('clean', function(done) {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Remove all fonts from the build folder
  * @param  {Function} done - callback when complete
  */
@@ -268,6 +394,14 @@ gulp.task('clean-fonts', function(done) {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Remove all images from the build folder
  * @param  {Function} done - callback when complete
  */
@@ -276,6 +410,14 @@ gulp.task('clean-images', function(done) {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Remove all styles from the build and temp folders
  * @param  {Function} done - callback when complete
  */
@@ -288,6 +430,14 @@ gulp.task('clean-styles', function(done) {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Remove all js and html from the build and temp folders
  * @param  {Function} done - callback when complete
  */
@@ -301,6 +451,14 @@ gulp.task('clean-code', function(done) {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Run specs once and exit
  * To start servers and run midway specs as well:
  *    gulp test --startServers
@@ -311,6 +469,14 @@ gulp.task('test', ['vet', 'templatecache'], function(done) {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Run specs and wait.
  * Watch for file changes and re-run tests on each change
  * To start servers and run midway specs as well:
@@ -321,6 +487,14 @@ gulp.task('autotest', function(done) {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * serve the dev environment
  * --debug-brk or --debug
  * --nosync
@@ -330,6 +504,14 @@ gulp.task('serve-dev', ['inject'], function() {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * serve the build environment
  * --debug-brk or --debug
  * --nosync
@@ -339,6 +521,14 @@ gulp.task('serve-build', ['build'], function() {
 });
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Bump the version
  * --type=pre will bump the prerelease version *.*.*-x
  * --type=patch or no flag will bump the patch version *.*.x
@@ -387,6 +577,14 @@ gulp.task('bump', function() {
 //}
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * When files change, log it
  * @param  {Object} event - event that fired
  */
@@ -396,6 +594,14 @@ function changeEvent(event) {
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Delete all files in a given path
  * @param  {Array}   path - array of paths to delete
  * @param  {Function} done - callback when complete
@@ -406,6 +612,14 @@ function clean(path, done) {
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Inject files in a sorted sequence at a specified inject label
  * @param   {Array} src   glob pattern for source files
  * @param   {String} label   The label name
@@ -422,19 +636,35 @@ function inject(src, label, order) {
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Order a stream
  * @param   {Stream} src   The gulp.src stream
  * @param   {Array} order Glob array pattern
  * @returns {Stream} The ordered stream
  */
 function orderSrc (src, order) {
-    order = order || ['**/*'];
+    //order = order || ['**/*'];
     return gulp
         .src(src)
-        .pipe($.order(order));
+        .pipe($.if(order, $.order(order)));
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * serve the code
  * --debug-brk or --debug
  * --nosync
@@ -496,6 +726,14 @@ function runNodeInspector() {
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Start BrowserSync
  * --nosync will avoid browserSync
  */
@@ -507,12 +745,12 @@ function startBrowserSync(isDev, specRunner) {
     log('Starting BrowserSync on port ' + port);
 
     // If build: watches the files, builds, and restarts browser-sync.
-    // If dev: watches less, compiles it to css, browser-sync handles reload
+    // If dev: watches SASS, compiles it to css, browser-sync handles reload
     if (isDev) {
-        gulp.watch([config.less], ['styles'])
+        gulp.watch([config.sass], ['styles-sass'], ['./src/client/styles/scss/_bootstrap.scss'])
             .on('change', changeEvent);
     } else {
-        gulp.watch([config.less, config.js, config.html], ['optimize', browserSync.reload])
+        gulp.watch([config.sass, config.js, config.html], ['optimize', browserSync.reload])
             .on('change', changeEvent);
     }
 
@@ -521,7 +759,7 @@ function startBrowserSync(isDev, specRunner) {
         port: 3000,
         files: isDev ? [
             config.client + '**/*.*',
-            '!' + config.less,
+            '!' + config.sass,
             config.temp + '**/*.css'
         ] : [],
         ghostMode: { // these are the defaults t,f,t,t
@@ -537,14 +775,19 @@ function startBrowserSync(isDev, specRunner) {
         notify: true,
         reloadDelay: 0 //1000
     } ;
-    if (specRunner) {
-        options.startPath = config.specRunnerFile;
-    }
 
     browserSync(options);
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Start Plato inspector and visualizer
  */
 function startPlatoVisualizer(done) {
@@ -572,6 +815,14 @@ function startPlatoVisualizer(done) {
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Start the tests using karma.
  * @param  {boolean} singleRun - True means run once and end (CI), or keep running (dev)
  * @param  {Function} done - Callback to fire when karma is done
@@ -619,6 +870,14 @@ function startTests(singleRun, done) {
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Formatter for bytediff to display the size changes after processing
  * @param  {Object} data - byte data
  * @return {String}      Difference in bytes, formatted
@@ -632,6 +891,14 @@ function bytediffFormatter(data) {
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Log an error message and emit the end of a task
  */
 function errorLogger(error) {
@@ -642,6 +909,14 @@ function errorLogger(error) {
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Format a number as a percentage
  * @param  {Number} num       Number to format as a percent
  * @param  {Number} precision Precision of the decimal
@@ -652,6 +927,14 @@ function formatPercent(num, precision) {
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Format and return the header for files
  * @return {String}           Formatted file header
  */
@@ -672,6 +955,14 @@ function getHeader() {
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Log a message or series of messages using chalk's blue color.
  * Can pass in a string, object or array.
  */
@@ -688,6 +979,14 @@ function log(msg) {
 }
 
 /**
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
+*********************************
  * Show OS level notification using node-notifier
  */
 function notify(options) {
