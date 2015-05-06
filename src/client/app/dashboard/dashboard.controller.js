@@ -20,7 +20,7 @@
     }
 
     function getCustomers() {
-      return dataservice.getCustomers().then(function (data) {
+      return dataservice.getProperties().then(function (data) {
         vm.customers = data;
         return vm.customers;
       });

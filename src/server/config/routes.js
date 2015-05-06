@@ -11,10 +11,10 @@ module.exports = function(app) {
   app.put('/api/users', users.updateUser);
 
   app.get('/api/properties', property.getProperties);
-  app.get('/api/courses/:id', property.getPropertyById);
+  app.get('/api/properties/:id', property.getPropertyById);
 
   app.get('/partials/*', function(req, res) {
-    res.render('../../public/app/' + req.params[0]);
+    res.render('../../src/app/' + req.params[0]);
   });
 
   app.post('/login', auth.authenticate);

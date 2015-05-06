@@ -13,6 +13,7 @@
     var service = {
       getCustomer: getCustomer,
       getCustomers: getCustomers,
+      getProperties: getProperties,
       ready: ready
     };
 
@@ -40,6 +41,19 @@
         });
 
       function getCustomersComplete(data, status, headers, config) {
+        return data.data;
+      }
+    }
+
+    function getProperties() {
+      return $http.get('/api/properties')
+        .then(getPropertiesComplete)
+        .catch(function (message) {
+          exception.catcher('XHR Failed for getCustomers')(message);
+          $location.url('/');
+        });
+
+      function getPropertiesComplete(data, status, headers, config) {
         return data.data;
       }
     }
