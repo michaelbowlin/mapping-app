@@ -1,9 +1,9 @@
-(function() {
-    'use strict';
+(function () {
+  'use strict';
 
-    angular.module('app.profile', [
-        'app.core',
-        'app.widgets'
-    ]);
+  angular.module('app.profile', [
+    'app.core',
+    'app.widgets'
+  ]);
 
 })();

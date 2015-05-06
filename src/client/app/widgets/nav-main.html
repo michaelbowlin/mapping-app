@@ -1,12 +1,12 @@
 <!-- Sidebar -->
 <!--<nav  class="col-xs-12 menu" ng-controller="Sidebar as vm"  ng-hide="currentPath === '/'">-->
-<nav  class="col-xs-12 menu" ng-controller="Sidebar as vm">
-    <ul nav-active-class>
-        <li class="withripple" ng-repeat="r in vm.navRoutes">
-            <a ui-sref="{{r.name}}"
-               ng-bind-html="r.settings.content"></a>
-        </li>
-    </ul>
+<nav class="col-xs-12 menu" ng-controller="Sidebar as vm">
+  <ul nav-active-class>
+    <li class="withripple" ng-repeat="r in vm.navRoutes">
+      <a ui-sref="{{r.name}}"
+         ng-bind-html="r.settings.content"></a>
+    </li>
+  </ul>
 </nav>
 
 <!-- <nav class="col-xs-3 menu"  ng-controller="Sidebar as vm">

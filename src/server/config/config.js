@@ -6,7 +6,7 @@ module.exports = {
     //db: 'mongodb://localhost/multivision',
     db: 'mongodb://mapping:pas$w0rd@ds031922.mongolab.com:31922/mapping-app',
     rootPath: rootPath,
-    port: process.env.PORT || 3030
+    port: process.env.PORT || 3000
   },
   production: {
     rootPath: rootPath,

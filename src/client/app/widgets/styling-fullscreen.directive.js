@@ -1,16 +1,14 @@
-(function(){
-    'use strict';
+(function () {
+  'use strict';
 
-    angular
-        .module('app.widgets')
-        .directive('fullscreenStyling', fullscreenStyling);
+  angular
+    .module('app.widgets')
+    .directive('fullscreenStyling', fullscreenStyling);
 
-    /* @ngInject */
-    function fullscreenStyling(){
-        return {
-
-        }
-    }
+  /* @ngInject */
+  function fullscreenStyling() {
+    return {}
+  }
 
 
 })();

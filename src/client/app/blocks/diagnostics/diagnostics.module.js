@@ -1,5 +1,5 @@
-(function() {
-    'use strict';
+(function () {
+  'use strict';
 
-    angular.module('blocks.diagnostics', []);
+  angular.module('blocks.diagnostics', []);
 })();
