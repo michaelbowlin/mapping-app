@@ -5,15 +5,15 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var app = express();
 
-var config = require('./src/server/config/config')[env];
+var config = require('./server/config/config')[env];
 
-require('./src/server/config/express')(app, config);
+require('./server/config/express')(app, config);
 
-require('./src/server/config/mongoose')(config);
+require('./server/config/mongoose')(config);
 
-require('./src/server/config/passport')();
+require('./server/config/passport')();
 
-require('./src/server/config/routes')(app);
+require('./server/config/routes')(app);
 
 app.listen(config.port);
 console.log('Listening on port ' + config.port + '...');
