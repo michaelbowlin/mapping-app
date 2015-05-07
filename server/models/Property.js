@@ -2,8 +2,12 @@ var mongoose = require('mongoose');
 
 var propertySchema = mongoose.Schema({
   title: {type:String, required:'{PATH} is required!'},
-  featured: {type:Boolean, required:'{PATH} is required!'},
-  published: {type:Date, required:'{PATH} is required!'},
+  latCoord: {type: Number, required:'{PATH} is required!'},
+  longCoord: {type: Number, required:'{PATH} is required!'},
+  description: {type: String, required:'{PATH} is required!'},
+  dateAdded: {type: Date, required:'{PATH} is required!', default: Date.now()},
+  type: {type: String, required:'{PATH} is required!'},
+  userAccount: {type: String, required:'{PATH} is required!'},
   tags: [String]
 });
 var Property = mongoose.model('Property', propertySchema);
@@ -11,7 +15,7 @@ var Property = mongoose.model('Property', propertySchema);
 function createDefaultProperties() {
   Property.find({}).exec(function(err, collection) {
     if(collection.length === 0) {
-      Property.create({title: 'C# for Sociopaths', featured: true, published: new Date('10/5/2013'), tags: ['C#']});
+      Property.create({title: 'Colorado Capital', latCoord: 39.7394199, longCoord: -104.9847909, description: 'Colorado Capital Building, Denver', type:'Commercial', tags: ['Denver']});
 
     }
   })
