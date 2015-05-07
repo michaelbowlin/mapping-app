@@ -1,10 +1,10 @@
 {
-  "name": "MultiVision",
+  "name": "Appraisio",
   "version": "0.0.0",
   "authors": [
-    "joeeames <joeeames@gmail.com>"
+    "brian childress <brian@web5280.com>"
   ],
-  "description": "\"Extreme Tech Training\"",
+  "description": "\"Appraisio\"",
   "license": "MIT",
   "private": true,
   "dependencies": {
