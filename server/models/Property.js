@@ -6,8 +6,8 @@ var propertySchema = mongoose.Schema({
   longCoord: {type: Number, required:'{PATH} is required!'},
   description: {type: String, required:'{PATH} is required!'},
   dateAdded: {type: Date, required:'{PATH} is required!', default: Date.now()},
-  type: {type: String, required:'{PATH} is required!'},
-  userAccount: {type: String, required:'{PATH} is required!'},
+  type: {type: String, required:'{PATH} is required!', default: 'Commercial'},
+  userAccount: {type: String},
   tags: [String]
 });
 var Property = mongoose.model('Property', propertySchema);

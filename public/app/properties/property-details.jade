@@ -1,0 +1,16 @@
+.container
+  h1 {{property.title}}
+  .row
+    .col-md-6
+      h3(ng-show="course.featured") Featured
+      h3 Added on {{property.dateAdded | date}}
+      h4 {{property.description}}
+      p Lat Coordinate: {{property.latCoord}}
+      p Long Coordinate: {{property.longCoord}}
+
+
+    .col-md-6
+      .panel.panel-primary
+        .panel-heading Tags
+        .panel-body
+          div(ng-repeat="tag in property.tags") {{tag}}

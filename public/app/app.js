@@ -41,6 +41,10 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
       templateUrl: '/partials/properties/property-list',
       controller: 'propertyListCtrl'
     })
+    .when('/properties/:id', {
+      templateUrl: '/partials/properties/property-details',
+      controller: 'propertyDetailCtrl'
+    })
 
 });
 

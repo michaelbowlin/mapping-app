@@ -1,0 +1,6 @@
+.panel.panel-primary
+   .panel-heading.text-center Properties
+   .panel-body
+      .row(ng-repeat="property in properties")
+         .col-md-12
+            a(href="/properties/{{property._id}}") {{property.title}}

@@ -15,7 +15,10 @@ module.exports = function(app) {
   app.get('/api/courses/:id', courses.getCourseById);
 
   app.get('/api/properties', properties.getProperties);
-  app.get('/api/properties/:id', properties.getPropertiesById);
+  app.get('/api/properties/:id', properties.getPropertyById);
+
+  app.post('/api/properties', properties.createProperty);
+  app.put('/api/properties', properties.updateProperty);
 
   app.get('/partials/*', function(req, res) {
     res.render('../../public/app/' + req.params[0]);
