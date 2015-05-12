@@ -5,11 +5,19 @@ block main-content
     //    div(ng-view)
     //footer.container.text-center
     //    p &copy; 2015 Appraisio
+    .navbar.navbar-inverse
+        .container
+            .navbar-header
+            .navbar-collapse.collapse
+                ul.nav.navbar-nav
+                    li
+                div(ng-include="'/partials/account/navbar-login'")
 
     // Header
     .header-panel.shadow-z-2
         .container-fluid
             .row
+                div(ng-include="'/partials/account/navbar-login'")
                 .col-xs-3
                     h1 APPRAISEio
 
@@ -32,4 +40,4 @@ block main-content
                         h3 Page2
                     #material-colors.well.page
                         h3 Page3
-                    div(ng-include="'/partials/account/navbar-login'")
+
