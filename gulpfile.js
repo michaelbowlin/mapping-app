@@ -6,7 +6,7 @@ var rename = require("gulp-rename");
 var $ = require('gulp-load-plugins')({lazy: true});
 
 /**
- List the ava2lable gulp tasks
+ List the avalable gulp tasks
  */
 gulp.task('default', function () {
     console.log('=================> Gulp is Running!')
