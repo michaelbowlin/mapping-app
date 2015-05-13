@@ -17,14 +17,13 @@ block main-content
     .header-panel.shadow-z-2
         .container-fluid
             .row
-                div(ng-include="'/partials/account/navbar-login'")
                 .col-xs-3
                     h1 APPRAISEio
 
     // Content
     .container-fluid.main
         .row
-            nav.col-xs-12.menu
+            nav.col-xs-12.menu#main-menu
                 ul(nav-active-class='')
                     li.withripple
                         a(href='/') Home
@@ -32,12 +31,9 @@ block main-content
                         a(href="/properties") Properties
                     li.withripple
                         a(href='#') Other
-            .pages.col-xs-9
+            .pages#wrap
                 .col-xs-11
                     #about.well.page.active
                         div(ng-view)
-                    #getting-started.well.page
-                        h3 Page2
-                    #material-colors.well.page
-                        h3 Page3
+
 

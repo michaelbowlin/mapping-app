@@ -1,4 +1,5 @@
-.container
-  table.table
-    tr(ng-repeat="user in users")
-      td {{user.firstName + ' ' + user.lastName}}
+.row
+  .col-xs-12
+    table.table
+      tr(ng-repeat="user in users")
+        td {{user.firstName + ' ' + user.lastName}}
