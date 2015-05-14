@@ -1,4 +1,19 @@
-angular.module('app').controller('mvMainCtrl', function($scope, mvCachedCourses, mvCachedProperties) {
-  $scope.courses = mvCachedCourses.query();
-  $scope.properties = mvCachedProperties.query();
-});
+(function(){
+  'use strict';
+
+  angular
+    .module('app')
+    .controller('mvMainCtrl', myMainCtrl);
+
+  function myMainCtrl($scope, mvCachedCourses, mvCachedProperties) {
+
+      $scope.courses = mvCachedCourses.query();
+      $scope.properties = mvCachedProperties.query();
+
+
+
+
+  };
+
+
+})();

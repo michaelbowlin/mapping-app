@@ -12,7 +12,7 @@ exports.getPropertyById = function(req, res) {
   })
 };
 
-exports.createProperty = function(req, res, next) {
+exports.createProperty = function(req, res, next) { // request, response, next function etc
   var propertyData = req.body;
   Property.create(propertyData, function(err) {
     if(err) {
