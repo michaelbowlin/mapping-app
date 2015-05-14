@@ -1,0 +1,135 @@
+// Page Heading
+.row
+    .col-lg-12
+        h1.page-header
+            | Mapping
+            small  Overview
+// /.row
+.row
+    .col-xs-12
+        #map
+// Page Heading
+.row
+    .col-lg-12
+        h1.page-header
+            | Inventory
+            small  Overview
+        ol.breadcrumb
+            li.active
+                p
+                button.btn.btn-primary.btn-lg(ng-click='open()') Add Location
+// /.row
+.row
+    .col-xs-12
+        .widget.wblue
+            .widget-content.user
+                label Results per page
+                select(ng-model='numberItemsSelected', ng-change='changedValue(numberItemsSelected)', data-ng-options='numberItemsTemplate as numberItemsTemplate.name for numberItemsTemplate in numberItems')
+                    option(value='') Select
+                table.table.table-condensed
+                    thead
+                        tr
+                            th Markerrr
+                            th Markerrr
+                            th Type
+                            th Completion Date
+                            th Address
+                            th Improvement Size
+                            th Acres
+                            th Condition
+                    tbody
+                        tr
+                            // <tr ng-repeat="marker in cities1 | orderBy : 'title' | limitTo:pageSize">
+                        tr(ng-repeat="marker in markers | orderBy : 'title'")
+                            // <tr ng-repeat="marker in cities1 | orderBy : 'title'"> *** NEED to sync these 2 loops
+                            td
+                                button.btn.btn-primary.btn-sm(ng-click='openInfoWindow($event, marker)') {{marker.city}}
+                            td
+                                a(href='#', ng-click='openInfoWindow($event, marker)') {{marker.title}}
+                            td {{marker.city}}
+                            td {{marker.productType}}
+                            td {{marker.dateOfCompletion | date:'MM/dd/yyyy @ h:mma'}}
+                            td {{marker.propertyAddress}}
+                            td {{marker.improvementSize}}
+                            td {{marker.acres}}
+                            td {{marker.relevantCondition}}
+                            td
+                                | {{marker.propertyAddress}} {{c.city}},
+                                | {{c.zip}}
+                            td
+                                button.btn.btn-info.btn-sm(ng-click='editItem1(marker.id)')
+                                    i.fa.fa-edit
+                            td
+                                button.btn.btn-danger.btn-sm(ng-click='deleteItem(marker.id)')
+                                    i.fa.fa-remove
+            // Pagination Example
+            h4 Limit the maximum visible buttons
+            pagination.pagination-sm(total-items='totalItems', ng-model='currentPage', ng-change='pageChanged()', max-size='maxPaginationSize', boundary-links='true', rotate='false', num-pages='numPages', items-per-page='itemsPerPage')
+            pre.
+                \nPage: {{currentPage}} / {{numPages}}
+            pre.
+                \n{{currentPage}}
+            .widget-foot
+                .clearfix
+script(type='text/ng-template', id='myModalContent22.html').
+    .modal-header
+    h3.modal-title I'm a modal!
+    .modal-body
+    google-places(location='location')
+    form.form-horizontal(role='form')
+    .form-group
+    // type
+    label.col-sm-12.control-label(for='partnumber')
+    p.pull-left Type
+    .col-sm-12
+    p
+    fieldset.inline
+    label
+    input(type='radio', ng-model='newprop.level', name='homeOption1', ng-checked='true', value='Residential')
+    |     Home
+    label
+    input(type='radio', ng-model='newprop.level', name='commercialpOption2', value='Commercial')
+    |     Commercial
+    // date of completion
+    label.col-sm-12.control-label(for='partnumber')
+    p.pull-left Date of Completion
+    .col-sm-12
+    input.form-control(type='text', datepicker-popup='{{format}}', ng-model='newprop.dateOfCompletion', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+    span.input-group-btn
+    button.btn.btn-default(type='button', ng-click='openDatePicker($event)')
+    i.glyphicon.glyphicon-calendar
+    // address
+    label.col-sm-12.control-label(for='partnumber')
+    p.pull-left Address
+    .col-sm-12
+    input#google_places_ac.input-block-level(placeholder='Enter Address Here', name='google_places_ac', type='text', ng-model='newprop.latlon')
+    // improvement size
+    label.col-sm-12.control-label(for='partnumber')
+    p.pull-left City
+    .col-sm-12
+    input.form-control(type='text', ng-model='newprop.city', placeholder=' City ')
+    // improvement size
+    label.col-sm-12.control-label(for='partnumber')
+    p.pull-left Improvement Size
+    .col-sm-12
+    input.form-control(type='text', ng-model='newprop.improvementSize', placeholder=' Improvement Size ')
+    // acres
+    label.col-sm-12.control-label(for='partnumber')
+    p.pull-left Acres
+    .col-sm-12
+    input.form-control(type='text', ng-model='newprop.acres', placeholder=' Acres ')
+    // relevant condition
+    label.col-sm-12.control-label(for='partnumber')
+    p.pull-left Relevant Condition
+    .col-sm-12
+    p
+    fieldset.inline
+    label
+    input(type='radio', ng-model='newprop.level2', name='goodOption1', ng-checked='true', value='Good')
+    |     Good
+    label
+    input(type='radio', ng-model='newprop.level2', name='poorOption2', value='Poor')
+    |     Poor
+    .modal-footer
+    button.btn.btn-large.btn-primary(ng-click='doSearch(newprop)') Add Property
+    button.btn.btn-warning(ng-click='cancel()') Cancel

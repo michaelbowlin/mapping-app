@@ -10,9 +10,6 @@
       $scope.courses = mvCachedCourses.query();
       $scope.properties = mvCachedProperties.query();
 
-
-
-
   };
 
 
