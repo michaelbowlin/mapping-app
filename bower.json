@@ -2,7 +2,7 @@
   "name": "Appraisio",
   "version": "0.0.0",
   "authors": [
-    "Michael Bowlin <michael@web5280.com>"
+    "Michael Bowlin <michael@web5280.com>",
     "brian childress <brian@web5280.com>"
   ],
   "description": "\"Appraisio\"",
@@ -15,6 +15,7 @@
     "angular-resource": "~1.2.16",
     "angular-route": "~1.2.16",
     "bootstrap": "~3.1.1",
-    "angular-mocks": "~1.2.16"
+    "angular-mocks": "~1.2.16",
+    "angular-bootstrap": "~0.13.0"
   }
 }
