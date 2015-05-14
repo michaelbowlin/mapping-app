@@ -236,124 +236,124 @@
 
 
 
-    //
-    //angular
-    //    .module('app')
-    //    .controller('ModalInstanceCtrl22', function ($scope, $modalInstance, geocoderService, mapService) {
-    //
-    //
-    //
-    //        $scope.ok = function () {
-    //            $modalInstance.close($scope.selected.item);
-    //        };
-    //
-    //        $scope.cancel = function () {
-    //            $modalInstance.dismiss('cancel');
-    //        };
-    //
-    //
-    //        $scope.cancel = function () {
-    //            $modalInstance.dismiss('cancel');
-    //        };
-    //
-    //        $scope.clear = function() {
-    //            $scope.newprop.dateOfCompletion = null;
-    //            // $scope.dt = null;
-    //        };
-    //
-    //        // Disable weekend selection
-    //        $scope.disabled = function(date, mode) {
-    //            return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
-    //        };
-    //
-    //        $scope.toggleMin = function() {
-    //            $scope.minDate = $scope.minDate ? null : new Date();
-    //        };
-    //        $scope.toggleMin();
-    //
-    //        /* Date Picker */
-    //        $scope.openDatePicker = function($event) {
-    //            console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Date Picker' + $event)
-    //            $event.preventDefault();
-    //            $event.stopPropagation();
-    //
-    //            $scope.opened = true;
-    //            console.log($event)
-    //        };
-    //
-    //        $scope.dateOptions = {
-    //            formatYear: 'yy',
-    //            startingDay: 1
-    //        };
-    //
-    //        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-    //        $scope.format = $scope.formats[0];
-    //
-    //        /* GEO CODER --- Adding Citites ==========================================================*/
-    //        //function myGeoCoder() {
-    //        $scope.location = '';
-    //        $scope.doSearch = function(newprop) {
-    //            if ($scope.location === '') {
-    //                alert('Directive did not update the location property in parent controller.');
-    //            } else {
-    //                var latLon = $scope.location;
-    //                var res = latLon.split(",");
-    //                var latitude = res[0];
-    //                var longitude = res[1];
-    //
-    //                //setting default values for radio buttons
-    //                $scope.newprop.level = "Home";
-    //                $scope.newprop.level2 = "Good";
-    //
-    //                var myData = {
-    //                    latlon: newprop.latlon,
-    //                    desc: 'This is the best city in the world!',
-    //                    lat: latitude,
-    //                    lon: longitude,
-    //                    city: newprop.city,
-    //                    productType: newprop.level,
-    //                    dateOfCompletion: newprop.dateOfCompletion,
-    //                    improvementSize: newprop.improvementSize,
-    //                    acres: newprop.acres,
-    //                    relevantCondition: newprop.level2
-    //
-    //                };
-    //                //console.log(myData.productType)
-    //
-    //                return mapService.createCity(myData)
-    //                    .then(function(data){
-    //                        //displayCities(data); //*** NEED to pass back to controller
-    //
-    //                        // Close Modal
-    //                        $modalInstance.dismiss('cancel');
-    //
-    //
-    //                    })
-    //
-    //            }
-    //
-    //
-    //
-    //        };
-    //        // }
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //    });
+
+    angular
+        .module('app')
+        .controller('ModalInstanceCtrl22', function ($scope, $modalInstance, geocoderService, mapService) {
+
+
+
+            $scope.ok = function () {
+                $modalInstance.close($scope.selected.item);
+            };
+
+            $scope.cancel = function () {
+                $modalInstance.dismiss('cancel');
+            };
+
+
+            $scope.cancel = function () {
+                $modalInstance.dismiss('cancel');
+            };
+
+            $scope.clear = function() {
+                $scope.newprop.dateOfCompletion = null;
+                // $scope.dt = null;
+            };
+
+            // Disable weekend selection
+            $scope.disabled = function(date, mode) {
+                return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
+            };
+
+            $scope.toggleMin = function() {
+                $scope.minDate = $scope.minDate ? null : new Date();
+            };
+            $scope.toggleMin();
+
+            /* Date Picker */
+            $scope.openDatePicker = function($event) {
+                console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Date Picker' + $event)
+                $event.preventDefault();
+                $event.stopPropagation();
+
+                $scope.opened = true;
+                console.log($event)
+            };
+
+            $scope.dateOptions = {
+                formatYear: 'yy',
+                startingDay: 1
+            };
+
+            $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+            $scope.format = $scope.formats[0];
+
+            /* GEO CODER --- Adding Citites ==========================================================*/
+            //function myGeoCoder() {
+            $scope.location = '';
+            $scope.doSearch = function(newprop) {
+                if ($scope.location === '') {
+                    alert('Directive did not update the location property in parent controller.');
+                } else {
+                    var latLon = $scope.location;
+                    var res = latLon.split(",");
+                    var latitude = res[0];
+                    var longitude = res[1];
+
+                    //setting default values for radio buttons
+                    $scope.newprop.level = "Home";
+                    $scope.newprop.level2 = "Good";
+
+                    var myData = {
+                        latlon: newprop.latlon,
+                        desc: 'This is the best city in the world!',
+                        lat: latitude,
+                        lon: longitude,
+                        city: newprop.city,
+                        productType: newprop.level,
+                        dateOfCompletion: newprop.dateOfCompletion,
+                        improvementSize: newprop.improvementSize,
+                        acres: newprop.acres,
+                        relevantCondition: newprop.level2
+
+                    };
+                    //console.log(myData.productType)
+
+                    return mapService.createCity(myData)
+                        .then(function(data){
+                            //displayCities(data); //*** NEED to pass back to controller
+
+                            // Close Modal
+                            $modalInstance.dismiss('cancel');
+
+
+                        })
+
+                }
+
+
+
+            };
+            // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        });
 
 
 
