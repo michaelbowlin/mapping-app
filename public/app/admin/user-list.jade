@@ -1,4 +1,9 @@
 .container
   table.table
+    td Username
+    td Date Created
+    td Date Last Updated
     tr(ng-repeat="user in users")
       td {{user.firstName + ' ' + user.lastName}}
+      td {{user.dateCreated | date}}
+      td {{user.dateUpdated | date}}
