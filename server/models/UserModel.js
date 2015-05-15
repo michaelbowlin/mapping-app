@@ -1,18 +1,9 @@
 var mongoose = require('mongoose'),
     properties = require('./Property.js'),
+    addressSchema = require('./AddressModel.js'),
+    billingSchema = require('./BillingModel.js'),
+    properties = require('./PropertyModel.js'),
     encrypt = require('../utilities/encryption');
-
-var addressSchema = mongoose.Schema({
-  street: {type: String},
-  city: {type: String},
-  state: {type: String},
-  zipCode: {type: Number}
-});
-
-var billingSchema = mongoose.Schema({
-  accountType: {type: String},
-  accountContact: {type: String}
-});
 
 var userSchema = mongoose.Schema({
   dateCreated: {type: Date, required:'{PATH} is required!', default: Date.now()},
@@ -52,7 +43,26 @@ function createDefaultUsers() {
       User.create({firstName:'Brian',lastName:'Childress',username:'brian', salt: salt, hashed_pwd: hash, roles: ['admin']});
       salt = encrypt.createSalt();
       hash = encrypt.hashPwd(salt, 'michael');
-      User.create({firstName:'Michael',lastName:'Bowlin',username:'michael', salt: salt, hashed_pwd: hash, roles: ['admin']});
+      User.create({firstName:'Michael',
+        lastName:'Bowlin',
+        username:'michael',
+        salt: salt,
+        hashed_pwd: hash,
+        roles: ['admin'],
+        address:[{
+          street: '123 My Street',
+          city: 'Denver',
+          state: 'Colorado',
+          zipCode: '80214'
+        }],
+        billing: [{
+          accountType: 'Standard',
+          accountContact: [{
+            contactName: 'Michael Bowlin',
+            contactEmail: 'michael@web5280.com'
+          }]
+        }]
+      });
       salt = encrypt.createSalt();
       hash = encrypt.hashPwd(salt, 'gavin');
       User.create({firstName:'Gavin',lastName:'Gavin',username:'gavin', salt: salt, hashed_pwd: hash, roles: ['admin']});

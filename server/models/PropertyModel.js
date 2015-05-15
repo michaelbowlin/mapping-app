@@ -1,12 +1,5 @@
-var mongoose = require('mongoose');
-
-var addressSchema = mongoose.Schema({
-  street: {type: String},
-  city: {type: String},
-  state: {type: String},
-  zipCode: {type: Number}
-});
-
+var mongoose = require('mongoose'),
+    addressSchema = require('./AddressModel.js');
 
 var propertySchema = mongoose.Schema({
   title: {type:String, required:'{PATH} is required!'},
@@ -38,12 +31,12 @@ function createDefaultProperties() {
         tags: ["Denver"],
         improvementSize: 2.25,
         condition: "Good",
-      address: {
+      address: [{
         street: "123 Colorado Street",
         city: "Denver",
         state: "Colorado",
-        zipCode: "80202"
-      }
+        zipCode: 80202
+      }]
       });
 
     }
