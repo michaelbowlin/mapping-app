@@ -1,4 +1,5 @@
-angular.module('app', ['ngResource', 'ngRoute']);
+// angular.module('app', ['ngResource', 'ngRoute','geocoder-service','highcharts-ng','ui.bootstrap','uiGmapgoogle-maps']);
+angular.module('app', ['ngResource', 'ngRoute','geocoder-service','ui.bootstrap']);
 
 angular.module('app').config(function ($routeProvider, $locationProvider) {
   var routeRoleChecks = {
@@ -28,6 +29,10 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
     .when('/profile', {
       templateUrl: '/partials/account/profile',
       controller: 'mvProfileCtrl', resolve: routeRoleChecks.user
+    })
+    .when('/map', {
+      templateUrl: '/partials/map/map',
+      controller: 'Map'
     })
     .when('/courses', {
       templateUrl: '/partials/courses/course-list',
