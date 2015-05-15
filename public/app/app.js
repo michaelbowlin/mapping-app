@@ -17,10 +17,10 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true);
   $routeProvider
-    .when('/', {templateUrl: '/partials/main/main', controller: 'mvMainCtrl'})
+    .when('/', {templateUrl: '/partials/main/main', controller: 'main.controller', controllerAs: "main"})
     .when('/admin/users', {
       templateUrl: '/partials/admin/user-list',
-      controller: 'mvUserListCtrl', resolve: routeRoleChecks.admin
+      controller: 'userListController', controllerAs: "user", resolve: routeRoleChecks.admin
     })
     .when('/signup', {
       templateUrl: '/partials/account/signup',
