@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-    properties = require('./Property.js'),
+    properties = require('./PropertyModel.js'),
     addressSchema = require('./AddressModel.js'),
     billingSchema = require('./BillingModel.js'),
     properties = require('./PropertyModel.js'),
