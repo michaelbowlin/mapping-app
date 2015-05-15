@@ -17,22 +17,31 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true);
   $routeProvider
-    .when('/', {templateUrl: '/partials/main/main', controller: 'main.controller', controllerAs: "main"})
+    .when('/', {
+      templateUrl: '/partials/main/main',
+      controller: 'main.controller',
+      controllerAs: "main"})
     .when('/admin/users', {
       templateUrl: '/partials/admin/user-list',
-      controller: 'userListController', controllerAs: "user", resolve: routeRoleChecks.admin
+      controller: 'userListController',
+      controllerAs: "user",
+      resolve: routeRoleChecks.admin
     })
     .when('/signup', {
       templateUrl: '/partials/account/signup',
-      controller: 'mvSignupCtrl'
+      controller: 'signupController',
+      controllerAs: "signup"
     })
     .when('/profile', {
       templateUrl: '/partials/account/profile',
-      controller: 'mvProfileCtrl', resolve: routeRoleChecks.user
+      controller: 'mvProfileCtrl',
+      controllerAs: "profile",
+      resolve: routeRoleChecks.user
     })
     .when('/map', {
       templateUrl: '/partials/map/map',
-      controller: 'Map'
+      controller: 'mapController',
+      controllerAs: 'map'
     })
     .when('/courses', {
       templateUrl: '/partials/courses/course-list',

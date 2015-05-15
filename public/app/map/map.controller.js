@@ -3,7 +3,7 @@
 
   angular
     .module('app')
-    .controller('Map', Map);
+    .controller('mapContoller', Map);
 
   function Map($scope, $window, $log, $q, $modal, geocoderService, mapService, $http) {
     // function Map($state, logger, $scope, $window, $modal, $log, $q, geocoderService, mapService, $http) {
@@ -35,12 +35,12 @@
     function setInitialParams() {
 
       //initial params
-      $scope.itemsPerPage = 10;
-      $scope.itemsPerPageSkip = 0;
-      $scope.maxPaginationSize = 4;
-      $scope.currentPage = 1;
-      $scope.totalItems = 100; //** NEED - to dynamicly pull this number
-      $scope.sortBy = "productType";
+      vm.itemsPerPage = 10;
+      vm.itemsPerPageSkip = 0;
+      vm.maxPaginationSize = 4;
+      vm.currentPage = 1;
+      vm.totalItems = 100; //** NEED - to dynamicly pull this number
+      vm.sortBy = "productType";
 
 
       // pageSizes=[10,20,50,100] ;
@@ -48,18 +48,18 @@
 
 
     var onError = function (reason) {
-      $scope.error = "Could not fetch the data";
+      vm.error = "Could not fetch the data";
     };
 
 
     function refreshParamsObj() {
 
-      paramsObj.currentPage = $scope.currentPage;
-      paramsObj.itemsPerPage = $scope.itemsPerPage;
-      paramsObj.itemsPerPageSkip = $scope.itemsPerPageSkip;
-      paramsObj.maxPaginationSize = $scope.maxPaginationSize;
-      paramsObj.totalItems = $scope.totalItems;
-      paramsObj.sortBy = $scope.sortBy;
+      paramsObj.currentPage = vm.currentPage;
+      paramsObj.itemsPerPage = vm.itemsPerPage;
+      paramsObj.itemsPerPageSkip = vm.itemsPerPageSkip;
+      paramsObj.maxPaginationSize = vm.maxPaginationSize;
+      paramsObj.totalItems = vm.totalItems;
+      paramsObj.sortBy = vm.sortBy;
 
       // Pass params into Get Cities function
       getCities(paramsObj);
