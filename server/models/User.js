@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-    properties = require('property.js'),
+    properties = require('./Property.js'),
     encrypt = require('../utilities/encryption');
 
 var addressSchema = mongoose.Schema({
