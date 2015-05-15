@@ -1,1 +1,1 @@
-<div class="container"><table class="table"><tr ng-repeat="user in users"><td>{{user.firstName + ' ' + user.lastName}}</td></tr></table></div>
+<div class="container"><table class="table"><td>Username</td><td>Date Created</td><td>Date Last Updated</td><tr ng-repeat="user in users"><td>{{user.firstName + ' ' + user.lastName}}</td><td>{{user.dateCreated | date}}</td><td>{{user.dateUpdated | date}}</td></tr></table></div>
