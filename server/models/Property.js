@@ -17,6 +17,7 @@ var propertySchema = mongoose.Schema({
   dateComplete: {type: Date, required:'{PATH} is required!', default: Date.now()},
   imporvementSize: {type:Number},
   improvementSizeType: {type: String, default: "Acres"},
+  condition: {type: String},
   type: {type: String, required:'{PATH} is required!', default: 'Commercial'},
   address: [ addressSchema ],
   userAccount: {type: String},
@@ -36,6 +37,7 @@ function createDefaultProperties() {
         type:"Commercial",
         tags: ["Denver"],
         improvementSize: 2.25,
+        condition: "Good",
       address: {
         street: "123 Colorado Street",
         city: "Denver",

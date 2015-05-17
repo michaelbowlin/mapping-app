@@ -35,6 +35,7 @@ exports.updateUser = function(req, res) {
     return res.end();
   }
 
+  req.user.dateUpdated = Date.now();
   req.user.firstName = userUpdates.firstName;
   req.user.lastName = userUpdates.lastName;
   req.user.username = userUpdates.username;
