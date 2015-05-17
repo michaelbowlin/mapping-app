@@ -1,41 +1,41 @@
 extends ../includes/layout
 
 block main-content
-    //section.content
-    //    div(ng-view)
-    //footer.container.text-center
-    //    p &copy; 2015 Appraisio
-    .navbar.navbar-inverse
-        .container
-            .navbar-header
-            .navbar-collapse.collapse
-                ul.nav.navbar-nav
-                    li
-                div(ng-include="'/partials/account/navbar-login'")
+  //section.content
+  //    div(ng-view)
+  //footer.container.text-center
+  //    p &copy; 2015 Appraisio
+  .navbar.navbar-inverse
+    .container
+      .navbar-header
+      .navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li
+        div(ng-include="'/partials/account/navbar-login'")
 
-    // Header
-    .header-panel.shadow-z-2
-        .container-fluid
-            .row
-                .col-xs-3
-                    h1 APPRAISEio
+  // Header
+  .header-panel.shadow-z-2
+    .container-fluid
+      .row
+        .col-xs-3
+          h1 APPRAISEio
 
-    // Content
-    .container-fluid.main
-        .row
-            nav.col-xs-12.menu#main-menu
-                ul(nav-active-class='')
-                    li.withripple
-                        a(href='/') Home
-                    li.withripple
-                        a(href="/map") Map
-                    li.withripple
-                        a(href="/properties") Properties
-                    li.withripple
-                        a(href='#') Other
-            .pages#wrap
-                .col-xs-11
-                    #about.well.page.active
-                        div(ng-view)
+  // Content
+  .container-fluid.main
+    .row
+      nav.col-xs-12.menu#main-menu
+        ul(nav-active-class='')
+          li.withripple
+            a(href='/') Home
+          li.withripple
+            a(href="/map") Map
+          li.withripple
+            a(href="/properties") Properties
+          li.withripple
+            a(href='#') Other
+      .pages#wrap
+        .col-xs-11
+          #about.well.page.active
+            div(ng-view)
 
 

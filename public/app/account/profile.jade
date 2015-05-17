@@ -8,22 +8,26 @@ mp-de-no-fullscreen
           .form-group
             label.col-md-2.control-label(for="email") Email
             .col-md-10
-              input.form-control(name="email", type="email", placeholder="Email", ng-model="email", required)
+              input.form-control(name="email", type="email", placeholder="Email", ng-model="profile.email", required)
           .form-group
             label.col-md-2.control-label(for="fname") First Name
             .col-md-10
-              input.form-control(name="fname", type="text", placeholder="First Name", ng-model="fname", required)
+              input.form-control(name="fname", type="text", placeholder="First Name", ng-model="profile.fname", required)
           .form-group
             label.col-md-2.control-label(for="lname") Last Name
             .col-md-10
-              input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="lname", required)
+              input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="profile.lname", required)
           .form-group
             label.col-md-2.control-label(for="password") Password
             .col-md-10
-              input.form-control(name="password", type="password", placeholder="Password", ng-model="password")
+              input.form-control(name="password", type="password", placeholder="Password", ng-model="profile.password")
+          .form-group
+            label.col-md-2.control-label(for="password") Address
+            .col-md-10
+              input.form-control(name="address", type="text", placeholder="Address", ng-model="profile.address")
           .form-group
             .col-md-10.col-md-offset-2
               .pull-right
-                button.btn.btn-primary(ng-click="update()", ng-disabled="signupForm.$invalid") Submit
+                button.btn.btn-primary(ng-click="profile.update()", ng-disabled="signupForm.$invalid") Submit
                 | &nbsp;
                 a.btn.btn-default(href="/") Cancel
