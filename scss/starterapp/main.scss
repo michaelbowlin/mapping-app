@@ -13,8 +13,13 @@
 .show {
   display:block !important;
 }
+.navbar-inverse {
+  z-index: 9999;
+}
 
-
+.overflow-hidden {
+  overflow: hidden !important;
+}
 
 
 
@@ -209,3 +214,6 @@ body {
             }
             .icon-preview:hover i { color: #4285f4; }
             .icon-preview:hover span { display: block; cursor: text; }
+
+
+

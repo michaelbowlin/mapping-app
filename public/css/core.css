@@ -5855,6 +5855,12 @@ button.close {
 .show {
   display: block !important; }
 
+.navbar-inverse {
+  z-index: 9999; }
+
+.overflow-hidden {
+  overflow: hidden !important; }
+
 /* 
 *
 *
