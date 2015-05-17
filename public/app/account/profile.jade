@@ -22,9 +22,35 @@ mp-de-no-fullscreen
             .col-md-10
               input.form-control(name="password", type="password", placeholder="Password", ng-model="profile.password")
           .form-group
-            label.col-md-2.control-label(for="password") Address
+            label.col-md-2.control-label() Address
             .col-md-10
-              input.form-control(name="address", type="text", placeholder="Address", ng-model="profile.address")
+              input.form-control(name="addressStreet", type="text", placeholder="Address", ng-model="profile.address")
+          .form-group
+            label.col-md-2.control-label() City
+            .col-md-10
+              input.form-control(name="addressCity", type="text", placeholder="City", ng-model="profile.addressCity")
+          .form-group
+            label.col-md-2.control-label() State
+            .col-md-10
+              input.form-control(name="addressState", type="text", placeholder="State", ng-model="profile.addressState")
+          .form-group
+            label.col-md-2.control-label() Zip Code
+            .col-md-10
+              input.form-control(name="addressZipCode", type="text", placeholder="Zip Code", ng-model="profile.addressZipCode")
+          .form-group
+            label.col-md-2.control-label() Account Information
+            .form-group
+            label.col-md-2.control-label() Acount Type
+            .col-md-10
+              input.form-control(name="accountType", type="text", placeholder="Account Type", ng-model="profile.accountType")
+            .form-group
+            label.col-md-2.control-label() Account Contract
+            .col-md-10
+              input.form-control(name="accountContactName", type="text", placeholder="Account Contact", ng-model="profile.accountContactName")
+            .form-group
+            label.col-md-2.control-label() Email
+            .col-md-10
+              input.form-control(name="accountContactEmail", type="email", placeholder="Email", ng-model="profile.accountContactEmail")
           .form-group
             .col-md-10.col-md-offset-2
               .pull-right
