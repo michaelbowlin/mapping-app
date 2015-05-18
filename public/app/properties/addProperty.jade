@@ -1,0 +1,58 @@
+google-places(location='location')
+      form.form-horizontal(role='form')
+        .form-group
+          // type
+          label.col-sm-12.control-label(for='partnumber')
+            p.pull-left Type
+          .col-sm-12
+            p
+              fieldset.inline
+                label
+                  input(type='radio', ng-model='property.type', name='homeOption1', ng-checked='true', value='Residential')
+                  |     Home
+                label
+                  input(type='radio', ng-model='property.type', name='commercialpOption2', value='Commercial')
+                  |     Commercial
+          // date of completion
+          label.col-sm-12.control-label(for='partnumber')
+            p.pull-left Date of Completion
+          .col-sm-12
+            input.form-control(type='text', datepicker-popup='{{format}}', ng-model='property.dateComplete', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+            span.input-group-btn
+              button.btn.btn-default(type='button', ng-click='openDatePicker($event)')
+                i.glyphicon.glyphicon-calendar
+          // address
+          label.col-sm-12.control-label(for='partnumber')
+            p.pull-left Address
+          .col-sm-12
+            input#google_places_ac.input-block-level(placeholder='Enter Address Here', name='google_places_ac', type='text', ng-model='newprop.latlon')
+          // improvement size
+          label.col-sm-12.control-label(for='partnumber')
+            p.pull-left City
+          .col-sm-12
+            input.form-control(type='text', ng-model='property.address.city', placeholder=' City ')
+          // improvement size
+          label.col-sm-12.control-label(for='partnumber')
+            p.pull-left Improvement Size
+          .col-sm-12
+            input.form-control(type='text', ng-model='newprop.improvementSize', placeholder=' Improvement Size ')
+          // acres
+          label.col-sm-12.control-label(for='partnumber')
+            p.pull-left Acres
+          .col-sm-12
+            input.form-control(type='text', ng-model='newprop.acres', placeholder=' Acres ')
+          // relevant condition
+          label.col-sm-12.control-label(for='partnumber')
+            p.pull-left Relevant Condition
+          .col-sm-12
+            p
+              fieldset.inline
+                label
+                  input(type='radio', ng-model='newprop.level2', name='goodOption1', ng-checked='true', value='Good')
+                  |     Good
+                label
+                  input(type='radio', ng-model='newprop.level2', name='poorOption2', value='Poor')
+                  |     Poor
+    .modal-footer
+      button.btn.btn-large.btn-primary(ng-click='doSearch(newprop)') Add Property
+      button.btn.btn-warning(ng-click='cancel()') Cancel

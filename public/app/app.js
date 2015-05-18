@@ -20,7 +20,8 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
     .when('/', {
       templateUrl: '/partials/main/main',
       controller: 'main.controller',
-      controllerAs: "main"})
+      controllerAs: "main"
+    })
     .when('/admin/users', {
       templateUrl: '/partials/admin/user-list',
       controller: 'userListController',
@@ -58,6 +59,10 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
     .when('/properties/:id', {
       templateUrl: '/partials/properties/property-details',
       controller: 'propertyDetailCtrl'
+    })
+    .when('/properties/add', {
+      templateUrl: '/partials/properties/addProperty',
+      controller: 'addPropertyController'
     })
 
 });

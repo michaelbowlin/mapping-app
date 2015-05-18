@@ -3,7 +3,7 @@
 
   angular
     .module('app')
-    .controller('mapContoller', Map);
+    .controller('mapController', Map);
 
   function Map($scope, $window, $log, $q, $modal, geocoderService, mapService, $http) {
     // function Map($state, logger, $scope, $window, $modal, $log, $q, geocoderService, mapService, $http) {
