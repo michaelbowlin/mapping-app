@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('signupController', function ($scope, mvUser, mvNotifier, $location, mvAuth) {
+  .controller('signupController', function (mvUser, mvNotifier, $location, mvAuth) {
 
     var vm = this;
 
@@ -14,7 +14,7 @@ angular
 
       mvAuth.createUser(newUserData).then(function () {
         mvNotifier.notify('User account created!');
-        $location.path('/');
+        $location.path('/profile');
       }, function (reason) {
         mvNotifier.error(reason);
       })

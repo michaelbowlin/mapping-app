@@ -4,7 +4,7 @@ var addressSchema = mongoose.Schema({
   street: {type: String},
   city: {type: String},
   state: {type: String},
-  zipCode: {type: Number}
+  zipCode: {type: String}
 });
 
 //exports.addressSchema = addressSchema;

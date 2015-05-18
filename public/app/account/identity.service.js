@@ -1,4 +1,6 @@
-angular.module('app').factory('identityService', function($window, mvUser) {
+angular
+  .module('app')
+  .factory('identityService', function($window, mvUser) {
   var currentUser;
   if(!!$window.bootstrappedUserObject) {
     currentUser = new mvUser();

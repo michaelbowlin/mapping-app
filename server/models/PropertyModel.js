@@ -31,12 +31,12 @@ function createDefaultProperties() {
         tags: ["Denver"],
         improvementSize: 2.25,
         condition: "Good",
-      address: [{
-        street: "123 Colorado Street",
-        city: "Denver",
-        state: "Colorado",
-        zipCode: 80202
-      }]
+        address: [{
+          street: "123 Colorado Street",
+          city: "Denver",
+          state: "Colorado",
+          zipCode: 80202
+        }]
       });
 
     }
