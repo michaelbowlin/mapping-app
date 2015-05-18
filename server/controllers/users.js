@@ -36,10 +36,18 @@ exports.updateUser = function(req, res) {
     return res.end();
   }
 
+  console.log(userUpdates);
+  console.log(userUpdates.address.street);
+  console.log(req.user.address([street]));
+  console.log(req.user.address[0].street);
+  console.log(req.user.address.street);
+
   req.user.dateUpdated = Date.now();
   req.user.firstName = userUpdates.firstName;
   req.user.lastName = userUpdates.lastName;
   req.user.username = userUpdates.username;
+  req.user.address[0].street = userUpdates.address.street;
+
   if(userUpdates.password && userUpdates.password.length > 0) {
     req.user.salt = encrypt.createSalt();
     req.user.hashed_pwd = encrypt.hashPwd(req.user.salt, userUpdates.password);

@@ -1,27 +1,59 @@
-.container
-  .well
-    form.form-horizontal(name="profileForm")
-      fieldset
-        legend User Profile
-        .form-group
-          label.col-md-2.control-label(for="email") Email
-          .col-md-10
-            input.form-control(name="email", type="email", placeholder="Email", ng-model="email", required)
-        .form-group
-          label.col-md-2.control-label(for="fname") First Name
-          .col-md-10
-            input.form-control(name="fname", type="text", placeholder="First Name", ng-model="fname", required)
-        .form-group
-          label.col-md-2.control-label(for="lname") Last Name
-          .col-md-10
-            input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="lname", required)
-        .form-group
-          label.col-md-2.control-label(for="password") Password
-          .col-md-10
-            input.form-control(name="password", type="password", placeholder="Password", ng-model="password")
-        .form-group
-          .col-md-10.col-md-offset-2
-            .pull-right
-              button.btn.btn-primary(ng-click="update()", ng-disabled="signupForm.$invalid") Submit
-              | &nbsp;
-              a.btn.btn-default(href="/") Cancel
+mp-de-no-fullscreen
+.row
+  .col-xs-12
+    .well
+      form.form-horizontal(name="profileForm")
+        fieldset
+          legend User Profile
+          .form-group
+            label.col-md-2.control-label(for="email") Email
+            .col-md-10
+              input.form-control(name="email", type="email", placeholder="Email", ng-model="profile.email", required)
+          .form-group
+            label.col-md-2.control-label(for="fname") First Name
+            .col-md-10
+              input.form-control(name="fname", type="text", placeholder="First Name", ng-model="profile.fname", required)
+          .form-group
+            label.col-md-2.control-label(for="lname") Last Name
+            .col-md-10
+              input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="profile.lname", required)
+          .form-group
+            label.col-md-2.control-label(for="password") Password
+            .col-md-10
+              input.form-control(name="password", type="password", placeholder="Password", ng-model="profile.password")
+          .form-group
+            label.col-md-2.control-label() Address
+            .col-md-10
+              input.form-control(name="addressStreet", type="text", placeholder="Address", ng-model="profile.addressStreet")
+          .form-group
+            label.col-md-2.control-label() City
+            .col-md-10
+              input.form-control(name="addressCity", type="text", placeholder="City", ng-model="profile.addressCity")
+          .form-group
+            label.col-md-2.control-label() State
+            .col-md-10
+              input.form-control(name="addressState", type="text", placeholder="State", ng-model="profile.addressState")
+          .form-group
+            label.col-md-2.control-label() Zip Code
+            .col-md-10
+              input.form-control(name="addressZipCode", type="text", placeholder="Zip Code", ng-model="profile.addressZipCode")
+          .form-group
+            label.col-md-2.control-label() Account Information
+            .form-group
+            label.col-md-2.control-label() Acount Type
+            .col-md-10
+              input.form-control(name="accountType", type="text", placeholder="Account Type", ng-model="profile.accountType")
+            .form-group
+            label.col-md-2.control-label() Account Contract
+            .col-md-10
+              input.form-control(name="accountContactName", type="text", placeholder="Account Contact", ng-model="profile.accountContactName")
+            .form-group
+            label.col-md-2.control-label() Email
+            .col-md-10
+              input.form-control(name="accountContactEmail", type="email", placeholder="Email", ng-model="profile.accountContactEmail")
+          .form-group
+            .col-md-10.col-md-offset-2
+              .pull-right
+                button.btn.btn-primary(ng-click="profile.update()", ng-disabled="signupForm.$invalid") Submit
+                | &nbsp;
+                a.btn.btn-default(href="/") Cancel

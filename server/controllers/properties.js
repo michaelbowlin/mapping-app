@@ -7,12 +7,12 @@ exports.getProperties = function(req, res) {
 };
 
 exports.getPropertyById = function(req, res) {
-  Property.findOne({_id:req.params.id}).exec(function(err, course) {
-    res.send(course);
+  Property.findOne({_id:req.params.id}).exec(function(err, property) {
+    res.send(property);
   })
 };
 
-exports.createProperty = function(req, res, next) {
+exports.createProperty = function(req, res, next) { // request, response, next function etc
   var propertyData = req.body;
   Property.create(propertyData, function(err) {
     if(err) {
@@ -22,6 +22,12 @@ exports.createProperty = function(req, res, next) {
       res.status(200);
     }
   })
+};
+
+exports.deleteProperty = function(req, res){
+  Property.delete({_id:req.params.id}).exec(function(err, property){
+    res.send(200);
+  });
 };
 
 exports.updateProperty = function(req, res) {

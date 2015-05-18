@@ -1,4 +1,5 @@
-angular.module('app', ['ngResource', 'ngRoute']);
+// angular.module('app', ['ngResource', 'ngRoute','geocoder-service','highcharts-ng','ui.bootstrap','uiGmapgoogle-maps']);
+angular.module('app', ['ngResource', 'ngRoute','geocoder-service','ui.bootstrap']);
 
 angular.module('app').config(function ($routeProvider, $locationProvider) {
   var routeRoleChecks = {
@@ -16,18 +17,32 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true);
   $routeProvider
-    .when('/', {templateUrl: '/partials/main/main', controller: 'mvMainCtrl'})
+    .when('/', {
+      templateUrl: '/partials/main/main',
+      controller: 'main.controller',
+      controllerAs: "main"
+    })
     .when('/admin/users', {
       templateUrl: '/partials/admin/user-list',
-      controller: 'mvUserListCtrl', resolve: routeRoleChecks.admin
+      controller: 'userListController',
+      controllerAs: "user",
+      resolve: routeRoleChecks.admin
     })
     .when('/signup', {
       templateUrl: '/partials/account/signup',
-      controller: 'mvSignupCtrl'
+      controller: 'signupController',
+      controllerAs: "signup"
     })
     .when('/profile', {
       templateUrl: '/partials/account/profile',
-      controller: 'mvProfileCtrl', resolve: routeRoleChecks.user
+      controller: 'profileController',
+      controllerAs: "profile",
+      resolve: routeRoleChecks.user
+    })
+    .when('/map', {
+      templateUrl: '/partials/map/map',
+      controller: 'mapController',
+      controllerAs: 'map'
     })
     .when('/courses', {
       templateUrl: '/partials/courses/course-list',
@@ -44,6 +59,10 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
     .when('/properties/:id', {
       templateUrl: '/partials/properties/property-details',
       controller: 'propertyDetailCtrl'
+    })
+    .when('/properties/add', {
+      templateUrl: '/partials/properties/addProperty',
+      controller: 'addPropertyController'
     })
 
 });
