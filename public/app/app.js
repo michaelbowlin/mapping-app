@@ -52,17 +52,24 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
       templateUrl: '/partials/courses/course-details',
       controller: 'mvCourseDetailCtrl'
     })
+    .when('/courses/add', {
+      templateUrl: '/partials/courses/course-list',
+      controller: 'mvCourseListCtrl'
+    })
     .when('/properties', {
       templateUrl: '/partials/properties/property-list',
-      controller: 'propertyListCtrl'
+      controller: 'propertyListCtrl',
+      controllerAs: 'property'
     })
     .when('/properties/:id', {
       templateUrl: '/partials/properties/property-details',
-      controller: 'propertyDetailCtrl'
+      controller: 'propertyDetailCtrl',
+      controllerAs: 'property'
     })
-    .when('/properties/add', {
-      templateUrl: '/partials/properties/addProperty',
-      controller: 'addPropertyController'
+    .when('/property/add', {
+      templateUrl: '/partials/properties/add-property',
+      controller: 'addPropertyController',
+      controllerAs: "property"
     })
 
 });

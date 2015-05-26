@@ -1,11 +1,10 @@
-(function () {
   'use strict';
 
   angular
     .module('app')
     .controller('mapController', Map);
 
-  function Map($scope, $window, $log, $q, $modal, geocoderService, mapService, $http) {
+  function Map($scope, $location, $window, $log, $q, $modal, geocoderService, mapService, $http) {
     // function Map($state, logger, $scope, $window, $modal, $log, $q, geocoderService, mapService, $http) {
 
     var vm = this;
@@ -17,6 +16,10 @@
     // vm.title = 'Property Map';
 
     var paramsObj = {};
+
+    vm.go = function ( location ){
+    $location.path( locaiton );
+    }
 
 
     activate();
@@ -335,4 +338,4 @@
     });
 
 
-})();
+

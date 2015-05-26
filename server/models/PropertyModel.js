@@ -2,10 +2,24 @@ var mongoose = require('mongoose'),
     addressSchema = require('./AddressModel.js');
 
 var propertySchema = mongoose.Schema({
-  title: {type:String, required:'{PATH} is required!'},
-  latCoord: {type: Number, required:'{PATH} is required!'},
-  longCoord: {type: Number, required:'{PATH} is required!'},
-  description: {type: String, required:'{PATH} is required!'},
+  // title: {type:String, required:'{PATH} is required!'},
+  // latCoord: {type: Number, required:'{PATH} is required!'},
+  // longCoord: {type: Number, required:'{PATH} is required!'},
+  // description: {type: String, required:'{PATH} is required!'},
+  // dateAdded: {type: Date, required:'{PATH} is required!', default: Date.now()},
+  // dateComplete: {type: Date, required:'{PATH} is required!', default: Date.now()},
+  // imporvementSize: {type:Number},
+  // improvementSizeType: {type: String, default: "Acres"},
+  // condition: {type: String},
+  // type: {type: String, required:'{PATH} is required!', default: 'Commercial'},
+  // address: [ addressSchema ],
+  // userAccount: {type: String},
+  // tags: [String]
+
+  title: {type:String, required:'{PATH} is required!', default:'Test'},
+  latCoord: {type: Number},
+  longCoord: {type: Number},
+  description: {type: String},
   dateAdded: {type: Date, required:'{PATH} is required!', default: Date.now()},
   dateComplete: {type: Date, required:'{PATH} is required!', default: Date.now()},
   imporvementSize: {type:Number},

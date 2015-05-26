@@ -1,9 +1,12 @@
 angular
 	.module('app')
-	.controller('propertyListCtrl', function($scope, cachedPropertiesService) {
-  $scope.properties = cachedPropertiesService.query();
+	.controller('propertyListCtrl', function($location, cachedPropertiesService) {
+		var vm = this;
 
-  //$scope.sortOptions = [{value:"title",text: "Sort by Title"},
-  //  {value: "published",text: "Sort by Publish Date"}];
-  //$scope.sortOrder = $scope.sortOptions[0].value;
+  vm.properties = cachedPropertiesService.query();
+
+	vm.go = function( location ){
+		$location.path( location );
+	}
+
 });
