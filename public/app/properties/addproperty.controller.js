@@ -1,20 +1,27 @@
 angular
   .module('app')
-  .controller('addPropertyController', function ($location, propertyService) {
+  .controller('addPropertyController', function ($location, mvNotifier, propertyManager) {
 
     var vm = this;
 
+    vm.types = [{Type:'Residential', Type:'Commericial'}]
+
     vm.addProperty = function () {
       var newPropertyData = {
-        username: vm.email,
-        password: vm.password,
-        firstName: vm.fname,
-        lastName: vm.lname
+        title: vm.title,
+        type: vm.type,
+        dateComplete: vm.dateComplete,
+        address: vm.address,
+        improvementSize: vm.improvementSize,
+        improvementSizeType: vm.improvementSizeType,
+        latCoord: vm.latCoord,
+        longCoord: vm.longCoord,
+        condition: vm.condition
       };
 
-      propertyService.createproperty(newPropertyData).then(function () {
-        mvNotifier.notify('User account created!');
-        $location.path('/profile');
+      propertyManager.createProperty(newPropertyData).then(function () {
+        mvNotifier.notify('New Property Added!');
+        $location.path('/properties');
       }, function (reason) {
         mvNotifier.error(reason);
       })
