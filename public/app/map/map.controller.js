@@ -18,7 +18,7 @@
     var paramsObj = {};
 
     vm.go = function ( location ){
-    $location.path( locaiton );
+      $location.path( location );
     }
 
 
@@ -120,7 +120,7 @@
     /* Display Cities on the map ======================================*/
     //var infoWindow = new google.maps.InfoWindow();
 
-    /* Creat Marker
+     //   Creat Marker
      var createMarker = function(info) {
      console.log('~~~~~~~~~~~~~~~~ CITIES ' + info)
      var marker = new google.maps.Marker({
@@ -139,7 +139,7 @@
 
      $scope.markers.push(marker);
 
-     } */
+     } 
 
     /* Open Window Event -- TUT: http://jsfiddle.net/pc7Uu/854/
      $scope.openInfoWindow = function(e, selectedMarker) {
