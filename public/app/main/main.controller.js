@@ -10,7 +10,6 @@
 
       vm.courses = mvCachedCourses.query();
       vm.properties = mvCachedProperties.query();
-
   };
 
 

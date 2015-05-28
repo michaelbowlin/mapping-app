@@ -1,5 +1,5 @@
 // angular.module('app', ['ngResource', 'ngRoute','geocoder-service','highcharts-ng','ui.bootstrap','uiGmapgoogle-maps']);
-angular.module('app', ['ngResource', 'ngRoute','geocoder-service','ui.bootstrap']);
+angular.module('app', ['ngResource', 'ngRoute','geocoder-service','ui.bootstrap','ngAnimate']);
 
 angular.module('app').config(function ($routeProvider, $locationProvider) {
   var routeRoleChecks = {
