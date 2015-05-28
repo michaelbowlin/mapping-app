@@ -1,4 +1,7 @@
-angular.module('app').controller('mvSignupCtrl', function($scope, mvUser, mvNotifier, $location, mvAuth) {
+angular.module('app').controller('mvSignupCtrl', function($scope, mvUser, mvNotifier, $location, mvAuth, myPagesize) {
+
+
+  $scope.pageClass = 'page-contact';
 
   $scope.signup = function() {
     var newUserData = {
@@ -15,4 +18,5 @@ angular.module('app').controller('mvSignupCtrl', function($scope, mvUser, mvNoti
       mvNotifier.error(reason);
     })
   }
-})
+
+});

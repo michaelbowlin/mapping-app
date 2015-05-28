@@ -1,23 +1,26 @@
 // angular.module('app', ['ngResource', 'ngRoute','geocoder-service','highcharts-ng','ui.bootstrap','uiGmapgoogle-maps']);
-angular.module('app', ['ngResource', 'ngRoute','geocoder-service','ui.bootstrap']);
+var animateapp = angular.module('app', ['ngResource', 'ngRoute','geocoder-service','ui.bootstrap','ngAnimate']);
 
-angular.module('app').config(function ($routeProvider, $locationProvider) {
-  var routeRoleChecks = {
-    admin: {
-      auth: function (mvAuth) {
-        return mvAuth.authorizeCurrentUserForRoute('admin')
-      }
-    },
-    user: {
-      auth: function (mvAuth) {
-        return mvAuth.authorizeAuthenticatedUserForRoute()
+animateapp.config(function ($routeProvider, $locationProvider) {
+    var routeRoleChecks = {
+      admin: {
+        auth: function (mvAuth) {
+          return mvAuth.authorizeCurrentUserForRoute('admin')
+        }
+      },
+      user: {
+        auth: function (mvAuth) {
+          return mvAuth.authorizeAuthenticatedUserForRoute()
+        }
       }
     }
-  }
 
   $locationProvider.html5Mode(true);
   $routeProvider
-    .when('/', {templateUrl: '/partials/main/main', controller: 'mvMainCtrl'})
+    .when('/', {
+        templateUrl: '/partials/main/main',
+        controller: 'mvMainCtrl'
+    })
     .when('/admin/users', {
       templateUrl: '/partials/admin/user-list',
       controller: 'mvUserListCtrl', resolve: routeRoleChecks.admin
@@ -53,6 +56,7 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
 
 });
 
+
 angular.module('app').run(function ($rootScope, $location) {
   $rootScope.$on('$routeChangeError', function (evt, current, previous, rejection) {
     if (rejection === 'not authorized') {
@@ -60,3 +64,5 @@ angular.module('app').run(function ($rootScope, $location) {
     }
   })
 })
+
+

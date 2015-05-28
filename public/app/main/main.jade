@@ -1,22 +1,32 @@
-mp-de-fullscreen
+mp-co-page-screensize
 .row
-    .col-xs-7.overflow-hidden
+    .col-xs-7.overflow-hidden(style='border:pink solid 0px;')
+        p
+            ul
+            li.button
+                a(href='#', ng-click="changePanel('small')") Small
+            li.button
+                a(href='#', ng-click="changePanel('large')") Large
+        p
         //video(poster='http://i.istockimg.com/file_thumbview_approve/42523428/13/stock-video-42523428-metro-subway-underground-navigation-city-map-.jpg', src='http://www.istockphoto.com/video_passthrough/42523428/153/42523428.mp4', type='video/mp4')
         img(src='http://i.istockimg.com/file_thumbview_approve/42523428/13/stock-video-42523428-metro-subway-underground-navigation-city-map-.jpg')
 
     .col-xs-5
-        h1 APPRAISEio
-        p Welcome to APPRAISEio. Your appraisal data write at your fingertips.
-    .col-xs-5
+
+        span
+            // hide logo on homepage
+            img.logo3(src="https://cdn3.iconfinder.com/data/icons/ballicons-free/128/map-.png")
+
+        h1.text-center  APPRAISE
+            span
+                small io
+
+        h5.text-center Finally, a Real Estate Appraisal Mapping Application.
+        hr
+        p APPRAISEio is an appraisal mapping application providing firms with private, real-time analytics of your appraisal data. Create a map, measure your analytics, and strategically build market-campaigns
+        p
+        hr
+        h6 Spend less time managing and more time making money.
+
+    .col-xs-12
         div(ng-include="'/partials/account/navbar-login-homepage'")
-
-//.row
-//  .col-xs-12
-//    h1 Appraiseio
-//    p Welcome to Appraisio. We make appraisal listings easy.
-
-  //.row
-  //  .col-md-6
-  //    div(ng-include="'/partials/main/featured-properties'")
-  //  .col-md-6
-  //    div(ng-include="'/partials/main/new-courses'")

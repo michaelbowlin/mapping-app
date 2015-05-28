@@ -16,6 +16,10 @@
         // vm.getCities = getCities;
         // vm.title = 'Property Map';
 
+
+        /* Change Body Size */
+        $scope.psize = 2;
+
         var paramsObj = {};
 
 
