@@ -14,5 +14,9 @@ angular
         });
         return dfd.promise;
       }
+
+      // getProperties: function
+
+      // getPropertiesById:
     }
   });
