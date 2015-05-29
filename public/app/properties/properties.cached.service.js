@@ -1,15 +1,15 @@
 angular
 	.module('app')
 	.factory('cachedPropertiesService', function(propertyService) {
-  var propertyList;
+      var propertyList;
 
-  return {
-    query: function() {
-      if(!propertyList) {
-        propertyList = propertyService.query();
+      return {
+        query: function() {
+          if(!propertyList) {
+            propertyList = propertyService.query();
+          }
+
+          return propertyList;
+        }
       }
-
-      return propertyList;
-    }
-  }
 })

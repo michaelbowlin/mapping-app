@@ -1,8 +1,11 @@
-mp-de-no-fullscreen
 .panel.panel-primary
    .panel-heading.text-center Properties
       button.btn.btn-large.btn-primary(ng-click="property.go('/property/add')") Add Property
-   .panel-body
+   .panel-body(style="border:red solid;")
       .row(ng-repeat="property in property.properties")
          .col-md-12
             a(href="/properties/{{property._id}}") {{property.title}}
+
+      .col-md-12(style="border:blue solid 4px;")
+         div
+            .grid(ui-grid='gridOptions', ui-grid-pagination='')
