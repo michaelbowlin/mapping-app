@@ -1,11 +1,11 @@
 .panel.panel-primary
    .panel-heading.text-center Properties
       button.btn.btn-large.btn-primary(ng-click="property.go('/property/add')") Add Property
-   .panel-body(style="border:red solid;")
+   .panel-body(style="border:red solid 0px;")
       .row(ng-repeat="property in property.properties")
          .col-md-12
-            a(href="/properties/{{property._id}}") {{property.title}}
+            a(href="/properties/{{property._id}}") {{property.title}} - {{property.longCoord}}
 
-      .col-md-12(style="border:blue solid 4px;")
+      .col-md-12(style="border:blue solid 0px;")
          div
             .grid(ui-grid='gridOptions', ui-grid-pagination='')

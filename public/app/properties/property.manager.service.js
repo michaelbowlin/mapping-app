@@ -2,6 +2,7 @@ angular
   .module('app')
   .factory('propertyManager', function($http, $q, propertyService){
     return{
+
       createProperty: function(newPropertyData){
       console.log(newPropertyData);
         var newProp = new propertyService(newPropertyData);
@@ -13,10 +14,29 @@ angular
           dfd.reject(response.data.reason)
         });
         return dfd.promise;
-      }
+      },
 
-      // getProperties: function
+      // getProperties: function -- just a Query
+      getProperties: function(){
+
+
+        /////////////////////////////////////// LEFT OFF HERE
+        /////////////////////////////////////// LEFT OFF HERE
+        /////////////////////////////////////// LEFT OFF HERE
+        /////////////////////////////////////// LEFT OFF HERE
+        /////////////////////////////////////// LEFT OFF HERE
+        /////////////////////////////////////// LEFT OFF HERE
+        /////////////////////////////////////// LEFT OFF HERE
+
+
+
+      },
 
       // getPropertiesById:
+      getPropertiesById: function(){
+
+      }
+
+
     }
   });
