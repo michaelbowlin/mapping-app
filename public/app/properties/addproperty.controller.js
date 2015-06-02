@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('addPropertyController', function ($location, mvNotifier, propertyManager) {
+  .controller('addPropertyController', function ($location, identityService, mvNotifier, propertyManager) {
 
     var vm = this;
 
@@ -16,7 +16,8 @@ angular
         improvementSizeType: vm.improvementSizeType,
         latCoord: vm.latCoord,
         longCoord: vm.longCoord,
-        condition: vm.condition
+        condition: vm.condition,
+        userAccount: identityService.currentUser._id
       };
 
       propertyManager.createProperty(newPropertyData).then(function () {

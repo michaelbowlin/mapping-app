@@ -19,7 +19,7 @@ var userSchema = mongoose.Schema({
   salt: {type:String, required:'{PATH} is required!'},
   hashed_pwd: {type:String, required:'{PATH} is required!'},
   roles: [String],
-  properties: [{type: mongoose.Schema.Types.ObjectId, ref: 'Property'}],
+  properties: [{type: mongoose.Schema.ObjectId, ref: 'Property'}],
   address: [addressSchema],
   billing: [billingSchema]
 });

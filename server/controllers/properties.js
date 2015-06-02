@@ -12,6 +12,12 @@ exports.getPropertyById = function(req, res) {
   })
 };
 
+exports.getPropertiesByUserId = function(req, res) {
+  Property.find({userAccount:req.params.id}).exec(function(err, property) {
+    res.send(property);
+  })
+};
+
 exports.createProperty = function(req, res, next) { // request, response, next function etc
   var propertyData = req.body;
   Property.create(propertyData, function(err) {
@@ -48,6 +54,7 @@ exports.updateProperty = function(req, res) {
   req.property.type = propertyUpdates.type;
   req.property.address = propertyUpdates.address;
   req.property.tags = propertyUpdates.tags;
+  req.property.userAccount = propertyUpdates.userAccount;
 
 
   req.property.save(function(err) {
