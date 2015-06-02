@@ -39,14 +39,15 @@ angular
 			useExternalPagination: true,
 			useExternalSorting: true,
 			columnDefs:[
-				{ name: 'type' },
-				{ name: 'dateComplete', enableSorting: false },
-				{ name: 'address', enableSorting: false },
-				{ name: 'improvementSize', enableSorting: false },
-				{ name: 'acres', enableSorting: false },
-				{ name: 'condition', enableSorting: false },
-				{ name: 'edit'},
-				{ name: 'delete'}
+				{ name: 'type', cellClass: 'type'  },
+				{ name: 'dateComplete', cellClass: 'dateComplete' , enableSorting: false },
+				{ name: 'address', width: 250,  cellClass: 'address' , enableSorting: false },
+				{ name: 'improvementSize', cellClass: 'improvementSize' , enableSorting: false },
+				{ name: 'acres', cellClass: 'acres' , enableSorting: false },
+				{ name: 'condition', cellClass: 'condition', enableSorting: false },
+				{ name: 'edit', cellClass: 'edit', width: 50, cellTemplate: '<button class="btn btn-info btn-sm" ng-click=""><i class="fa fa-edit"></i></button>' },
+				{ name: 'delete', cellClass: 'delete', width: 50, cellTemplate: '<button class="btn btn-danger btn-sm" ng-click=""><i class="fa fa-remove"></i></button>' }
+
 			],
 			gridMenuCustomItems: [
 				{
@@ -82,37 +83,6 @@ angular
 				});
 			}
 		};
-
-		//$scope.gridOptions = {
-		//	paginationPageSizes: [25, 50, 75],
-		//	paginationPageSize: 5,
-		//	useExternalPagination: true,
-		//	useExternalSorting: true,
-		//	columnDefs: [
-		//		// { name: 'name' },
-		//		// { name: 'gender', enableSorting: false },
-		//		// { name: 'company', enableSorting: false }
-		//		{ name: 'title' },
-		//		{ name: '_id', enableSorting: false },
-		//		{ name: 'type', enableSorting: false }
-		//	],
-		//	onRegisterApi: function(gridApi) {
-		//		$scope.gridApi = gridApi;
-		//		$scope.gridApi.core.on.sortChanged($scope, function(grid, sortColumns) {
-		//			if (sortColumns.length == 0) {
-		//				paginationOptions.sort = null;
-		//			} else {
-		//				paginationOptions.sort = sortColumns[0].sort.direction;
-		//			}
-		//			getPage();
-		//		});
-		//		gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
-		//			paginationOptions.pageNumber = newPage;
-		//			paginationOptions.pageSize = pageSize;
-		//			getPage();
-		//		});
-		//	}
-		//};
 
 		var getPage = function() {
 			switch(paginationOptions.sort) {
