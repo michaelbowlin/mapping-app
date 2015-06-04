@@ -7,7 +7,6 @@
 
            return {
                restrict: 'E',
-               //template: 'hello',
                templateUrl: '/app/widgets/ui-grid.template.html',
                link: function(scope,element,attrs){
 

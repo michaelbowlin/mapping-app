@@ -1,5 +1,40 @@
+html, body {
+  height:100%;
+  width:100%;
+}
+body {
+  display: table;
+}
+.ui-grid {
+  border:none;
+}
+.ui-grid-top-panel {
+  background:none;
+}
+.left-side {
+  float: none;
+  display: table-cell;
+}
 
-.sm { width:10%; background-color: blue;transition:all 1s ease;}
+.right-side {
+  float: none;
+  display: table-cell;
+  width:94%
+}
+
+.sidebar-inverse {
+  display: table-cell;
+  float: none;
+  background:red;
+
+}
+.fullscreen {
+  width:129%;
+  position:absolute;
+  margin-left:-24% !important;
+  background-color: blue;
+  transition:all 1s ease;
+}
 .lg { width:96%; background-color: green;transition:all 1s ease; }
 .dis {
   display: none !important;
@@ -10,7 +45,7 @@
   width:80%;
 }
 .wrap-full {
-  width:90% !important;
+  width:100% !important;
 }
 .wrap-normal {
   width:80% !important;
@@ -44,6 +79,12 @@ img.logo2 {
   z-index: 9999;
   top: 90px;
   left: 78px; }
+
+img.logo3 {
+  height: 61px;
+  float: left;
+  margin: 10px 0 0 12px;
+ }
 
 
 

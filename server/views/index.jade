@@ -1,8 +1,13 @@
 extends ../includes/layout
 
+mp-co-page-screensize
+
 block main-content
 
-    .navbar.navbar-inverse
+
+    .navbar.navbar-inverse.shadow-z-2
+        a(href='/')
+            img.logo3(src="https://cdn3.iconfinder.com/data/icons/ballicons-free/128/map-.png")
         .container
             .navbar-header
             .navbar-collapse.collapse
@@ -10,35 +15,31 @@ block main-content
                     li
                 div(ng-include="'/partials/account/navbar-login'")
     // Header
-    .header-panel.shadow-z-2
-        .container-fluid
-            .row
-                .col-xs-3
-                    //img.logo2-home(src="https://cdn3.iconfinder.com/data/icons/ballicons-free/128/map-.png")
-                    h1.text-center  APPRAISE
-                        span
-                            small io
+    //.header-panel
+    //    .container-fluid
+    //        .row
+    //            .col-xs-3
+    //                //img.logo2-home(src="https://cdn3.iconfinder.com/data/icons/ballicons-free/128/map-.png")
+    //                h1.text-center  APPRAISE
+    //                    span
+    //                        small io
+
 
     // Content
     .container-fluid.main
         .row
-            div
-                // hide logo on homepage
-                img(ng-show='ifFullpage(pageNumber)').logo2(src="https://cdn3.iconfinder.com/data/icons/ballicons-free/128/map-.png")
-                div
-                    //div(ng-include="'/partials/navigation/left-nav'")
-                    nav.col-xs-12.menu#main-menu
-                        ul(nav-active-class='')
-                            li.withripple
-                                a(href='/') Home
-                            li.withripple
-                                a(href="/map") Map
-                            li.withripple
-                                a(href="/properties") Properties
-                            li.withripple
-                                a(href='#') Other
-                    .pages.wrap-normal
-                        .col-xs-11
-                            #about
-                                div(ng-view).well.page.active(ng-class='{ sm: psize === 1, lg: psize === 2}')
-                                //div.page.page-contact.pageClass(class='{{ }}', ng-view)
+            div.left-side.navbar.shadow-z-2
+                ul(nav-active-class='')
+                    li.withripple
+                        a(href='/') Home
+                    li.withripple
+                        a(href="/map") Map
+                    li.withripple
+                        a(href="/properties") Properties
+                    li.withripple
+                        a(href='#') Other
+            div.right-side
+                    .pagesFull.wrap-full
+                        #_about
+                            div(ng-view).well.page.active
+                            //div(ng-view).well.page.active(ng-class='{ fullscreen: psize === 1, lg: psize === 2}')

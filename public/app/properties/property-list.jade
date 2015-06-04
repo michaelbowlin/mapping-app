@@ -1,11 +1,15 @@
 .row
-   .col-xs-12
-      .div
-         button.btn.btn-large.btn-primary(ng-click="property.go('/property/add')") Add Property
-          //.row(ng-repeat="property in property.properties")
-          //  .col-md-12
-          //     a(href="/properties/{{property._id}}") {{property.title}} - {{property.longCoord}}
+   .div
+      p
+         ul
+         li.button
+            a(href='#', ng-click="changePanel('fullscreen')") Fullscreen
+         li.button
+            a(href='#', ng-click="changePanel('large')") Large
+      button.btn.btn-large.btn-primary(ng-click="property.go('/property/add')") Add Property
+       //.row(ng-repeat="property in property.properties")
+       //  .col-md-12
+       //     a(href="/properties/{{property._id}}") {{property.title}} - {{property.longCoord}}
 
-         .col-md-12(style="border:blue solid 0px;")
-            div
-               ui-grid-properties
+      div
+         ui-grid-properties
