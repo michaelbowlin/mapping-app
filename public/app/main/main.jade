@@ -31,6 +31,10 @@ mp-co-page-screensize
         //    li.button
         //        a(href='#', ng-click="changePanel('large')") Large
         p
-        img(src='http://i.istockimg.com/file_thumbview_approve/42523428/13/stock-video-42523428-metro-subway-underground-navigation-city-map-.jpg')
+            //img(src='http://i.istockimg.com/file_thumbview_approve/42523428/13/stock-video-42523428-metro-subway-underground-navigation-city-map-.jpg')
+            video(width='80%', autoplay)
+                  source(src='/app/video/vid-map.mp4', type='video/mp4')
+                  //source(src='mov_bbb.ogg', type='video/ogg')
+                  |   Your browser does not support HTML5 video.
 
 
