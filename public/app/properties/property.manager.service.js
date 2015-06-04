@@ -4,7 +4,6 @@ angular
     return{
 
       createProperty: function(newPropertyData){
-      console.log(newPropertyData);
         var newProp = new propertyService(newPropertyData);
         var dfd = $q.defer();
 
@@ -16,12 +15,20 @@ angular
         return dfd.promise;
       },
 
-      // getProperties: function -- just a Query
       getProperties: function(){
+        var dfd = $q.defer();
 
+        // propertyService.query()
+        // .then(function(){
+        //   dfd.resolve();
+        // }, function(response){
+        //   dfd.reject(response.data.reason)
+        // });
+        // return dfd.promise;
+        // return properties;
+        // console.log("Properties: " + properties);
       },
 
-      // getPropertiesById:
       getPropertiesById: function(){
 
       }

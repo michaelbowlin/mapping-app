@@ -4,7 +4,7 @@
     .module('app')
     .controller('mapController', Map);
 
-  function Map($scope, $location, $window, $log, $q, $modal, geocoderService, mapService, $http) {
+  function Map($scope, $location, $window, $log, $q, $modal, geocoderService, $http, propertyService) {
     // function Map($state, logger, $scope, $window, $modal, $log, $q, geocoderService, mapService, $http) {
 
     var vm = this;
@@ -17,8 +17,8 @@
 
     var paramsObj = {};
 
-    vm.go = function ( location ){
-      $location.path( location );
+    vm.go = function(location) {
+      $location.path(location);
     }
 
 
@@ -50,7 +50,7 @@
     }
 
 
-    var onError = function (reason) {
+    var onError = function(reason) {
       vm.error = "Could not fetch the data";
     };
 
@@ -70,37 +70,44 @@
     }
 
     /* GetCities from Database ===================================*/
-    function getCities(paramsObj) {
+    function getCities(propertyService) {
 
-      var currentPage = paramsObj.currentPage;
-      var maxPaginationSize = paramsObj.maxPaginationSize;
-      var totalItems = paramsObj.totalItems;
+      // var currentPage = paramsObj.currentPage;
+      // var maxPaginationSize = paramsObj.maxPaginationSize;
+      // var totalItems = paramsObj.totalItems;
       // var numPages = 3;
 
-      return mapService.getCities(paramsObj)
-        .then(function (data) {
+      // return propertyManager.getProperties()
+      //   .then(function(data) {
 
-          // vm.mapInventory = data;
-          // work arround the UI Bootstrap bug
-          // vm.currentPage = vm.paramsObj.pageNum + 1;
-          //vm.totalInventory = data.totalElements;
+      //     // vm.mapInventory = data;
+      //     // work arround the UI Bootstrap bug
+      //     // vm.currentPage = vm.paramsObj.pageNum + 1;
+      //     //vm.totalInventory = data.totalElements;
+      //     console.log(data);
 
-          displayCities(data);
-        });
+      //     displayCities(data);
+      //   });
+  // $http.get('/api/properties').then(function(response){
+  //   console.log("Controller: " + response);  
+  //   return response;
+  //   // var c = response;
+    
+  // });
+  
+      vm.properties = propertyService.query(function(data){
+        console.log(data);
+      })
+      // .then(function(data){
+      //     console.log(data);
+      //   });
+      
+
+      console.log(vm.properties);
+      // displayCities(vm.properties);
 
     }
 
-    /* Delete Individual Cities from Database =======================*/
-    $scope.deleteItem = function (id) {
-      alert('You have deleted: ' + id);
-
-      //*** NEED - to hook into service
-      $http.delete("https://dummy-data.azure-mobile.net/tables/data/" + id)
-        .then(function () {
-          refreshParamsObj()
-        });
-
-    }
 
 
     /* Display Cities  ======================================*/
@@ -112,6 +119,8 @@
 
       // $scope.markers.push(cities1);
       for (var i = 0; i < cities1.length; i++) {
+console.log("in here");
+        // console.log(cities1[i]);
         // createMarker(cities1[i]);
       }
 
@@ -120,26 +129,26 @@
     /* Display Cities on the map ======================================*/
     //var infoWindow = new google.maps.InfoWindow();
 
-     //   Creat Marker
-     var createMarker = function(info) {
-     console.log('~~~~~~~~~~~~~~~~ CITIES ' + info)
-     var marker = new google.maps.Marker({
-     map: $scope.map,
-     position: new google.maps.LatLng(info.lat, info.lon),
-     title: info.city //*** NEED - to make this the title
-     });
-     marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+    //   Creat Marker
+    function createMarker(info) {
+      console.log(info)
+      var marker = new google.maps.Marker({
+        map: $scope.map,
+        position: new google.maps.LatLng(info.lat, info.lon),
+        title: info.city //*** NEED - to make this the title
+      });
+      marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
 
-     google.maps.event.addListener(marker, 'click', function() {
+      google.maps.event.addListener(marker, 'click', function() {
 
-     infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-     infoWindow.open($scope.map, marker);
+        infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+        infoWindow.open($scope.map, marker);
 
-     });
+      });
 
-     $scope.markers.push(marker);
+      $scope.markers.push(marker);
 
-     } 
+    }
 
     /* Open Window Event -- TUT: http://jsfiddle.net/pc7Uu/854/
      $scope.openInfoWindow = function(e, selectedMarker) {
@@ -163,7 +172,7 @@
 
 
     /* Pagination - NG Click ========================================= */
-    $scope.pageChanged = function (currentPage) {
+    $scope.pageChanged = function(currentPage) {
 
 
       var itemsPerPage = paramsObj.itemsPerPage;
@@ -185,13 +194,18 @@
     /* Form Select Filter ========================================= */
     function sortSelect() {
       $scope.itemList = [];
-      $scope.numberItems = [
-        {id: 1, name: "1"},
-        {id: 2, name: "2"},
-        {id: 3, name: "5"}
-      ]
+      $scope.numberItems = [{
+        id: 1,
+        name: "1"
+      }, {
+        id: 2,
+        name: "2"
+      }, {
+        id: 3,
+        name: "5"
+      }]
 
-      $scope.changedValue = function (item) {
+      $scope.changedValue = function(item) {
         $scope.itemList.push(item.name);
 
         // putting item value into two seperate objects
@@ -212,22 +226,22 @@
 
 
     /* UI BOOTSTRAP - MODAL ==========================================================*/
-    $scope.open = function () {
+    $scope.open = function() {
 
       var modalInstance = $modal.open({
         templateUrl: 'myModalContent22.html',
         controller: 'ModalInstanceCtrl22',
         size: 'md',
         resolve: {
-          items: function () {
+          items: function() {
             return $scope.items;
           }
         }
       });
 
-      modalInstance.result.then(function (selectedItem) {
+      modalInstance.result.then(function(selectedItem) {
         $scope.selected = selectedItem;
-      }, function () {
+      }, function() {
         $log.info('Modal dismissed at: ' + new Date());
       });
     };
@@ -238,39 +252,39 @@
 
   angular
     .module('app')
-    .controller('ModalInstanceCtrl22', function ($scope, $modalInstance, geocoderService, mapService) {
+    .controller('ModalInstanceCtrl22', function($scope, $modalInstance, geocoderService, mapService) {
 
 
-      $scope.ok = function () {
+      $scope.ok = function() {
         $modalInstance.close($scope.selected.item);
       };
 
-      $scope.cancel = function () {
+      $scope.cancel = function() {
         $modalInstance.dismiss('cancel');
       };
 
 
-      $scope.cancel = function () {
+      $scope.cancel = function() {
         $modalInstance.dismiss('cancel');
       };
 
-      $scope.clear = function () {
+      $scope.clear = function() {
         $scope.newprop.dateOfCompletion = null;
         // $scope.dt = null;
       };
 
       // Disable weekend selection
-      $scope.disabled = function (date, mode) {
+      $scope.disabled = function(date, mode) {
         return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
       };
 
-      $scope.toggleMin = function () {
+      $scope.toggleMin = function() {
         $scope.minDate = $scope.minDate ? null : new Date();
       };
       $scope.toggleMin();
 
       /* Date Picker */
-      $scope.openDatePicker = function ($event) {
+      $scope.openDatePicker = function($event) {
         console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Date Picker' + $event)
         $event.preventDefault();
         $event.stopPropagation();
@@ -290,7 +304,7 @@
       /* GEO CODER --- Adding Citites ==========================================================*/
       //function myGeoCoder() {
       $scope.location = '';
-      $scope.doSearch = function (newprop) {
+      $scope.doSearch = function(newprop) {
         if ($scope.location === '') {
           alert('Directive did not update the location property in parent controller.');
         } else {
@@ -319,7 +333,7 @@
           //console.log(myData.productType)
 
           return mapService.createCity(myData)
-            .then(function (data) {
+            .then(function(data) {
               //displayCities(data); //*** NEED to pass back to controller
 
               // Close Modal
@@ -336,6 +350,3 @@
 
 
     });
-
-
-
