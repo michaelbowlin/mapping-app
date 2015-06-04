@@ -4,16 +4,13 @@ mp-co-page-screensize
 
 block main-content
 
-
     .navbar.navbar-inverse.shadow-z-2
         a(href='/')
             img.logo3(src="https://cdn3.iconfinder.com/data/icons/ballicons-free/128/map-.png")
-        .container
-            .navbar-header
-            .navbar-collapse.collapse
-                ul.nav.navbar-nav
-                    li
-                div(ng-include="'/partials/account/navbar-login'")
+        div.navbar-header.navbar-collapse.collapse.navbar-right
+            ul.nav.navbar-nav
+                li
+            div(ng-include="'/partials/account/navbar-login'")
     // Header
     //.header-panel
     //    .container-fluid
@@ -31,13 +28,24 @@ block main-content
             div.left-side.navbar.shadow-z-2
                 ul(nav-active-class='')
                     li.withripple
-                        a(href='/') Home
+                        a(href='#')
+                            i.fa.fa-pie-chart
                     li.withripple
-                        a(href="/map") Map
+                        a(href="/map")
+                            i.fa.fa-map-marker
                     li.withripple
-                        a(href="/properties") Properties
+                        a(href='/properties')
+                            i.fa.fa-building-o
                     li.withripple
-                        a(href='#') Other
+                        a(href='#')
+                            i.fa.fa-dollar
+                    li.withripple
+                        a(href='/profile')
+                            i.fa.fa-gear
+                    li.withripple
+                        a(href='#')
+                            i.fa.fa-chevron-right
+
             div.right-side
                     .pagesFull.wrap-full
                         #_about
