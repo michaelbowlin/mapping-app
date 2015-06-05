@@ -14,7 +14,7 @@
             },
             controller: function($scope){
                 $scope.changePanel = function(choice){
-                    if(choice === "small"){
+                    if(choice === "fullscreen"){
                         $scope.psize = 1;
                     } else if(choice === "large"){
                         $scope.psize = 2;
