@@ -28,7 +28,7 @@ block main-content
             div.left-side.navbar.shadow-z-2
                 ul(nav-active-class='')
                     li.withripple
-                        a(href='#')
+                        a(href='/dashboard')
                             i.fa.fa-pie-chart
                     li.withripple
                         a(href="/map")
@@ -48,6 +48,5 @@ block main-content
 
             div.right-side
                     .pagesFull.wrap-full
-                        #_about
-                            div(ng-view).well.page.active
-                            //div(ng-view).well.page.active(ng-class='{ fullscreen: psize === 1, lg: psize === 2}')
+                        div(ng-view).well.page.active
+                        //div(ng-view).well.page.active(ng-class='{ fullscreen: psize === 1, lg: psize === 2}')

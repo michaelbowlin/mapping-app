@@ -58,6 +58,11 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
       templateUrl: '/partials/courses/course-list',
       controller: 'mvCourseListCtrl'
     })
+    .when('/dashboard', {
+      templateUrl: '/partials/dashboard/dashboard',
+      controller: 'dashboardCtrl',
+      controllerAs: 'dashboard'
+    })
     .when('/properties', {
       templateUrl: '/partials/properties/property-list',
       controller: 'propertyListCtrl',
