@@ -1,5 +1,5 @@
 // angular.module('app', ['ngResource', 'ngRoute','geocoder-service','highcharts-ng','ui.bootstrap','uiGmapgoogle-maps']);
-angular.module('app', ['ngResource', 'ngRoute','geocoder-service','ui.bootstrap','ngAnimate','ngTouch', 'ui.grid', 'ui.grid.pagination','ngTouch', 'ui.grid.exporter', 'ui.grid.selection', 'ui.grid.edit', 'ui.grid.cellNav']);
+angular.module('app', ['ngResource', 'ngRoute','geocoder-service','ui.bootstrap','ngAnimate','ngTouch', 'ui.grid', 'ui.grid.pagination','ngTouch', 'ui.grid.exporter', 'ui.grid.selection', 'ui.grid.edit', 'ui.grid.cellNav','highcharts-ng']);
 
 angular.module('app').config(function ($routeProvider, $locationProvider) {
   var routeRoleChecks = {

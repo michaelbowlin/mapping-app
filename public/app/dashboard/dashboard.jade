@@ -71,7 +71,13 @@
             .panel-heading
                 | Line Chart
             .panel-body
-                #morris-line-chart
+                input(ng-model='highchartsNG.title.text')
+                button(ng-click='addSeries()') Add Series
+                button(ng-click='addPoints()') Add Points to Random Series
+                button(ng-click='removeRandomSeries()') Remove Random Series
+                button(ng-click='swapChartType()') Line/Bar
+                highchart#chart1(config='highchartsNG')
+
 .row
     .col-md-9.col-sm-12.col-xs-12
         .panel.panel-default
