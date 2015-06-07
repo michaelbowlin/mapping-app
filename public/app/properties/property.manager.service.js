@@ -17,17 +17,15 @@ angular
 
       getProperties: function(){
         var dfd = $q.defer();
+        console.log("called");
 
-        // propertyService.query()
-        // .then(function(){
-        //   dfd.resolve();
-        // }, function(response){
-        //   dfd.reject(response.data.reason)
-        // });
-        // return dfd.promise;
-        // return properties;
-        // console.log("Properties: " + properties);
-      },
+        propertyService.query(function(){
+          dfd.resolve();
+        }, function(response){
+          dfd.reject(response.data.reason)
+        });      
+        return dfd.promise;
+        },
 
       getPropertiesById: function(){
 

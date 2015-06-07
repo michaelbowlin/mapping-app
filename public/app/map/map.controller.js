@@ -21,53 +21,62 @@
       $location.path(location);
     }
 
+    // vm.props = propertyService.query(function(data){
+    //   return data;
+    // });
 
-    activate();
+    // vm.props = propertyService.query(function(data){
+    //   return data;
+    //   console.log(data);
+    // });
 
-    function activate() {
-      init();
-    }
+    getCities();
+    // activate();
 
-    function init() {
-      setInitialParams();
-      refreshParamsObj();
-      sortSelect();
-    }
+    // function activate() {
+    //   init();
+    // }
 
-    //initial params for the page
-    function setInitialParams() {
+    // function init() {
+    //   setInitialParams();
+    //   refreshParamsObj();
+    //   sortSelect();
+    // }
 
-      //initial params
-      vm.itemsPerPage = 10;
-      vm.itemsPerPageSkip = 0;
-      vm.maxPaginationSize = 4;
-      vm.currentPage = 1;
-      vm.totalItems = 100; //** NEED - to dynamicly pull this number
-      vm.sortBy = "productType";
+    // //initial params for the page
+    // function setInitialParams() {
 
-
-      // pageSizes=[10,20,50,100] ;
-    }
-
-
-    var onError = function(reason) {
-      vm.error = "Could not fetch the data";
-    };
+    //   //initial params
+    //   vm.itemsPerPage = 10;
+    //   vm.itemsPerPageSkip = 0;
+    //   vm.maxPaginationSize = 4;
+    //   vm.currentPage = 1;
+    //   vm.totalItems = 100; //** NEED - to dynamicly pull this number
+    //   vm.sortBy = "productType";
 
 
-    function refreshParamsObj() {
+    //   // pageSizes=[10,20,50,100] ;
+    // }
 
-      paramsObj.currentPage = vm.currentPage;
-      paramsObj.itemsPerPage = vm.itemsPerPage;
-      paramsObj.itemsPerPageSkip = vm.itemsPerPageSkip;
-      paramsObj.maxPaginationSize = vm.maxPaginationSize;
-      paramsObj.totalItems = vm.totalItems;
-      paramsObj.sortBy = vm.sortBy;
 
-      // Pass params into Get Cities function
-      getCities(paramsObj);
+    // var onError = function(reason) {
+    //   vm.error = "Could not fetch the data";
+    // };
 
-    }
+
+    // function refreshParamsObj() {
+
+    //   paramsObj.currentPage = vm.currentPage;
+    //   paramsObj.itemsPerPage = vm.itemsPerPage;
+    //   paramsObj.itemsPerPageSkip = vm.itemsPerPageSkip;
+    //   paramsObj.maxPaginationSize = vm.maxPaginationSize;
+    //   paramsObj.totalItems = vm.totalItems;
+    //   paramsObj.sortBy = vm.sortBy;
+
+    //   // Pass params into Get Cities function
+    //   getCities(paramsObj);
+
+    // }
 
     /* GetCities from Database ===================================*/
     function getCities(propertyService) {
@@ -77,9 +86,6 @@
       // var totalItems = paramsObj.totalItems;
       // var numPages = 3;
 
-      // return propertyManager.getProperties()
-      //   .then(function(data) {
-
       //     // vm.mapInventory = data;
       //     // work arround the UI Bootstrap bug
       //     // vm.currentPage = vm.paramsObj.pageNum + 1;
@@ -88,38 +94,32 @@
 
       //     displayCities(data);
       //   });
-  // $http.get('/api/properties').then(function(response){
-  //   console.log("Controller: " + response);  
-  //   return response;
-  //   // var c = response;
-    
-  // });
-  
-      vm.properties = propertyService.query(function(data){
-        console.log(data);
-      })
-      // .then(function(data){
-      //     console.log(data);
-      //   });
       
+      // displayCities(vm.props);
+      // var dfd = $q.defer();
+      // vm.props = propertyService.query(function(data){
+      //   dfd.resolve();
+      // })
+      // return dfd.promise();
 
-      console.log(vm.properties);
-      // displayCities(vm.properties);
 
     }
 
 
 
     /* Display Cities  ======================================*/
-    function displayCities(data) {
-      $scope.cities1 = data;
-      var cities1 = $scope.cities1;
-      console.log(cities1);
+    function displayCities() {
+      // $scope.cities1 = data;
+      // var cities1 = $scope.cities1;
+      // console.log(cities1);
+      var properties = vm.props;
+      console.log(properties);
 
 
       // $scope.markers.push(cities1);
-      for (var i = 0; i < cities1.length; i++) {
-console.log("in here");
+      console.log(properties.length);
+      for (var i = 0; i < properties.length; i++) {
+        console.log("in here");
         // console.log(cities1[i]);
         // createMarker(cities1[i]);
       }
@@ -188,7 +188,7 @@ console.log("in here");
       paramsObj.itemsPerPageSkip = itemsPerPageSkip;
 
       // Pass in object with relative parameters
-      getCities(paramsObj)
+      // getCities(paramsObj)
     };
 
     /* Form Select Filter ========================================= */
@@ -219,7 +219,7 @@ console.log("in here");
         paramsObj.currentPage = currentPage;
         currentPage = paramsObj.currentPage;
 
-        getCities(paramsObj);
+        // getCities(paramsObj);
       }
 
     }
