@@ -1,11 +1,9 @@
 .row
-   .col-xs-12
-      .div
-         button.btn.btn-large.btn-primary(ng-click="property.go('/property/add')") Add Property
-          //.row(ng-repeat="property in property.properties")
-          //  .col-md-12
-          //     a(href="/properties/{{property._id}}") {{property.title}} - {{property.longCoord}}
+   .div
+      button.btn.btn-large.btn-primary(ng-click="property.go('/property/add')") Add Property
+       //.row(ng-repeat="property in property.properties")
+       //  .col-md-12
+       //     a(href="/properties/{{property._id}}") {{property.title}} - {{property.longCoord}}
 
-         .col-md-12(style="border:blue solid 0px;")
-            div
-               .grid(ui-grid='gridOptions', ui-grid-pagination='')
+      div
+         ui-grid-properties

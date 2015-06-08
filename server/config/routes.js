@@ -17,6 +17,7 @@ module.exports = function(app) {
 
   app.get('/api/properties', properties.getProperties);
   app.get('/api/properties/:id', properties.getPropertyById);
+  app.get('/api/propertiesByUser/:id', properties.getPropertiesByUserId);
 
   app.post('/api/properties', properties.createProperty);
   app.put('/api/properties', properties.updateProperty);

@@ -15,6 +15,8 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
     }
   }
 
+
+
   $locationProvider.html5Mode(true);
   $routeProvider
     .when('/', {
@@ -58,7 +60,7 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
     })
     .when('/properties', {
       templateUrl: '/partials/properties/property-list',
-      controller: 'propertyListCtrl',
+      controller: 'propertyListController',
       controllerAs: 'property'
     })
     .when('/properties/:id', {
@@ -74,6 +76,7 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
 
 });
 
+
 angular.module('app').run(function ($rootScope, $location) {
   $rootScope.$on('$routeChangeError', function (evt, current, previous, rejection) {
     if (rejection === 'not authorized') {
@@ -81,3 +84,5 @@ angular.module('app').run(function ($rootScope, $location) {
     }
   })
 })
+
+
