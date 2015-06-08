@@ -5859,13 +5859,15 @@ body,
 
 .container-fluid .navbar {
   background: #303f3e;
-  min-width: 88px; }
+  min-width: 88px;
+  min-width: 230px; }
 
 .left-side {
   float: none;
   display: table-cell;
   width: 88px;
-  background: #303f3e; }
+  background: #303f3e;
+  overflow: hidden; }
 
 .left-side ul {
   position: absolute;
@@ -5879,18 +5881,27 @@ body,
 
 .left-side i {
   color: #f1f1f1;
-  padding: 14px 0 0 0;
-  margin-left: -6px;
+  padding: 6px 0 0 0;
+  margin: 0 4px 0 0;
   font-size: 26px;
-  text-shadow: 1px 1px #009587; }
+  text-shadow: 1px 1px #009587;
+  height: 45px;
+  width: 39px;
+  text-align: center; }
 
 .left-side a {
   border: rgba(255, 255, 255, 0.2) solid 1px;
   border-left: none;
   border-right: none;
-  width: 72px;
-  height: 60px;
-  float: left; }
+  width: 272px;
+  float: left;
+  text-align: left;
+  padding: 8px 0 8px 28px;
+  margin: 0; }
+
+.left-side span {
+  color: #fff;
+  padding: 0 0 0 16px; }
 
 .left-side a:first-child {
   border-top: none; }
