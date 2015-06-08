@@ -1,11 +1,9 @@
 mp-co-page-screensize
 .row
-    .col-xs-3
-
+    .col-md-4
         h1.text-center  APPRAISE
             span
                 small io
-
         h5.text-center Finally, a Real Estate Appraisal Mapping Application.
         hr
         p APPRAISEio is an appraisal mapping application providing firms with private, real-time analytics of your appraisal data.
@@ -19,11 +17,9 @@ mp-co-page-screensize
         p
         hr
         h6 Spend less time managing and more time making money.
-
         p
             div(ng-include="'/partials/account/navbar-login-homepage'")
-
-    .col-xs-9.overflow-hidden
+    .col-md-8.overflow-hidden
         //p
         //    ul
         //    li.button
@@ -36,30 +32,31 @@ mp-co-page-screensize
                   source(src='/app/video/vid-map.mp4', type='video/mp4')
                   //source(src='mov_bbb.ogg', type='video/ogg')
                   |   Your browser does not support HTML5 video.
-
+br
+br
 
 .row
     .col-md-3.col-sm-12.col-xs-12
-        .panel.panel-primary.text-center.no-boder.bg-color-green.green
-            .panel-left.pull-left.green
-                i.fa.fa-bar-chart-o.fa-5x
-            .panel-right.pull-right
-                h3 8,457
-                strong  Daily Visits
-    .col-md-3.col-sm-12.col-xs-12
-        .panel.panel-primary.text-center.no-boder.bg-color-blue.blue
-            .panel-left.pull-left.blue
-                i.fa.fa-shopping-cart.fa-5x
-            .panel-right.pull-right
-                h3 52,160
-                strong  Sales
-    .col-md-3.col-sm-12.col-xs-12
         .panel.panel-primary.text-center.no-boder.bg-color-red.red
             .panel-left.pull-left.red
-                i.fa.fa.fa-comments.fa-5x
+                i.fa.fa-bar-chart-o.fa-5x
             .panel-right.pull-right
-                h3 15,823
-                strong  Comments
+                h4 Analytics
+                strong  Dashboard
+    .col-md-3.col-sm-12.col-xs-12
+        .panel.panel-primary.text-center.no-boder.bg-color-green.green
+            .panel-left.pull-left.green
+                i.fa.fa-map-marker.fa-5x
+            .panel-right.pull-right
+                h3 11
+                strong  Maps
+    .col-md-3
+        .panel.panel-primary.text-center.no-boder.bg-color-blue.blue
+            .panel-left.pull-left.blue
+                i.fa.fa-university.fa-5x
+            .panel-right.pull-right
+                h3 8,457
+                strong  Properties
     .col-md-3.col-sm-12.col-xs-12
         .panel.panel-primary.text-center.no-boder.bg-color-brown.brown
             .panel-left.pull-left.brown
