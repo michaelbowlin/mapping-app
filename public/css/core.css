@@ -5867,26 +5867,35 @@ body,
   width: 88px;
   background: #303f3e; }
 
-.nav-wrap {
+.left-side .expand {
+  width: 240px !important; }
+
+#nav-wrap {
   position: absolute;
   top: 0px;
   left: 0;
   z-index: 9999;
   height: 100%;
-  width: 240px;
-  background: #303f3e; }
+  width: 88px;
+  background: #303f3e;
+  overflow: hidden;
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
 
-.nav-wrap ul {
+#nav-wrap ul {
   position: absolute;
   top: 0;
   left: -24px;
   margin-top: 7px; }
 
-.nav-wrap li {
+#nav-wrap li {
   list-style-type: none;
   text-align: center; }
 
-.nav-wrap i {
+#nav-wrap i {
   color: #f1f1f1;
   padding: 6px 0 0 0;
   margin: 0 4px 0 0;
@@ -5896,21 +5905,21 @@ body,
   width: 39px;
   text-align: center; }
 
-.nav-wrap a {
+#nav-wrap a {
   border: rgba(255, 255, 255, 0.2) solid 1px;
   border-left: none;
   border-right: none;
   width: 272px;
   float: left;
   text-align: left;
-  padding: 8px 0 8px 28px;
+  padding: 8px 0 8px 17px;
   margin: 0; }
 
-.nav-wrap span {
+#nav-wrap span {
   color: #fff;
   padding: 0 0 0 16px; }
 
-.nav-wrap a:first-child {
+#nav-wrap a:first-child {
   border-top: none; }
 
 .right-side {
@@ -5977,9 +5986,25 @@ img.logo2 {
   left: 78px; }
 
 img.logo3 {
-  height: 50px;
+  height: 46px;
   float: left;
-  margin: 6px 0 6px 10px; }
+  margin: 10px 0 6px 14px; }
+
+.brand {
+  position: relative; }
+
+.brand span {
+  position: absolute;
+  top: 11px;
+  left: 70px;
+  color: #fff;
+  font-size: 32px; }
+
+.brand span small {
+  position: absolute;
+  top: -5px;
+  left: 87px;
+  color: rgba(255, 255, 255, 0.6); }
 
 /* BASE STYLES
 ============================================================================= */
@@ -6204,7 +6229,10 @@ body {
 
 .navbar-inverse {
   background-color: #009587 !important;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  height: 66px;
+  width: 100%;
+  float: left; }
 
 /* Video Fullscreen */
 /*----------------------------------------------
