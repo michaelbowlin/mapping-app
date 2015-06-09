@@ -1,6 +1,7 @@
 div.col-xs-12(ng-controller="mvNavBarLoginCtrl")
     form.navbar-form(ng-hide="identity.isAuthenticated()")
-        a.btn.btn-warning.col-xs-12(href="/signup") Join Today
+        a(href="#",mp-de-modal-open)#testMe.launch-lightbox.btn.btn-warning.col-xs-12 Join Today
+
         hr
         //.form-group
         //    input.form-control(placeholder="Email", ng-model="username")
