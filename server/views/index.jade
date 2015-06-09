@@ -1,8 +1,10 @@
 extends ../includes/layout
 
-mp-co-page-screensize
 
 block main-content
+
+    mp-co-page-screensize
+    mp-co-lb-join
 
     .navbar.navbar-inverse.shadow-z-2
         div.brand
@@ -36,3 +38,5 @@ block main-content
                     .pagesFull.wrap-full
                         div(ng-view).well.page.active
                         //div(ng-view).well.page.active(ng-class='{ fullscreen: psize === 1, lg: psize === 2}')
+
+

@@ -125,7 +125,7 @@ body,
   display:block !important;
 }
 .navbar-inverse {
-  z-index: 9999;
+  z-index: 1;
 }
 .well {
   padding:40px 20px 20px 20px !important;
@@ -593,7 +593,132 @@ footer p{
 
 
 
+//== Lightboxes
+//
 
+%lightbox {
+  // @include border-radius();
+  // @include box-shadow();
+  /* padding: $spacing-2x; */
+  background: #FFF;
+  overflow: hidden;
+
+  h2 {
+    //margin-bottom: $spacing-2x;
+    //font-family: $font-header-light;
+    //font-size: $font-size-400;
+    //color: $dk-blue-base;
+
+    .icon {
+      //@extend .fa-times;
+      float: right;
+      //color: $gray-tint-75;
+      cursor: pointer;
+    }
+  }
+
+  .lightbox-body {
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+//== Extends
+//
+
+//## Background Dim
+
+%background-dim {
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+  width: 100%;
+  height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(40, 46, 48, 0.7);
+  z-index: 900;
+  opacity: 0;
+}
+
+//## Lightbox Container
+
+.lightbox-container {
+  @extend %background-dim;
+
+  &.launch-lightbox {
+    height: 100%;
+    opacity: 1;
+  }
+
+  //& .first-lightbox {
+  //  z-index: 9000 !important;
+  //
+  //  @include responsive(tablet-screens){
+  //    position:absolute;
+  //    top:0;
+  //    left:0;
+  //    z-index: 100 !important;
+  //  }
+  //
+  //}
+
+  //.second-lightbox {
+  //  z-index: 8000 !important;
+  //
+  //  @include responsive(tablet-screens){
+  //    z-index: 200 !important;
+  //  }
+  //
+  //}
+
+}
+
+
+//## Top Lightbox
+
+//.top-lightbox {
+//  @extend %lightbox;
+//  @include transition(margin-top);
+//  width: $grid-column-10;
+//  position: absolute;
+//  left: 50%;
+//  margin-top: -100em;
+//  margin-left: floor((-$grid-column-10 / 2));
+//
+//  &.launch-lightbox { margin-top: 100px }
+//}
+
+
+//## Right Lightbox
+
+.right-lightbox {
+  @extend %lightbox;
+
+  //@include transition(margin-right);
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+  height: 100%;
+  float: right;
+  margin-right: -1000em;
+
+  &.launch-lightbox {
+    margin-right: 0;
+
+    & :first-child {
+      /* border:green solid; */
+    }
+    & :nth-child(2) {
+      /* border:blue solid; */
+    }
+  }
+
+}
 
 
 
