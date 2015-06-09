@@ -1,5 +1,5 @@
 // angular.module('app', ['ngResource', 'ngRoute','geocoder-service','highcharts-ng','ui.bootstrap','uiGmapgoogle-maps']);
-angular.module('app', ['ngResource', 'ngRoute','geocoder-service','ui.bootstrap','ngAnimate','ngTouch', 'ui.grid', 'ui.grid.pagination','ngTouch', 'ui.grid.exporter', 'ui.grid.selection', 'ui.grid.edit', 'ui.grid.cellNav']);
+angular.module('app', ['ngResource', 'ngRoute','geocoder-service','ui.bootstrap','ngAnimate','ngTouch', 'ui.grid', 'ui.grid.pagination','ngTouch', 'ui.grid.exporter', 'ui.grid.selection', 'ui.grid.edit', 'ui.grid.cellNav','highcharts-ng']);
 
 angular.module('app').config(function ($routeProvider, $locationProvider) {
   var routeRoleChecks = {
@@ -14,8 +14,6 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
       }
     }
   }
-
-
 
   $locationProvider.html5Mode(true);
   $routeProvider
@@ -57,6 +55,11 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
     .when('/courses/add', {
       templateUrl: '/partials/courses/course-list',
       controller: 'mvCourseListCtrl'
+    })
+    .when('/dashboard', {
+      templateUrl: '/partials/dashboard/dashboard',
+      controller: 'dashboardCtrl',
+      controllerAs: 'dashboard'
     })
     .when('/properties', {
       templateUrl: '/partials/properties/property-list',

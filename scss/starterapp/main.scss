@@ -1,8 +1,12 @@
-html, body {
+html,
+body,
+.container-fluid,
+.row,
+.wrap-full,
+.page,
+.main-content {
   height:100%;
   width:100%;
-}
-body {
   display: table;
 }
 .ui-grid {
@@ -15,40 +19,72 @@ body {
   background:#303f3e;
   min-width: 88px;
 }
+
 .left-side {
   float: none;
   display: table-cell;
-  width:88px;
-  background:#303f3e;
+  width: 88px;
+  background: #303f3e;
 }
-.left-side ul {
+.left-side .expand {
+  width: 240px !important;
+}
+
+#nav-wrap {
   position:absolute;
-  top:0;
-  left:-24px;
-  margin-top:7px;
+  top:0px;
+  left:0;
+  z-index:9999;
+  height:100%;
+  width:88px;
+  background: #303f3e;
+  overflow:hidden;
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-.left-side li {
-  list-style-type:none;
-  text-align:center;
+
+
+#nav-wrap ul {
+  position: absolute;
+  top: 0;
+  left: -24px;
+  margin-top: 7px;
 }
-.left-side i {
-  color:#f1f1f1;
-  padding:14px 0 0 0;
-  margin-left:-6px;
-  font-size:26px;
+
+#nav-wrap li {
+  list-style-type: none;
+  text-align: center; }
+
+#nav-wrap i {
+  color: #f1f1f1;
+  padding: 6px 0 0 0;
+  margin: 0 4px 0 0;
+  font-size: 26px;
   text-shadow: 1px 1px #009587;
-}
-.left-side a {
-  border:rgba(255,255,255,.2) solid 1px;
-  border-left:none;
-  border-right:none;
-  width:72px;
-  height:60px;
-  float:left;
-}
-.left-side a:first-child {
-  border-top:none;
-}
+  height: 45px;
+  width: 39px;
+  text-align: center; }
+
+#nav-wrap a {
+  border: rgba(255, 255, 255, 0.2) solid 1px;
+  border-left: none;
+  border-right: none;
+  width: 272px;
+  float: left;
+  text-align: left;
+  padding:8px 0 8px 17px;
+  margin: 0; }
+
+#nav-wrap span {
+  color: #fff;
+  padding: 0 0 0 16px; }
+
+#nav-wrap a:first-child {
+  border-top: none; }
+
 .right-side {
   float: none;
   display: table-cell;
@@ -89,7 +125,7 @@ body {
   display:block !important;
 }
 .navbar-inverse {
-  z-index: 9999;
+  z-index: 1;
 }
 .well {
   padding:40px 20px 20px 20px !important;
@@ -113,10 +149,27 @@ img.logo2 {
   left: 78px; }
 
 img.logo3 {
-  height: 50px;
+  height: 46px;
   float: left;
-  margin: 6px 0 6px 10px
- }
+  margin: 10px 0 6px 14px; }
+
+.brand {
+  position: relative;
+}
+
+.brand span {
+  position: absolute;
+  top: 11px;
+  left: 70px;
+  color: #fff;
+  font-size: 32px; }
+
+.brand span small {
+  position: absolute;
+  top: -5px;
+  left: 87px;
+  color: rgba(255, 255, 255, 0.6); }
+
 
 
 
@@ -332,7 +385,342 @@ body {
 .navbar-inverse {
   background-color: #009587 !important;
   margin-bottom: 0;
+  height:66px;
+  width:100%;
+  float:left;
 }
+
+/* Video Fullscreen */
+
+
+
+/*----------------------------------------------
+   DASHBOARD STYLES
+------------------------------------------------*/
+.page-header {
+  padding-bottom: 9px;
+  margin: 10px 0 20px;
+  border-bottom: 1px solid transparent;
+}
+.panel-left{
+  width: 35%;
+  height: 158px;
+  background: #5CB85C;
+}
+.panel-left .fa-5x {
+  font-size: 11em;
+  color: rgba(255, 255, 255, 0.15);
+  padding: 40px 0;
+  margin-bottom:30px;
+}
+.panel-right{
+  width: 65%;
+  height: 158px;
+  background: transparent;
+  margin-bottom: 0;
+  color: #fff;
+}
+.panel-right h3{
+  font-size: 50px;
+  padding: 31px 10px 13px;
+  color: rgba(255, 255, 255, 0.96);
+}
+.panel-back {
+  background-color:#fff;
+
+}
+.panel-default {
+  border-color: #ECECEC;
+}
+.panel-default > .panel-heading {
+  color: #000;
+  border-color: #FFF;
+  font-weight: bold;
+  background: rgba(100,100,100,.2);
+  font-size: 16px;
+}
+.panel-heading {
+  padding: 15px 15px 0px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.jumbotron, .well{
+  background:#fff;
+}
+.noti-box {
+  min-height: 100px;
+  padding: 20px;
+}
+
+.noti-box .icon-box {
+  display: block;
+  float: left;
+  margin: 0 15px 10px 0;
+  width: 70px;
+  height: 70px;
+  line-height: 75px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 40px;
+}
+.text-box p{
+  margin: 0 0 3px;
+}
+.main-text {
+  font-size: 25px;
+  font-weight:600;
+}
+.set-icon {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+
+}
+.panel-primary{
+  display:inline-block;
+  margin-bottom:30px;
+  width:100%;
+}
+.green {
+  background-color: #5cb85c;
+  color: #fff;
+}
+.blue {
+  background-color: #4CB1CF;
+  color: #fff
+}
+.red {
+  background-color: #FF5722;
+  color:#fff;
+}
+.brown {
+  background-color: #f0ad4e;
+  color:#fff;
+}
+.back-footer-red {
+  background-color: #F0433D;
+  color:#fff;
+  border-top: 0px solid #fff;
+}
+
+.icon-box-right {
+  display: block;
+  float: right;
+  margin: 0 15px 10px 0;
+  width: 70px;
+  height: 70px;
+  line-height: 75px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 40px;
+}
+
+
+/*CHAT PANEL*/
+/*Charts*/
+
+.main-chart {
+  background: #fff;
+}
+
+.easypiechart-panel {
+  text-align: center;
+  padding: 1px 0;
+  margin-bottom: 20px;
+}
+
+.placeholder h2 {
+  margin-bottom: 0px;
+}
+
+.donut {
+  width: 100%;
+}
+
+.easypiechart {
+  position: relative;
+  text-align: center;
+  width: 120px;
+  height: 120px;
+  margin: 20px auto 10px auto;
+}
+
+.easypiechart .percent {
+  display: block;
+  position: absolute;
+  font-size: 26px;
+  top: 38px;
+  width: 120px;
+}
+
+#easypiechart-blue .percent { color: #30a5ff;}
+#easypiechart-teal .percent { color: #1ebfae;}
+#easypiechart-orange .percent { color: #ffb53e;}
+#easypiechart-red .percent { color: #ef4040;}
+
+
+.chat-panel .panel-body {
+  height: 450px;
+  overflow-y: scroll;
+}
+.chat-box {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.chat-box li {
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #808080;
+}
+.chat-box li.left .chat-body {
+  margin-left: 90px;
+}
+.chat-box li .chat-body p {
+  margin: 0;
+  color: #8d8888;
+}
+.chat-img>img {
+  margin-left:20px;
+}
+footer p{
+  font-size: 14px;
+}
+/*----------------------------------------------
+   /END DASHBOARD STYLES
+------------------------------------------------*/
+
+
+
+//== Lightboxes
+//
+
+%lightbox {
+  // @include border-radius();
+  // @include box-shadow();
+  /* padding: $spacing-2x; */
+  background: #FFF;
+  overflow: hidden;
+
+  h2 {
+    //margin-bottom: $spacing-2x;
+    //font-family: $font-header-light;
+    //font-size: $font-size-400;
+    //color: $dk-blue-base;
+
+    .icon {
+      //@extend .fa-times;
+      float: right;
+      //color: $gray-tint-75;
+      cursor: pointer;
+    }
+  }
+
+  .lightbox-body {
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+//== Extends
+//
+
+//## Background Dim
+
+%background-dim {
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+  width: 100%;
+  height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(40, 46, 48, 0.7);
+  z-index: 900;
+  opacity: 0;
+}
+
+//## Lightbox Container
+
+.lightbox-container {
+  @extend %background-dim;
+
+  &.launch-lightbox {
+    height: 100%;
+    opacity: 1;
+  }
+
+  //& .first-lightbox {
+  //  z-index: 9000 !important;
+  //
+  //  @include responsive(tablet-screens){
+  //    position:absolute;
+  //    top:0;
+  //    left:0;
+  //    z-index: 100 !important;
+  //  }
+  //
+  //}
+
+  //.second-lightbox {
+  //  z-index: 8000 !important;
+  //
+  //  @include responsive(tablet-screens){
+  //    z-index: 200 !important;
+  //  }
+  //
+  //}
+
+}
+
+
+//## Top Lightbox
+
+//.top-lightbox {
+//  @extend %lightbox;
+//  @include transition(margin-top);
+//  width: $grid-column-10;
+//  position: absolute;
+//  left: 50%;
+//  margin-top: -100em;
+//  margin-left: floor((-$grid-column-10 / 2));
+//
+//  &.launch-lightbox { margin-top: 100px }
+//}
+
+
+//## Right Lightbox
+
+.right-lightbox {
+  @extend %lightbox;
+
+  //@include transition(margin-right);
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+  height: 100%;
+  float: right;
+  margin-right: -1000em;
+
+  &.launch-lightbox {
+    margin-right: 0;
+
+    & :first-child {
+      /* border:green solid; */
+    }
+    & :nth-child(2) {
+      /* border:blue solid; */
+    }
+  }
+
+}
+
+
 
 /*
 *
