@@ -179,7 +179,7 @@ img.logo3 {
 {
   position:absolute;
   top:0;
-  left:12px;
+  right:10%;
   height:160px;
   width:272px;
   padding:54px 20px 0 0px;
@@ -421,7 +421,21 @@ body {
 }
 
 /* Video Fullscreen */
-
+video#bgvid {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  /*z-index: -100;
+   background: url(polina.jpg) no-repeat;
+  */
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+}
 
 
 /*----------------------------------------------
