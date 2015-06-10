@@ -27,7 +27,6 @@ mp-co-page-screensize
             //img(src='http://i.istockimg.com/file_thumbview_approve/42523428/13/stock-video-42523428-metro-subway-underground-navigation-city-map-.jpg')
             video(width='80%', autoplay)
                   source(src='/app/video/vid-map.mp4', type='video/mp4')
-                  //source(src='mov_bbb.ogg', type='video/ogg')
                   |   Your browser does not support HTML5 video.
             br
             br
@@ -39,27 +38,31 @@ mp-co-page-screensize
             .panel.panel-primary.text-center.no-boder.bg-color-red.red
                 .panel-left.pull-left.red
                     i.fa.fa-bar-chart-o.fa-5x
-                .panel-right.pull-right
-                    h4 Analytics
-                    strong  Dashboard
+                .panel-right.pull-right.btn-home-01
+                    a(href="/dashboard")
+                        h4 Dashboard
+                        strong  My Analytics
         .col-md-3.col-sm-12.col-xs-12
             .panel.panel-primary.text-center.no-boder.bg-color-green.green
                 .panel-left.pull-left.green
                     i.fa.fa-map-marker.fa-5x
-                .panel-right.pull-right
-                    h3 11
-                    strong  Maps
+                .panel-right.pull-right.btn-home-02
+                    a(href="/map")
+                        h4 Mapping
+                        strong  My Maps
         .col-md-3
             .panel.panel-primary.text-center.no-boder.bg-color-blue.blue
                 .panel-left.pull-left.blue
                     i.fa.fa-university.fa-5x
-                .panel-right.pull-right
-                    h3 8,457
-                    strong  Properties
+                .panel-right.pull-right.btn-home-03
+                    a(href="/properties")
+                        h4 Properties
+                        strong  My Properties
         .col-md-3.col-sm-12.col-xs-12
             .panel.panel-primary.text-center.no-boder.bg-color-brown.brown
                 .panel-left.pull-left.brown
                     i.fa.fa-users.fa-5x
-                .panel-right.pull-right
-                    h3 36,752
-                    strong No. of Visits
+                .panel-right.pull-right.btn-home-04
+                    a(href="/marketing")
+                        h4 Marketing
+                        strong  Make Money

@@ -171,7 +171,37 @@ img.logo3 {
   color: rgba(255, 255, 255, 0.6); }
 
 
+/* Home page butter */
+.btn-home-01 a,
+.btn-home-02 a,
+.btn-home-03 a,
+.btn-home-04 a
+{
+  position:absolute;
+  top:0;
+  left:12px;
+  height:160px;
+  width:272px;
+  padding:54px 20px 0 0px;
+  text-align:right;
+  color:#fff;
+  background:rgba(255,255,255,.0);
+}
+.btn-home-01 a:hover,
+.btn-home-02 a:hover,
+.btn-home-03 a:hover,
+.btn-home-04 a:hover
+{
+  text-decoration: none;
+}
+.btn-home-01 h4,
+.btn-home-02 h4,
+.btn-home-03 h4,
+.btn-home-04 h4
+{
 
+  font-size:30px
+}
 
 
 
