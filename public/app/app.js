@@ -61,6 +61,11 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
       controller: 'dashboardCtrl',
       controllerAs: 'dashboard'
     })
+    .when('/marketing', {
+      templateUrl: '/partials/marketing/marketing',
+      controller: 'marketingCtrl',
+      controllerAs: 'marketing'
+    })
     .when('/properties', {
       templateUrl: '/partials/properties/property-list',
       controller: 'propertyListCtrl',

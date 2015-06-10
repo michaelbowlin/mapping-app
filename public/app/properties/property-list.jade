@@ -1,23 +1,25 @@
+mp-co-lb-addprop
 .row
    .col-md-3
       .panel.panel-primary.text-center.no-boder.bg-color-blue.blue
          .panel-left.pull-left.blue
-            i.fa.fa-home.fa-5x
-         .panel-right.pull-right
-            h3 8,457
-            strong  Properties
+            i.fa.fa-university.fa-5x
+         .panel-right.pull-right.btn-home-03
+            a(href="/properties")
+               h4 Properties
+               strong  My Properties
    .col-md-9
       .panel.panel-default
          .panel-heading
             | Properties
          .panel-body
 
-
-.row
    .col-md-12
       .panel.panel-default
          .panel-body
-            button.btn.btn-large.btn-primary(ng-click="property.go('/property/add')") Add Property
+            //button.btn.btn-large.btn-primary(ng-click="property.go('/property/add')") Add Property
+            button.btn.btn-large.btn-primary.launch-lightbox(mp-de-modal-open)#addProp Add Property
+
                //.row(ng-repeat="property in property.properties")
              //  .col-md-12
              //     a(href="/properties/{{property._id}}") {{property.title}} - {{property.longCoord}}
