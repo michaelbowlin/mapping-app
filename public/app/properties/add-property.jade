@@ -56,5 +56,6 @@ google-places(location='location')
               input(type='radio', ng-model='property.condition', name='poorOption2', value='Poor')
               |     Poor
 .modal-footer
-  button.btn.btn-large.btn-primary(ng-click='property.addProperty()') Add Property
+  button.btn.btn-large.btn-primary(ng-click='addProperty(property)') Add Property
+  //button.btn.btn-large.btn-primary(ng-click='property.addProperty()') Add Property
   button.btn.btn-warning(ng-click='cancel()') Cancel

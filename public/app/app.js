@@ -68,7 +68,7 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
     })
     .when('/properties', {
       templateUrl: '/partials/properties/property-list',
-      controller: 'propertyListController',
+      controller: 'propertyListCtrl',
       controllerAs: 'property'
     })
     .when('/properties/:id', {

@@ -4,6 +4,7 @@ angular
     return{
 
       createProperty: function(newPropertyData){
+        alert('directive')
         var newProp = new propertyService(newPropertyData);
         var dfd = $q.defer();
 
