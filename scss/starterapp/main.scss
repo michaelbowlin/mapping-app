@@ -397,11 +397,16 @@ body {
 }
 
 #map {
-  height: 420px;
+  height: 100%;
   width: 101%;
   position: absolute !important;
-  top: -19px;
+  top:66px;
   left: -5px;
+}
+.map-panel {
+  position:absolute;
+  z-index:1;
+  overflow:hidden;
 }
 #map-holder {
   height:410px;
