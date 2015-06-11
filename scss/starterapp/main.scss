@@ -9,6 +9,12 @@ body,
   width:100%;
   display: table;
 }
+/* Removing Responsiveness */
+#stopper {
+  width:100%;
+  min-width:1100px !important
+}
+
 .ui-grid {
   border:none;
 }
