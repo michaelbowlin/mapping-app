@@ -5893,7 +5893,7 @@ body,
 #nav-wrap ul {
   position: absolute;
   top: 0;
-  left: -24px;
+  left: -36px;
   margin-top: 7px; }
 
 #nav-wrap li {
@@ -5922,7 +5922,7 @@ body,
 
 #nav-wrap span {
   color: #fff;
-  padding: 0 0 0 16px; }
+  padding: 0 0 0 25px; }
 
 #nav-wrap a:first-child {
   border-top: none; }
