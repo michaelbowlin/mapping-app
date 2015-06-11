@@ -1,9 +1,32 @@
-.row
-   .div
-      button.btn.btn-large.btn-primary(ng-click="property.go('/property/add')") Add Property
-       //.row(ng-repeat="property in property.properties")
-       //  .col-md-12
-       //     a(href="/properties/{{property._id}}") {{property.title}} - {{property.longCoord}}
+mp-co-lb-addprop
+.row#stopper
+   .col-xs-3
+      .panel.panel-primary.text-center.no-boder.bg-color-blue.blue
+         .panel-left.pull-left.blue
+            i.fa.fa-university.fa-5x
+         .panel-right.pull-right.btn-home-03
+            a(href="/properties")
+               h4 Properties
+               strong  My Properties
+   .col-xs-9
+      .panel.panel-default
+         //.panel-heading
+         //    | Properties
+         .panel-body
+            p
+               | Proin eget sem a turpis luctus gravida id efficitur tellus. Donec feugiat nibh dui, sit amet lacinia ipsum ullamcorper finibus. Nullam magna tortor, facilisis vitae leo in, placerat ullamcorper arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu justo ligula. Praesent cursus lectus a auctor feugiat. Vivamus in magna ligula. Sed feugiat urna id mollis rhoncus. Proin dolor mi, vestibulum et quam eget, rutrum posuere erat. Suspendisse blandit dignissim elit tempor porta. Fusce vitae nibh eget lectus suscipit volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+               | Sed risus ante, pretium eget lacus vel, feugiat consequat diam. Ut maximus quam ut libero scelerisque, eu malesuada erat finibus. Vestibulum at imperdiet lorem. Sed consequat justo a purus iaculis molestie. Etiam accumsan quis metus vel pulvinar. Pellentesque non consectetur odio, quis ultrices velit. Quisque tempus enim sed commodo faucibus. Curabitur accumsan magna ante.
 
-      div
-         ui-grid-properties
+
+   .col-xs-12
+      .panel.panel-default
+         .panel-body
+            //button.btn.btn-large.btn-primary(ng-click="property.go('/property/add')") Add Property
+            button.btn.btn-large.btn-primary.launch-lightbox(mp-de-modal-open)#addProp Add Property
+
+               //.row(ng-repeat="property in property.properties")
+             //  .col-md-12
+             //     a(href="/properties/{{property._id}}") {{property.title}} - {{property.longCoord}}
+
+            div
+               ui-grid-properties
