@@ -1,7 +1,14 @@
-
 // /.row
+
 .row
-  .col-xs-12
+    .col-xs-3
+        .panel.panel-primary.text-center.no-boder.bg-color-green.green.map-panel
+            .panel-left.pull-left.green
+                i.fa.fa-map-marker.fa-5x
+            .panel-right.pull-right.btn-home-02
+                a(href="/map")
+                    h4 Mapping
+                    strong  My Maps  .col-xs-12
     #map
       google-map(center='{latitude:30, longitude: -120}')
         marker(coords='map.markers')
@@ -159,5 +166,6 @@
 //-     <div class="modal-footer">
 //-     <button ng-click="doSearch(newprop)" class="btn btn-large btn-primary">Add Property</button>
 //-     <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+
 //-     </div>
 

@@ -1,60 +1,14 @@
-//.row
-//    .col-md-12
-//        h1.page-header
-//            | Dashboard
-//            small Summary of your App
-//        ol.breadcrumb
-//            li
-//                a(href='#') Home
-//            li
-//                a(href='#') Library
-//            li.active Data
-// /. ROW
-.row
-    .col-md-3.col-sm-12.col-xs-12
-        .panel.panel-primary.text-center.no-boder.bg-color-green.green
-            .panel-left.pull-left.green
+.row#stopper
+    .col-xs-3
+        .panel.panel-primary.text-center.no-boder.bg-color-red.red
+            .panel-left.pull-left.red
                 i.fa.fa-bar-chart-o.fa-5x
-            .panel-right.pull-right
-                h3 8,457
-                strong  Total Properties
+            .panel-right.pull-right.btn-home-01
+                a(href="/dashboard")
+                    h4 Dashboard
+                    strong  My Analytics
 
-        .panel.panel-default
-            .panel-heading
-                | Tasks Panel
-            .panel-body
-                .list-group
-                    a.list-group-item(href='#')
-                        span.badge 7 minutes ago
-                        i.fa.fa-fw.fa-comment
-                        |  Commented on a post
-                    a.list-group-item(href='#')
-                        span.badge 16 minutes ago
-                        i.fa.fa-fw.fa-truck
-                        |  Order 392 shipped
-                    a.list-group-item(href='#')
-                        span.badge 36 minutes ago
-                        i.fa.fa-fw.fa-globe
-                        |  Invoice 653 has paid
-                    a.list-group-item(href='#')
-                        span.badge 1 hour ago
-                        i.fa.fa-fw.fa-user
-                        |  A new user has been added
-                    a.list-group-item(href='#')
-                        span.badge 1.23 hour ago
-                        i.fa.fa-fw.fa-user
-                        |  A new user has added
-                    a.list-group-item(href='#')
-                        span.badge yesterday
-                        i.fa.fa-fw.fa-globe
-                        |  Saved the world
-                .text-right
-                    a(href='#')
-                        | More Tasks
-                        i.fa.fa-arrow-circle-right
-
-
-    .col-md-3.col-sm-12.col-xs-12
+    .col-xs-3
         .panel.panel-primary.text-center.no-boder.bg-color-blue.blue
             h4 Maps
             //#easypiechart-blue.easypiechart(data-percent='82')
@@ -66,7 +20,7 @@
             //.panel-right.pull-right
             //    h3 52,160
             //    strong  Sales
-    .col-md-3.col-sm-12.col-xs-12
+    .col-xs-3
         .panel.panel-primary.text-center.no-boder.bg-color-red.red
             h4 Property Type
             //#easypiechart-teal.easypiechart(data-percent='84')
@@ -78,7 +32,7 @@
             //.panel-right.pull-right
             //    h3 15,823
             //    strong  Comments
-    .col-md-3.col-sm-12.col-xs-12
+    .col-xs-3
         .panel.panel-primary.text-center.no-boder.bg-color-brown.brown
             h4 Average Condition
             // #easypiechart-red.easypiechart(data-percent='46')
@@ -93,181 +47,44 @@
 
 
 
-    .col-md-12
-        .panel.panel-default
-            .panel-heading
-                | Line Chart
-            .panel-body
-                input(ng-model='highchartsNG.title.text')
-                button(ng-click='addSeries()') Add Series
-                button(ng-click='addPoints()') Add Points to Random Series
-                button(ng-click='removeRandomSeries()') Remove Random Series
-                button(ng-click='swapChartType()') Line/Bar
-                highchart#chart1(config='highchartsNG')
+    .col-xs-12
+        .col-xs-9
+            h2
+                | App Analytics
+            p
+                | Proin eget sem a turpis luctus gravida id efficitur tellus. Donec feugiat nibh dui, sit amet lacinia ipsum ullamcorper finibus. Nullam magna tortor, facilisis vitae leo in, placerat ullamcorper arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu justo ligula. Praesent cursus lectus a auctor feugiat. Vivamus in magna ligula. Sed feugiat urna id mollis rhoncus. Proin dolor mi, vestibulum et quam eget, rutrum posuere erat. Suspendisse blandit dignissim elit tempor porta. Fusce vitae nibh eget lectus suscipit volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                | Sed risus ante, pretium eget lacus vel, feugiat consequat diam. Ut maximus quam ut libero scelerisque, eu malesuada erat finibus. Vestibulum at imperdiet lorem. Sed consequat justo a purus iaculis molestie. Etiam accumsan quis metus vel pulvinar. Pellentesque non consectetur odio, quis ultrices velit. Quisque tempus enim sed commodo faucibus. Curabitur accumsan magna ante.
+                | Sed risus ante, pretium eget lacus vel, feugiat consequat diam. Ut maximus quam ut libero scelerisque, eu malesuada erat finibus. Vestibulum at imperdiet lorem. Sed consequat justo a purus iaculis molestie. Etiam accumsan quis metus vel pulvinar. Pellentesque non consectetur odio, quis ultrices velit. Quisque tempus enim sed commodo faucibus. Curabitur accumsan magna ante.
 
-
-
-    .col-md-12
-        .panel.panel-default
-            .panel-heading
-                | Responsive Table Example
-            .panel-body
-                .table-responsive
-                    table.table.table-striped.table-bordered.table-hover
-                        thead
-                            tr
-                                th S No.
-                                th First Name
-                                th Last Name
-                                th User Name
-                                th Email ID.
-                        tbody
-                            tr
-                                td 1
-                                td John
-                                td Doe
-                                td John15482
-                                td name@site.com
-                            tr
-                                td 2
-                                td Kimsila
-                                td Marriye
-                                td Kim1425
-                                td name@site.com
-                            tr
-                                td 3
-                                td Rossye
-                                td Nermal
-                                td Rossy1245
-                                td name@site.com
-                            tr
-                                td 4
-                                td Richard
-                                td Orieal
-                                td Rich5685
-                                td name@site.com
-                            tr
-                                td 5
-                                td Jacob
-                                td Hielsar
-                                td Jac4587
-                                td name@site.com
-                            tr
-                                td 6
-                                td Wrapel
-                                td Dere
-                                td Wrap4585
-                                td name@site.com
-
-
-.col-xs-12
-    .col-xs-6.col-md-3
-        .panel.panel-default
-            .panel-body.easypiechart-panel
-                h4 Customers
-                #easypiechart-blue.easypiechart(data-percent='82')
-                    span.percent 82%
-    .col-xs-6.col-md-3
-        .panel.panel-default
-            .panel-body.easypiechart-panel
-                h4 Sales
-                #easypiechart-orange.easypiechart(data-percent='55')
-                    span.percent 55%
-    .col-xs-6.col-md-3
-        .panel.panel-default
-            .panel-body.easypiechart-panel
-                h4 Profits
-                #easypiechart-teal.easypiechart(data-percent='84')
-                    span.percent 84%
-    .col-xs-6.col-md-3
-        .panel.panel-default
-            .panel-body.easypiechart-panel
-                h4 No. of Visits
-                #easypiechart-red.easypiechart(data-percent='46')
-                    span.percent 46%
-
-    .col-md-4.col-sm-12.col-xs-12
-        .panel.panel-default
-            .panel-heading
-                | Tasks Panel
-            .panel-body
-                .list-group
-                    a.list-group-item(href='#')
-                        span.badge 7 minutes ago
-                        i.fa.fa-fw.fa-comment
-                        |  Commented on a post
-                    a.list-group-item(href='#')
-                        span.badge 16 minutes ago
-                        i.fa.fa-fw.fa-truck
-                        |  Order 392 shipped
-                    a.list-group-item(href='#')
-                        span.badge 36 minutes ago
-                        i.fa.fa-fw.fa-globe
-                        |  Invoice 653 has paid
-                    a.list-group-item(href='#')
-                        span.badge 1 hour ago
-                        i.fa.fa-fw.fa-user
-                        |  A new user has been added
-                    a.list-group-item(href='#')
-                        span.badge 1.23 hour ago
-                        i.fa.fa-fw.fa-user
-                        |  A new user has added
-                    a.list-group-item(href='#')
-                        span.badge yesterday
-                        i.fa.fa-fw.fa-globe
-                        |  Saved the world
-                .text-right
-                    a(href='#')
-                        | More Tasks
-                        i.fa.fa-arrow-circle-right
-    .col-md-8.col-sm-12.col-xs-12
-        .panel.panel-default
-            .panel-heading
-                | Responsive Table Example
-            .panel-body
-                .table-responsive
-                    table.table.table-striped.table-bordered.table-hover
-                        thead
-                            tr
-                                th S No.
-                                th First Name
-                                th Last Name
-                                th User Name
-                                th Email ID.
-                        tbody
-                            tr
-                                td 1
-                                td John
-                                td Doe
-                                td John15482
-                                td name@site.com
-                            tr
-                                td 2
-                                td Kimsila
-                                td Marriye
-                                td Kim1425
-                                td name@site.com
-                            tr
-                                td 3
-                                td Rossye
-                                td Nermal
-                                td Rossy1245
-                                td name@site.com
-                            tr
-                                td 4
-                                td Richard
-                                td Orieal
-                                td Rich5685
-                                td name@site.com
-                            tr
-                                td 5
-                                td Jacob
-                                td Hielsar
-                                td Jac4587
-                                td name@site.com
-                            tr
-                                td 6
-                                td Wrapel
-                                td Dere
-                                td Wrap4585
-                                td name@site.com
+        .col-xs-3
+            br
+            br
+            .panel.panel-default
+                .panel-heading
+                    | Mapping Data
+                .panel-body
+                    .list-group
+                        //a.list-group-item(href='#')
+                        //    span.badge 7 minutes ago
+                        //    i.fa.fa-fw.fa-comment
+                        //    |  Commented on a post
+                        //a.list-group-item(href='#')
+                        //    span.badge 16 minutes ago
+                        //    i.fa.fa-fw.fa-truck
+                        //    |  Order 392 shipped
+                        a.list-group-item(href='/map')
+                            span.badge Current Mapping Apps
+                            i.fa.fa-fw.fa-globe
+                            br
+                        a.list-group-item(href='/marketing')
+                            span.badge Marketing Campaigns
+                            i.fa.fa-fw.fa-diamond
+                            br
+                        a.list-group-item(href='dashboard')
+                            span.badge Current Analytics
+                            i.fa.fa-fw.fa-pie-chart
+                            br
+                        a.list-group-item(href='/profile')
+                            span.badge My Profile
+                            i.fa.fa-fw.fa-user
+                            br

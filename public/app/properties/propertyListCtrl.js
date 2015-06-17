@@ -1,6 +1,6 @@
 angular
 	.module('app')
-	.controller('propertyListCtrl', function($location, cachedPropertiesService, $scope) {
+	.controller('propertyListCtrl', function($location, cachedPropertiesService, $scope, $http, uiGridConstants) {
 		var vm = this;
 
 		vm.properties = cachedPropertiesService.query();
@@ -9,14 +9,6 @@ angular
 			$location.path( location );
 		}
 
-		$scope.showLeftNav = function(){
-			alert("asdf")
-		}
+		console.log(vm.properties);
 
-		//var itemsPerPage = vm.properties;
-		//var itemsPerPageSkip = vm.properties;
-		//var maxPaginationSize = vm.properties;
-		//var totalItems = vm.properties;
-		//var sortBy = vm.properties;
-
-});
+	});
