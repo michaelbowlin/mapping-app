@@ -1,14 +1,12 @@
-(function(){
-    'use strict';
+(function() {
+  'use strict';
 
-    angular
-        .module('app')
-        .controller('marketingCtrl', marketingCtrl);
+  angular
+    .module('app')
+    .controller('marketingCtrl', marketingCtrl);
 
-    function marketingCtrl($scope) {
+  function marketingCtrl() {
 
-    }
+  }
 
 })();
-
-
