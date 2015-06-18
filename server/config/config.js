@@ -7,6 +7,7 @@ module.exports = {
     rootPath: rootPath,
     port: process.env.PORT || 3030
   },
+  
   production: {
     rootPath: rootPath,
     db: 'mongodb://mapping:pas$w0rd@ds034878.mongolab.com:34878/mapping-app',
