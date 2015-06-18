@@ -1,28 +1,28 @@
-(function(){
-    'use strict';
+(function() {
+  'use strict';
 
-    angular
-        .module('app')
-        .directive('mpCoPageScreensize', mpCoPageScreensize);
+  angular
+    .module('app')
+    .directive('mpCoPageScreensize', mpCoPageScreensize);
 
-    function mpCoPageScreensize(){
-        return {
-            restrict: 'E',
-            replace: true,
-            link: function(scope, element, attrs){
+  function mpCoPageScreensize() {
+    return {
+      restrict: 'E',
+      replace: true,
+      link: function(scope, element, attrs) {
 
-            },
-            controller: function($scope){
-                $scope.changePanel = function(choice){
-                    if(choice === "fullscreen"){
-                        $scope.psize = 1;
-                    } else if(choice === "large"){
-                        $scope.psize = 2;
-                    }
-                }
-            }
+      },
+      controller: function($scope) {
+        $scope.changePanel = function(choice) {
+          if (choice === "fullscreen") {
+            $scope.psize = 1;
+          } else if (choice === "large") {
+            $scope.psize = 2;
+          }
         }
-    };
+      }
+    }
+  };
 
 
 })();
