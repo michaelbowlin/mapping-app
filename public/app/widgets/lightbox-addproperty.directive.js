@@ -12,10 +12,11 @@
       link: function(scope, element, attrs) {
 
       },
-      controller: function($scope,$location, identityService, mvNotifier, propertyManager) {
+      controller: function($scope, $location, identityService, mvNotifier, propertyManager) {
         var vm = this;
         //
         //vm.types = [{Type:'Residential', Type:'Commericial'}]
+
 
         $scope.addProperty = function(newProp) {
 
