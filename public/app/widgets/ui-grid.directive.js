@@ -68,8 +68,11 @@
                 name: 'delete',
                 cellClass: 'delete',
                 width: 50,
-                cellTemplate: '<button class="btn btn-danger btn-sm" ng-click=""><i class="fa fa-remove"></i></button>'
-              }
+                // cellTemplate: '<button class="btn btn-danger btn-sm" ng-click=""><i class="fa fa-remove"></i></button>'
+                // cellTemplate: '<a href ng-click="deleteProperty()"> DELETE </a>'
+                cellTemplate: '<delete-property></delete-property>'
+                // cellTemplate: '<h1>{{title}}</h1>'
+          }
 
             ],
             gridMenuCustomItems: [{
@@ -134,6 +137,7 @@
               break;
             }
 
+
             $http.get(url)
               .success(function(data) {
                 $scope.gridOptions.totalItems = 100;
@@ -145,5 +149,8 @@
           getPage();
         }
       }
+
+
     });
+
 })();

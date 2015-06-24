@@ -11,4 +11,6 @@ angular
 
 		console.log(vm.properties);
 
+
+
 	});

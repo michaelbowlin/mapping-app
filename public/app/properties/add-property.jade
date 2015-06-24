@@ -1,4 +1,4 @@
-google-places(location='location')
+google-places(location='location', lat="property.latCoord", lon="property.longCoord")
   form.form-horizontal(role='form')
     .form-group
       // type
@@ -23,11 +23,24 @@ google-places(location='location')
         span.input-group-btn
           button.btn.btn-default(type='button', ng-click='property.openDatePicker($event)')
             i.glyphicon.glyphicon-calendar
+
       // address
       label.col-sm-12.control-label()
         p.pull-left Address
       .col-sm-12
-        input#google_places_ac.input-block-level(placeholder='Enter Address Here', name='google_places_ac', type='text', ng-model='proeprty.latCoord')
+        input#google_places_ac.input-block-level(placeholder='Enter Address Here', name='google_places_ac', type='text')
+      // lat
+      label.col-sm-12.control-label()
+        p.pull-left Lat
+      .col-sm-12
+        input(ng-model='property.latCoord')
+      // lon
+      label.col-sm-12.control-label()
+        p.pull-left Lon
+      .col-sm-12
+        input(ng-model='property.longCoord')
+
+
       // improvement size
       label.col-sm-12.control-label()
         p.pull-left City
