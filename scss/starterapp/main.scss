@@ -9,6 +9,9 @@ body,
   width:100%;
   display: table;
 }
+.display-block {
+  display:block !important;
+}
 /* Removing Responsiveness */
 #stopper {
   width:100%;
@@ -209,7 +212,19 @@ img.logo3 {
   font-size:30px
 }
 
-
+.grid-btn {
+  position: fixed !important;
+  bottom: 60px;
+  right: 70px;
+  padding: 4px 0 0 2px !important;
+  color: #fff !important;
+  height:70px !important;
+  width:70px !important;
+}
+.grid-btn:hover {
+  background:#f0ad4e !important;
+  /*box-shadow:0px 1px 1px 1px rgba(10,10,10,.3) !important;*/
+}
 
 /* BASE STYLES
 ============================================================================= */
@@ -414,6 +429,20 @@ body {
   z-index:1;
   overflow:hidden;
 }
+.map-controls {
+  position: absolute;
+  padding: 10px;
+  top: 122px;
+  left: 23px;
+  z-index: 9999;
+  border-radius: 0 0 2px 2px;
+  height: 35px;
+  width: 132px; }
+
+.map-controls label {
+  color:#fff !important;
+  margin:0 0 120px 0;
+}
 #map-holder {
   height:410px;
 }
@@ -432,6 +461,15 @@ body {
   z-index:1;
   border-top:20px solid #f5f5f5;
   border-bottom:30px solid #f5f5f5;
+  -webkit-transition: .4s ease-in-out;
+  -moz-transition: .4s ease-in-out;
+  -o-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+}
+.grid-toggle {
+  /*display:none;*/
+  bottom:-900px;
+
 }
 .navbar-inverse {
   background-color: #009587 !important;
@@ -548,7 +586,7 @@ video#bgvid {
   width:100%;
 }
 .green {
-  background-color: #5cb85c;
+  background:#5cb85c;
   color: #fff;
 }
 .blue {
@@ -926,3 +964,63 @@ body{padding-top:50px}#banner{border-bottom:none}.page-header h1{font-size:4em}.
 
 
 
+/* Toggle Button */
+.togglebutton {
+  vertical-align: middle;
+}
+.togglebutton,
+.togglebutton label,
+.togglebutton input,
+.togglebutton .toggle {
+  user-select: none;
+}
+.togglebutton label {
+  font-weight: 400;
+  cursor: pointer;
+}
+.togglebutton label input[type=checkbox] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.togglebutton label .toggle,
+.togglebutton label input[type=checkbox][disabled] + .toggle {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 15px;
+  background-color: rgba(80, 80, 80, 0.7);
+  border-radius: 15px;
+  margin-right: 10px;
+  transition: background 0.3s ease;
+  vertical-align: middle;
+}
+.togglebutton label .toggle:after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #F1F1F1;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
+  left: -5px;
+  top: -2px;
+  transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
+}
+.togglebutton label input[type=checkbox][disabled] + .toggle:after,
+.togglebutton label input[type=checkbox][disabled]:checked + .toggle:after {
+  background-color: #BDBDBD;
+}
+.togglebutton label input[type=checkbox] + .toggle:active:after,
+.togglebutton label input[type=checkbox][disabled] + .toggle:active:after {
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.togglebutton label input[type=checkbox]:checked + .toggle:after {
+  left: 15px;
+}
+/* Change color on select */
+
+.togglebutton label input[type=checkbox]:checked+.toggle:after, .togglebutton-default label input[type=checkbox]:checked+.toggle:after {
+  background-color: darkgrey;
+}

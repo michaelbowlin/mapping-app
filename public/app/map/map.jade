@@ -12,8 +12,13 @@ mp-co-lb-addprop
     .col-xs-12
         .col-xs-2
             .map-panel
-                //button.btn.btn-large.btn-primary(ng-click="property.go('/property/add')") Add Property
-                button.btn.btn-large.btn-primary.launch-lightbox(mp-de-modal-open)#addProp Add Property
+        .col-xs-2
+            .map-controls
+                .togglebutton.target
+                    label
+                        span
+                            input(type='checkbox')
+                            span.toggle
 
 
     #map
@@ -21,8 +26,7 @@ mp-co-lb-addprop
         marker(coords='map.markers')
 
     .col-xs-12
-        div.grid-wrap
-            ui-grid-properties
+        mp-co-grid-hideshow
 
                     
 // Page Heading
