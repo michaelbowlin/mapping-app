@@ -3,7 +3,7 @@
 
   angular
     .module('app')
-    .directive('mpDeModalOpen', modalOpen);
+    .directive('mpDeLightboxOpenClose', modalOpen);
 
   /* @ngInject */
   function modalOpen($rootScope) {
