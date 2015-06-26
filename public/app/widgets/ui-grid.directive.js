@@ -32,6 +32,7 @@
             exporterMenuCsv: false,
             enableGridMenu: true,
             gridMenuTitleFilter: fakeI18n,
+            multiSelect: false,
             paginationPageSizes: [1, 3, 75],
             paginationPageSize: 5,
             useExternalPagination: true,
@@ -86,8 +87,10 @@
             onRegisterApi: function(gridApi) {
               $scope.gridApi = gridApi;
               gridApi.selection.on.rowSelectionChanged($scope, function(){
-                console.log(gridApi);
-              })
+                console.log(gridApi.selection.getSelectedRows());
+                 // $scope.openInfoWindow = function(e, selectedMarker){
+                
+              })           
 
               $scope.gridApi.core.on.sortChanged($scope, function(grid, sortColumns) {
                 if (sortColumns.length == 0) {
