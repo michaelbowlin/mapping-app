@@ -1,18 +1,71 @@
 <!-- lightbox container -->
 <div id="lightboxContainer" class="lightbox-container">
 
+
+    <!-- right lightbox - editQuoteHeaderLightbox - ->
+<div id="addPropLightbox" class="right-lightbox col-xs-8 col-sm-6 col-md-6 col-lg-4">
+    <div class="lightbox-banner">
+        <a href="#" class="close-lightbox float-right">
+            <button class="btn btn-primary btn-raised"><i class="fa fa-close"></i></button>
+        </a>
+        <div class="panel panel-primary text-center no-boder bg-color-blue blue">
+            <div class="panel-left pull-left blue">
+                <i class="fa fa-university fa-5x"></i>
+            </div>
+            <div class="panel-right pull-right btn-home-03">
+                <a href="/properties"><h4>Add Property</h4><strong> </strong></a>
+            </div>
+        </div>
+    </div>
+
+
+    <div ng-include="'/partials/account/signup'"></div>
+
+    <div class="modal-footer">
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2"><a class="close-lightbox">
+                <button ng-click="cancel()" class="btn btn-large btn-default close-lightbox">Cancel</button></a><a class="close-lightbox">
+                <button ng-click="addProperty(property)" class="btn btn-large btn-primary btn-raised close-lightbox">Add Property</button></a></div>
+        </div>
+    </div>
+</div>
+<!-- /right lightbox -->
+
+
+
     <!-- right lightbox - editQuoteHeaderLightbox -->
     <div id="testMeLightbox" class="right-lightbox col-xs-8 col-sm-6 col-md-6 col-lg-4">
-        <a href="#" class="close-lightbox">Close Me</a>
-        <h2>Sign Up</h2>
-        <div ng-include="'/partials/account/signup'"></div>
+        <div class="lightbox-banner">
+            <a href="#" class="close-lightbox float-right">
+                <button class="btn btn-primary btn-raised brown"><i class="fa fa-close"></i></button>
+            </a>
+
+            <div class="panel panel-primary text-center no-boder bg-color-blue teal">
+                <div class="panel-left pull-left teal">
+                    <i class="fa fa-user fa-5x"></i>
+                </div>
+                <div class="panel-right pull-right btn-home-02">
+                    <a href="/map">
+                        <h4>Join</h4>
+                        <strong> </strong>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="lightbox-body" ng-include="'/partials/account/signup'"></div>
+
+        <div class="modal-footer">
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2"><a class="close-lightbox">
+                    <button ng-click="cancel()" class="btn btn-large btn-default close-lightbox">Cancel</button></a><a class="close-lightbox">
+                    <button ng-click="signup.signup()" ng-disabled="signupForm.$invalid" class="btn btn-large btn-primary btn-raised close-lightbox">Submit</button></a></div>
+            </div>
+        </div>
+
     </div>
     <!-- /right lightbox -->
-
-
-
-
-
 
 </div>
 <!-- /lightbox container -->

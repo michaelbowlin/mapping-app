@@ -4,7 +4,7 @@ angular
     return{
 
       createProperty: function(newPropertyData){
-        alert("property.manage.service")
+        console.log("property.manage.service working!")
         var newProp = new propertyService(newPropertyData);
         var dfd = $q.defer();
 
