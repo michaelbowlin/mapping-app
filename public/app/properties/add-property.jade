@@ -1,174 +1,118 @@
-google-places(location='location', lat="property.latCoord", lon="property.longCoord")
+div.lightbox-main-content
+  google-places(location='location', lat="property.latCoord", lon="property.longCoord")
 
-  .well.bs-component.box-shadow-none
-    form.form-horizontal
-      fieldset
-        legend Legend
-        .form-group
+    .well.bs-component.box-shadow-none
+      form.form-horizontal(role='form')
+        fieldset
+          legend Legend
+          .form-group
 
-          // Property Type
-          label.col-lg-2.control-label Type
-          .col-lg-10
-            .radio.radio-primary
-              label
-                //input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
-                input#optionsRadios1(type='radio', ng-model='property.type', name='homeOption1', ng-checked='true', value='Residential')
-                span.circle
-                span.check
-                |                                                     Residential
-            .radio.radio-primary
-              label
-                // input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
-                input#optionsRadios2(type='radio', ng-model='property.type', name='commercialpOption2', value='Commercial')
-                span.circle
-                span.check
-                |                                                     Commercial
-
-          // date of completion
-        .form-group
-          label.col-lg-2.control-label(for='') Date Picker
-          .col-sm-10
-            input.form-control(type='text', datepicker-popup='{{format}}', ng-model='property.dateComplete',
-            is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions',
-            date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
-            span.input-group-btn
-              button.btn.btn-default(type='button', ng-click='property.openDatePicker($event)')
-                i.glyphicon.glyphicon-calendar
-
-        // Address
-        .form-group
-          label.col-lg-2.control-label(for='') Address
-          .col-lg-10
-            input#google_places_ac.input-block-level(placeholder='Enter Address Here', name='google_places_ac', type='text')
-
-        // Latitude
-        .form-group
-          label.col-lg-2.control-label(for='') Latitude
-          .col-lg-10
-            input(ng-model='property.latCoord')
-
-        // Longitude
-        .form-group
-          label.col-lg-2.control-label(for='') Longitude
-          .col-lg-10
-            // Longitude
-            input(ng-model='property.longCoord')
-
-
-
-        .form-group
-          label.col-lg-2.control-label(for='inputPassword') Password
-          .col-lg-10
-            input#inputPassword.form-control(type='password', placeholder='Password')
-            .checkbox
-              label
-                input(type='checkbox')
-                span.checkbox-material
+            // Property Type
+            label.col-lg-2.control-label Type
+            .col-lg-10
+              .radio.radio-primary
+                label
+                  //input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
+                  input#optionsRadios1(type='radio', ng-model='property.type', name='homeOption1', ng-checked='true', value='Residential')
+                  span.circle
                   span.check
-                |  Checkbox
-            br
-            .togglebutton
-              label
-                input(type='checkbox', checked='')
-                span.toggle
-                |  Toggle button
-        .form-group
-          label.col-lg-2.control-label(for='inputFile') File
+                  |                                                     Residential
+              .radio.radio-primary
+                label
+                  // input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
+                  input#optionsRadios2(type='radio', ng-model='property.type', name='commercialpOption2', value='Commercial')
+                  span.circle
+                  span.check
+                  |                                                     Commercial
+
+            // date of completion
+          .form-group
+            label.col-lg-2.control-label(for='') Date Picker
+            .col-sm-10
+              input.form-control(type='text', datepicker-popup='{{format}}', ng-model='property.dateComplete',
+              is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions',
+              date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+              span.input-group-btn
+                button.btn.btn-default(type='button', ng-click='property.openDatePicker($event)')
+                  i.glyphicon.glyphicon-calendar
+
+          // Address
+          .form-group
+            label.col-lg-2.control-label(for='') Address
+            .col-lg-10
+              input#google_places_ac.form-control(type='text', name='google_places_ac', ng-model='property.address')
+
+          // Latitude
+          .form-group
+            label.col-lg-2.control-label(for='') Latitude
+            .col-lg-10
+              input.form-control(type='text', ng-model='property.latCoord')
+
+          // Longitude
+          .form-group
+            label.col-lg-2.control-label(for='') Longitude
+            .col-lg-10
+              // Longitude
+              input.form-control(type='text', ng-model='property.longCoord')
+
+          // Improvment Size
+          .form-group
+            label.col-lg-2.control-label(for='') Improvement Size
+            .col-lg-10
+              input.form-control(type='text', ng-model='property.improvementSize')
+
+          // City
+          .form-group
+            label.col-lg-2.control-label(for='') City
+            .col-lg-10
+              input.form-control(type='text', ng-model='property.city')
+
+          // Acres
+          .form-group
+            label.col-lg-2.control-label(for='') Acres
+            .col-lg-10
+              input.form-control(type='text', ng-model='property.acres', placeholder=' Acres ')
+
+          // Relevant Condition
+          label.col-lg-2.control-label Relevant Condition
           .col-lg-10
-            .form-control-wrapper.fileinput
-              input.form-control.empty(type='text', readonly='')
-              input#inputFile(type='file', multiple='')
-              .floating-label Browse...
-              span.material-input
-        .form-group
-          label.col-lg-2.control-label(for='textArea') Textarea
-          .col-lg-10
-            textarea#textArea.form-control(rows='3')
-            span.help-block
-              | A longer block of help text that breaks onto a new line and may extend beyond one line.
-        //.form-group
-          //label.col-lg-2.control-label Radios
-          //.col-lg-10
-          //  .radio.radio-primary
-          //    label
-          //      input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
-          //      span.circle
-          //      span.check
-          //      |                                                     Option one is this
-          //  .radio.radio-primary
-          //    label
-          //      input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
-          //      span.circle
-          //      span.check
-          //      |                                                     Option two can be something else
-        .form-group
-          label.col-lg-2.control-label(for='select') Selects
-          .col-lg-10
-            select#select.form-control
-              option 1
-              option 2
-              option 3
-              option 4
-              option 5
-            br
-            select.form-control(multiple='')
-              option 1
-              option 2
-              option 3
-              option 4
-              option 5
-        .form-group
-          .col-lg-10.col-lg-offset-2
-            button.btn.btn-default Cancel
-            button.btn.btn-primary(type='submit') Submit
-    #source-button.btn.btn-primary.btn-xs(style='display: block;') < >
-
-
-
-
-
-    form.form-horizontal(role='form')
-      .form-group
-        // type
-
-        // date of completion
-
-        // address
-
-        // lat
-
-        // lon
-
-        // improvement size
-        label.col-sm-12.control-label()
-          p.pull-left City
-        .col-sm-12
-          input.form-control(type='text', ng-model='property.address.city', placeholder=' City ')
-        // improvement size
-        label.col-sm-12.control-label()
-          p.pull-left Improvement Size
-        .col-sm-12
-          input.form-control(type='text', ng-model='property.improvementSize', placeholder=' Improvement Size ')
-        // acres
-        label.col-sm-12.control-label()
-          p.pull-left Acres
-        .col-sm-12
-          input.form-control(type='text', ng-model='property.type', placeholder=' Acres ')
-        // relevant condition
-        label.col-sm-12.control-label()
-          p.pull-left Relevant Condition
-        .col-sm-12
-          p
-            fieldset.inline
+            .radio.radio-primary
               label
-                input(type='radio', ng-model='property.condition', name='goodOption1', ng-checked='true', value='Good')
-                |     Good
+                input#optionsRadios1(type='radio', ng-model='property.condition', name='goodOption1', ng-checked='true', value='Good')
+                span.circle
+                span.check
+                |                                                     Good
+            .radio.radio-primary
               label
-                input(type='radio', ng-model='property.condition', name='poorOption2', value='Poor')
-                |     Poor
-  .modal-footer
-    button.btn.btn-large.btn-primary(ng-click='addProperty(property)') Add Property
-    //button.btn.btn-large.btn-primary(ng-click='property.addProperty()') Add Property
-    button.btn.btn-warning.close-lightbox(ng-click='cancel()') Cancel
+                input#optionsRadios2(type='radio', ng-model='property.condition', name='poorOption2', value='Poor')
+                span.circle
+                span.check
+                |                                                     Poor
 
+          //.form-group
+          //  label.col-lg-2.control-label(for='select') Selects
+          //  .col-lg-10
+          //    select#select.form-control
+          //      option 1
+          //      option 2
+          //      option 3
+          //      option 4
+          //      option 5
+          //    br
+          //    select.form-control(multiple='')
+          //      option 1
+          //      option 2
+          //      option 3
+          //      option 4
+          //      option 5
 
+        br
+.modal-footer
+  .form-group
+    .col-lg-10.col-lg-offset-2
+      a.close-lightbox
+        button.btn.btn-large.btn-default.close-lightbox(ng-click='cancel()') Cancel
+      a.close-lightbox
+        button.btn.btn-large.btn-primary.btn-raised.close-lightbox(ng-click='addProperty(property)') Add Property
+
+      //#source-button.btn.btn-primary.btn-xs(style='display: block;') < >

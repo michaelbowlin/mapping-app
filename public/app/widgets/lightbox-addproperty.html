@@ -2,19 +2,23 @@
 <div id="lightboxContainer" class="lightbox-container" >
   <!-- right lightbox - editQuoteHeaderLightbox -->
   <div id="addPropLightbox" class="right-lightbox col-xs-8 col-sm-6 col-md-6 col-lg-4">
-    <a href="#" class="close-lightbox float-right">
-      <button class="btn btn-primary btn-raised"><i class="fa fa-close"></i></button>
-    </a>
-    <div class="panel panel-primary text-center no-boder bg-color-blue blue">
-      <div class="panel-left pull-left blue">
-        <i class="fa fa-university fa-5x"></i>
-      </div>
-      <div class="panel-right pull-right btn-home-03">
-        <a href="/properties"><h4>Properties</h4><strong> My Properties</strong></a>
+    <div class="lightbox-banner">
+      <a href="#" class="close-lightbox float-right">
+        <button class="btn btn-primary btn-raised"><i class="fa fa-close"></i></button>
+      </a>
+      <div class="panel panel-primary text-center no-boder bg-color-blue blue">
+        <div class="panel-left pull-left blue">
+          <i class="fa fa-university fa-5x"></i>
+        </div>
+        <div class="panel-right pull-right btn-home-03">
+          <a href="/properties"><h4>Add Property</h4><strong> </strong></a>
+        </div>
       </div>
     </div>
-    <div ng-include="'/partials/properties/add-property'"></div>
-  </div>
+
+
+    <div class="lightbox-body" ng-include="'/partials/properties/add-property'"></div>
+
   <!-- /right lightbox -->
 </div>
 <!-- /lightbox container -->
