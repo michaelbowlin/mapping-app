@@ -8,7 +8,7 @@
     function mpCoGridHideshow() {
         return {
             restrict: 'E',
-            templateUrl: '/app/widgets/grid-hidden.html',
+            templateUrl: '/app/widgets/grid-hideshow.html',
             link: function(scope,element,attrs){
                 $( '.target' ).change(function() {
                     $('.grid-wrap').toggleClass('grid-toggle')
@@ -16,7 +16,5 @@
             }
         }
     }
-
-
 
 })();

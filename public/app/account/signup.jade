@@ -1,28 +1,31 @@
-mp-de-no-fullscreen
-.row
-  .col-xs-12
-      form.form-horizontal(name="signupForm")
-        fieldset
-          legend New User Information
-          .form-group
-            label.col-md-2.control-label(for="email") Email
-            .col-md-10
-              input.form-control(name="email", type="email", placeholder="Email", ng-model="signup.email", required)
-          .form-group
+div.lightbox-main-content
+  .well.bs-component.box-shadow-none
+    form.form-horizontal(role='form')
+      fieldset
+        legend Legend
+        .form-group
+        // EMail
+        .form-group
+          label.col-lg-2.control-label(for='email') Email
+          .col-lg-10
+            //input.form-control(type='text', ng-model='property.improvementSize')
+            input.form-control(name="email", type="email", placeholder="Email", ng-model="signup.email", required)
+        // Password
+        .form-group
+          label.col-lg-2.control-label(for='password') Password
+          .col-lg-10
+            //input.form-control(type='text', ng-model='property.improvementSize')
             label.col-md-2.control-label(for="password") Password
-            .col-md-10
-              input.form-control(name="password", type="password", placeholder="Password", ng-model="signup.password", required)
-          .form-group
-            label.col-md-2.control-label(for="fname") First Name
-            .col-md-10
-              input.form-control(name="fname", type="text", placeholder="First Name", ng-model="signup.fname", required)
-          .form-group
-            label.col-md-2.control-label(for="lname") Last Name
-            .col-md-10
-              input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="signup.lname", required)
-          .form-group
-            .col-md-10.col-md-offset-2
-              .pull-right
-                button.btn.btn-primary(ng-click="signup.signup()", ng-disabled="signupForm.$invalid") Submit
-                | &nbsp;
-     a.btn.btn-default(href="/") Cancel
+        // First Name
+        .form-group
+          label.col-lg-2.control-label(for='fname') First Name
+          .col-lg-10
+            // input.form-control(type='text', ng-model='property.type', placeholder=' Acres ')
+            input.form-control(name="fname", type="text", placeholder="First Name", ng-model="signup.fname", required)
+        // Last Name
+        .form-group
+          label.col-lg-2.control-label(for='lname') Last name
+          .col-lg-10
+            // input.form-control(type='text', ng-model='property.type', placeholder=' Acres ')
+            input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="signup.lname", required)
+ 
