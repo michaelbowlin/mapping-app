@@ -11,7 +11,7 @@
         link: function(scope, element, attrs) {
 
         },
-        controller: function($scope, $http, uiGridConstants, $interval, $q) {
+        controller: function($scope, $http, uiGridConstants, $interval, $q, $timeout) {
           /* UI GRID */
           var fakeI18n = function(title) {
             var deferred = $q.defer();
@@ -28,9 +28,11 @@
           };
 
           $scope.gridOptions = {
+            enableFullRowSelection: true,
             exporterMenuCsv: false,
             enableGridMenu: true,
             gridMenuTitleFilter: fakeI18n,
+            multiSelect: false,
             paginationPageSizes: [1, 3, 75],
             paginationPageSize: 5,
             useExternalPagination: true,
@@ -85,8 +87,11 @@
             onRegisterApi: function(gridApi) {
               $scope.gridApi = gridApi;
               gridApi.selection.on.rowSelectionChanged($scope, function(){
-                console.log(gridApi);
-              })
+                console.log(gridApi.selection.getSelectedRows());
+                 // $scope.openInfoWindow = function(e, selectedMarker){
+                
+              })           
+
               $scope.gridApi.core.on.sortChanged($scope, function(grid, sortColumns) {
                 if (sortColumns.length == 0) {
                   paginationOptions.sort = null;
@@ -143,6 +148,7 @@
                 $scope.gridOptions.totalItems = 100;
                 var firstRow = (paginationOptions.pageNumber - 1) * paginationOptions.pageSize;
                 $scope.gridOptions.data = data.slice(firstRow, firstRow + paginationOptions.pageSize);
+                
               });
           };
 
