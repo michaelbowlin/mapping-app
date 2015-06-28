@@ -1,3 +1,46 @@
+//style.
+//  .full button span {
+//  background-color: limegreen;
+//  border-radius: 32px;
+//  color: black;
+//  }
+//  .partially button span {
+//  background-color: orange;
+//  border-radius: 32px;
+//  color: black;
+//  }
+////div(ng-controller='DatepickerDemoCtrl')
+//div
+//  pre.
+//    \nSelected date is:
+//  h4 Inline
+//  div(style='display:inline-block; min-height:290px;')
+//    datepicker.well.well-sm(ng-model='dt', min-date='minDate', show-weeks='true', custom-class='getDayClass(date, mode)')
+//  h4 Popup
+//  .row
+//    .col-md-6
+//      p.input-group
+//        input.form-control(type='text', datepicker-popup='{{format}}', ng-model='dt', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+//        span.input-group-btn
+//          button.btn.btn-default(type='button', ng-click='open($event)')
+//            i.glyphicon.glyphicon-calendar
+//    .col-md-6
+//      p.input-group
+//        input.form-control(type='date', datepicker-popup='', ng-model='dt', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+//        span.input-group-btn
+//          button.btn.btn-default(type='button', ng-click='open($event)')
+//            i.glyphicon.glyphicon-calendar
+//  .row
+//    .col-md-6
+//      label Format:
+//      select.form-control(ng-model='format', ng-options='f for f in formats')
+//        option
+//  hr
+//  button.btn.btn-sm.btn-info(type='button', ng-click='today()') Today
+//  button.btn.btn-sm.btn-default(type='button', ng-click="dt = '2009-08-24'") 2009-08-24
+//  button.btn.btn-sm.btn-danger(type='button', ng-click='clear()') Clear
+//  button.btn.btn-sm.btn-default(type='button', ng-click='toggleMin()', tooltip='After today restriction') Min date
+
 div.lightbox-main-content
   google-places(location='location', lat="property.latCoord", lon="property.longCoord")
 
@@ -29,18 +72,28 @@ div.lightbox-main-content
           .form-group
             label.col-lg-2.control-label(for='') Date Picker
             .col-sm-10
-              input.form-control(type='text', datepicker-popup='{{format}}', ng-model='property.dateComplete',
-              is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions',
-              date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
-              span.input-group-btn
-                button.btn.btn-default(type='button', ng-click='property.openDatePicker($event)')
-                  i.glyphicon.glyphicon-calendar
+              //input.form-control(type='text', datepicker-popup='{{format}}', ng-model='property.dateComplete',
+              //is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions',
+              //date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+              //span.input-group-btn
+              //  button.btn.btn-default(type='button', ng-click='property.openDatePicker($event)')
+              //    i.glyphicon.glyphicon-calendar
+              p.input-group
+                input.form-control.date-picker(type='date', datepicker-popup='', ng-model='property.dateComplete', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+                span.input-group-btn
+                  button.btn.btn-default(type='button', ng-click='open($event)')
+                    i.glyphicon.glyphicon-calendar
 
           // Address
           .form-group
             label.col-lg-2.control-label(for='') Address
             .col-lg-10
               input#google_places_ac.form-control(type='text', name='google_places_ac', ng-model='property.address')
+              //p.input-group
+              //  input.form-control(type='date', datepicker-popup='', ng-model='dt', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+              //  span.input-group-btn
+              //    button.btn.btn-default(type='button', ng-click='open($event)')
+              //      i.glyphicon.glyphicon-calendar
 
           // Latitude
           .form-group
