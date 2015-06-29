@@ -22,7 +22,7 @@ module.exports = function(app) {
   app.post('/api/properties', properties.createProperty);
   app.put('/api/properties', properties.updateProperty);
 
-  app.delete('/api/properties', properties.deleteProperty);
+  app.delete('/api/properties/:id', properties.deleteProperty);
 
   app.get('/partials/*', function(req, res) {
     res.render('../../public/app/' + req.params[0]);
