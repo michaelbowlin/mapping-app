@@ -22,6 +22,15 @@
 
             });
 
+      deleteProperty: function(id){ // TODO: make this delete work
+        return $resource('properties', {
+          remove: {
+             method: 'DELETE',
+             url: '/api/properties/:_id',
+             params: {id: '@_id'}
+             }
+        });
+       }
             return dfd.promise;
 
           },

@@ -31,7 +31,7 @@ exports.createProperty = function(req, res, next) { // request, response, next f
 };
 
 exports.deleteProperty = function(req, res){
-  Property.delete({_id:req.params.id}).exec(function(err, property){
+  Property.remove({_id:req.params.id}).exec(function(err, property){
     res.send(200);
   });
 };
