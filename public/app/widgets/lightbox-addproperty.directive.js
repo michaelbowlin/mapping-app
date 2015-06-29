@@ -9,13 +9,17 @@
     return {
       restrict: 'E',
       templateUrl: '/app/widgets/lightbox-addproperty.html',
+      scope: {
+
+      },
       link: function(scope, element, attrs) {
 
       },
-      controller: function($scope, $location, identityService, mvNotifier, propertyManager) {
+      controller: function($scope, $location, identityService, mvNotifier, propertyManager, $http) {
         var vm = this;
         //
         //vm.types = [{Type:'Residential', Type:'Commericial'}]
+
 
         /* DATE PICKER */
            $scope.today = function() {
@@ -87,17 +91,6 @@
 
         $scope.addProperty = function(newProp) {
 
-          console.log('title - ' + newProp.title);
-          console.log('type - ' + newProp.type);
-          console.log('dateComplete - ' + newProp.dateComplete);
-          console.log('address - ' + newProp.address);
-          console.log('improvementSize - ' + newProp.improvementSize);
-          console.log('improvementSizeType - ' + newProp.improvementSizeType);
-          console.log('latCoord - ' + newProp.latCoord);
-          console.log('longCoord - ' + newProp.longCoord);
-          console.log('condition - ' + newProp.condition);
-          // console.log('currentUser._id - ' + identityService.currentUser.id);
-
           var newPropertyData = {
               title: newProp.title,
               type: newProp.type,
@@ -112,15 +105,9 @@
           };
           console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!' + newPropertyData);
 
+          propertyManager.createProperty(newPropertyData).then(testFunct());
 
-          propertyManager.createProperty(newPropertyData).then(function () {
-              mvNotifier.notify('New Property Added!');
-              $location.path('/properties');
-          }, function (reason) {
-              mvNotifier.error(reason);
-          })
-
-           // Close Lightbox TODO: duplicating close lightbox event. need to combine two
+            // Close Lightbox TODO: duplicating close lightbox event. need to combine two
             $('.close-lightbox').on('click', function() {
                 $(this).closest('.right-lightbox').removeClass('launch-lightbox');
                 $(this).closest('.top-lightbox').removeClass('launch-lightbox');
@@ -133,6 +120,22 @@
 
 
         }
+
+        function testFunct(){
+
+          mvNotifier.notify('New Property Added!');
+          // $location.path('/map');
+          /* Repaint Map */
+
+
+            //  , function (reason) {
+            //  alert(reason);
+            //  mvNotifier.error(reason);
+            //
+            //}
+
+        }
+
       }
     }
   };

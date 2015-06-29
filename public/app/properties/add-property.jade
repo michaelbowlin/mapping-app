@@ -1,46 +1,3 @@
-//style.
-//  .full button span {
-//  background-color: limegreen;
-//  border-radius: 32px;
-//  color: black;
-//  }
-//  .partially button span {
-//  background-color: orange;
-//  border-radius: 32px;
-//  color: black;
-//  }
-////div(ng-controller='DatepickerDemoCtrl')
-//div
-//  pre.
-//    \nSelected date is:
-//  h4 Inline
-//  div(style='display:inline-block; min-height:290px;')
-//    datepicker.well.well-sm(ng-model='dt', min-date='minDate', show-weeks='true', custom-class='getDayClass(date, mode)')
-//  h4 Popup
-//  .row
-//    .col-md-6
-//      p.input-group
-//        input.form-control(type='text', datepicker-popup='{{format}}', ng-model='dt', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
-//        span.input-group-btn
-//          button.btn.btn-default(type='button', ng-click='open($event)')
-//            i.glyphicon.glyphicon-calendar
-//    .col-md-6
-//      p.input-group
-//        input.form-control(type='date', datepicker-popup='', ng-model='dt', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
-//        span.input-group-btn
-//          button.btn.btn-default(type='button', ng-click='open($event)')
-//            i.glyphicon.glyphicon-calendar
-//  .row
-//    .col-md-6
-//      label Format:
-//      select.form-control(ng-model='format', ng-options='f for f in formats')
-//        option
-//  hr
-//  button.btn.btn-sm.btn-info(type='button', ng-click='today()') Today
-//  button.btn.btn-sm.btn-default(type='button', ng-click="dt = '2009-08-24'") 2009-08-24
-//  button.btn.btn-sm.btn-danger(type='button', ng-click='clear()') Clear
-//  button.btn.btn-sm.btn-default(type='button', ng-click='toggleMin()', tooltip='After today restriction') Min date
-
 div.lightbox-main-content
   google-places(location='location', lat="property.latCoord", lon="property.longCoord")
 
@@ -141,24 +98,6 @@ div.lightbox-main-content
                 span.circle
                 span.check
                 |                                                     Poor
-
-          //.form-group
-          //  label.col-lg-2.control-label(for='select') Selects
-          //  .col-lg-10
-          //    select#select.form-control
-          //      option 1
-          //      option 2
-          //      option 3
-          //      option 4
-          //      option 5
-          //    br
-          //    select.form-control(multiple='')
-          //      option 1
-          //      option 2
-          //      option 3
-          //      option 4
-          //      option 5
-
         br
 .modal-footer
   .form-group
