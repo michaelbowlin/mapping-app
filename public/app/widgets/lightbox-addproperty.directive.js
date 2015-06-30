@@ -103,9 +103,9 @@
                         condition: newProp.condition
                         //userAccount: identityService.currentUser._id TODO: Find out why we need this
                     };
-                    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!' + newPropertyData);
+                    //console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!' + newPropertyData);
 
-                    propertyManager.createProperty(newPropertyData).then(testFunct());
+                    propertyManager.createProperty(newPropertyData).then(refreshView());
 
                     // Close Lightbox TODO: duplicating close lightbox event. need to combine two
                     $('.close-lightbox').on('click', function() {
@@ -119,18 +119,11 @@
                     });
                 }
 
-                function testFunct(){
+                function refreshView(){
 
+                   $scope.notifyParent()();
+                   mvNotifier.notify('New Property Added!');
 
-
-                    //$scope.confirmRemove = function(){
-                        //$scope.$apply(function(){
-                            $scope.notifyParent()();
-
-                        //});
-                    //}
-
-                    mvNotifier.notify('New Property Added!');
                     // $location.path('/map');
                     /* Repaint Map */
 
