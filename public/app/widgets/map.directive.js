@@ -9,18 +9,29 @@
         return {
             restrict: 'E',
             templateUrl: '/app/widgets/map.html',
+            scope: {
+                cities: '='
+            },
             controller: (function($scope, propertyService){
-
                 var vm = this;
-                getCities();
-                vm.markers = {};
 
-                function getCities() {
-                    vm.cities = propertyService.query().$promise.then(function (data) {
-                        createMap(data);
-                        return data;
-                    });
-                }
+
+                vm.markers = {};
+                $scope.$watch('cities', function(newVal, oldVal){ // FIXME: remove $watch (array)
+                    if(newVal && newVal.length){
+                        createMap(newVal);
+                    }
+                });
+                // createMap(cities);
+
+
+                //function getCities() {
+                //    alert('Getting Citttties');
+                //    vm.cities = propertyService.query().$promise.then(function (data) {
+                //        createMap(data);
+                //        return data;
+                //    });
+                //}
 
                 function createMap(cities) {
                     var mapOptions = {

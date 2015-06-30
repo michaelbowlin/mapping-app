@@ -10,7 +10,7 @@
             restrict: 'E',
             templateUrl: '/app/widgets/lightbox-addproperty.html',
             scope: {
-                updateMap: '&'
+                notifyParent: '&method' // since this is a function we're calling
             },
             link: function(scope, element, attrs) {
 
@@ -121,6 +121,15 @@
 
                 function testFunct(){
 
+
+
+                    //$scope.confirmRemove = function(){
+                        //$scope.$apply(function(){
+                            $scope.notifyParent()();
+
+                        //});
+                    //}
+
                     mvNotifier.notify('New Property Added!');
                     // $location.path('/map');
                     /* Repaint Map */
@@ -132,11 +141,6 @@
                     //
                     //}
 
-
-                    $scope.updateMap = function(){
-
-
-                    }
 
                 }
 

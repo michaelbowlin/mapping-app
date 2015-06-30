@@ -1,6 +1,7 @@
-google-places
-mp-co-lb-addprop
-.row
+// need to make a structural directive point to a single object
+.row(ng-controller="mapController as vm")
+    google-places
+    mp-co-lb-addprop(method="vm.removeRes")
     .col-xs-3
         .panel.panel-primary.text-center.no-boder.bg-color-green.green.map-panel.-btn-raised
             .panel-left.pull-left.green
@@ -21,8 +22,10 @@ mp-co-lb-addprop
                             input(type='checkbox')
                             span.toggle
 
-    ar-co-map
-    
+    //ar-co-map(method="removeRes()")
+    //ar-co-map(cities="vm.cities", ng-if="vm.cities")
+    ar-co-map(cities="vm.cities")
+
     .col-xs-12
         mp-co-grid-hideshow
 
