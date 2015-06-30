@@ -30,7 +30,7 @@ angular
 
       getPropertiesById: function(){
 
-      }
+      },
 
       deleteProperty: function(id){ // TODO: make this delete work
         return $resource('properties', {

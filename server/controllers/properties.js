@@ -43,18 +43,26 @@ exports.updateProperty = function(req, res) {
   //  res.status(403);
   //  return res.end();
   //}
-  req.property.title = propertyUpdates.title;
-  req.property.latCoord = propertyUpdates.latCoord;
-  req.property.longCoord = propertyUpdates.longCoord;
-  req.property.description = propertyUpdates.description;
-  req.property.dateComplete = propertyUpdates.dateComplete;
-  req.property.improvementSize = propertyUpdates.improvementSize;
-  req.property.improvementSizeType = propertyUpdates.improvementSizeType;
-  req.property.condition = propertyUpdates.condition;
-  req.property.type = propertyUpdates.type;
-  req.property.address = propertyUpdates.address;
-  req.property.tags = propertyUpdates.tags;
-  req.property.userAccount = propertyUpdates.userAccount;
+  Property.findOne({_id:req.params._id}).exec(function(err, property){
+    if(!property){
+      return next(new error('Could not find property'));
+    } else{
+      console.log('Here');
+    }
+  })
+  // req.property._id = propertyUpdates._id;
+  // req.property.title = propertyUpdates.title;
+  // req.property.latCoord = propertyUpdates.latCoord;
+  // req.property.longCoord = propertyUpdates.longCoord;
+  // req.property.description = propertyUpdates.description;
+  // req.property.dateComplete = propertyUpdates.dateComplete;
+  // req.property.improvementSize = propertyUpdates.improvementSize;
+  // req.property.improvementSizeType = propertyUpdates.improvementSizeType;
+  // req.property.condition = propertyUpdates.condition;
+  // req.property.type = propertyUpdates.type;
+  // req.property.address = propertyUpdates.address;
+  // req.property.tags = propertyUpdates.tags;
+  // req.property.userAccount = propertyUpdates.userAccount;
 
 
   req.property.save(function(err) {
