@@ -7,13 +7,17 @@ exports.getProperties = function(req, res) {
 };
 
 exports.getPropertyById = function(req, res) {
-  Property.findOne({_id:req.params.id}).exec(function(err, property) {
+  Property.findOne({
+    _id: req.params.id
+  }).exec(function(err, property) {
     res.send(property);
   })
 };
 
 exports.getPropertiesByUserId = function(req, res) {
-  Property.find({userAccount:req.params.id}).exec(function(err, property) {
+  Property.find({
+    userAccount: req.params.id
+  }).exec(function(err, property) {
     res.send(property);
   })
 };
@@ -21,52 +25,57 @@ exports.getPropertiesByUserId = function(req, res) {
 exports.createProperty = function(req, res, next) { // request, response, next function etc
   var propertyData = req.body;
   Property.create(propertyData, function(err) {
-    if(err) {
+    if (err) {
       res.status(400);
-      return res.send({reason:err.toString()});
-    }else {
+      return res.send({
+        reason: err.toString()
+      });
+    } else {
       res.status(200);
     }
   })
 };
 
-exports.deleteProperty = function(req, res){
-  Property.remove({_id:req.params.id}).exec(function(err, property){
+exports.deleteProperty = function(req, res) {
+  Property.remove({
+    _id: req.params.id
+  }).exec(function(err, property) {
     res.send(200);
   });
 };
 
 exports.updateProperty = function(req, res) {
-  var propertyUpdates = req.body;
+
 
   //if(req.user._id != userUpdates._id && !req.user.hasRole('admin')) {
   //  res.status(403);
   //  return res.end();
   //}
-  Property.findOne({_id:req.params._id}).exec(function(err, property){
-    if(!property){
-      return next(new error('Could not find property'));
-    } else{
-      console.log('Here');
-    }
+  Property.findById(req.params.id).exec(function(err, property) {
+    // var property;
+    var propertyUpdates = req.body;
+    // res.send(property);
+    // if(propertyUpdates.title){res.send(propertyUpdates);}
+    if (propertyUpdates.title) { property.title = propertyUpdates.title; }
+    // if(propertyUpdates.latCoord){req.property.latCoord = propertyUpdates.latCoord;};
+    // if(propertyUpdates.longCoord){req.property.longCoord = propertyUpdates.longCoord;};
+
+    // req.property.description = propertyUpdates.description;
+    // req.property.dateComplete = propertyUpdates.dateComplete;
+    // req.property.improvementSize = propertyUpdates.improvementSize;
+    // req.property.improvementSizeType = propertyUpdates.improvementSizeType;
+    // req.property.condition = propertyUpdates.condition;
+    // req.property.type = propertyUpdates.type;
+    // req.property.address = propertyUpdates.address;
+    // req.property.tags = propertyUpdates.tags;
+    // req.property.userAccount = propertyUpdates.userAccount;
+    //     if(err){res.send(err);}
+    // req.property = property;
+    property.save(function(err) {
+      if(err) { res.status(400); return res.send({reason:err.toString()});}
+      res.send(req.property);
+    });
+
   })
-  // req.property._id = propertyUpdates._id;
-  // req.property.title = propertyUpdates.title;
-  // req.property.latCoord = propertyUpdates.latCoord;
-  // req.property.longCoord = propertyUpdates.longCoord;
-  // req.property.description = propertyUpdates.description;
-  // req.property.dateComplete = propertyUpdates.dateComplete;
-  // req.property.improvementSize = propertyUpdates.improvementSize;
-  // req.property.improvementSizeType = propertyUpdates.improvementSizeType;
-  // req.property.condition = propertyUpdates.condition;
-  // req.property.type = propertyUpdates.type;
-  // req.property.address = propertyUpdates.address;
-  // req.property.tags = propertyUpdates.tags;
-  // req.property.userAccount = propertyUpdates.userAccount;
 
-
-  req.property.save(function(err) {
-    if(err) { res.status(400); return res.send({reason:err.toString()});}
-    res.send(req.property);
-  });
 };

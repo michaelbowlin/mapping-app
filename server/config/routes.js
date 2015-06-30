@@ -10,17 +10,14 @@ module.exports = function(app) {
   //app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
   app.get('/api/users', users.getUsers);
   app.post('/api/users', users.createUser);
-  app.put('/api/users', users.updateUser);
-
-  app.get('/api/courses', courses.getCourses);
-  app.get('/api/courses/:id', courses.getCourseById);
+  app.put('/api/users/:id', users.updateUser);
 
   app.get('/api/properties', properties.getProperties);
   app.get('/api/properties/:id', properties.getPropertyById);
   app.get('/api/propertiesByUser/:id', properties.getPropertiesByUserId);
 
   app.post('/api/properties', properties.createProperty);
-  app.put('/api/properties', properties.updateProperty);
+  app.put('/api/properties/:id', properties.updateProperty);
 
   app.delete('/api/properties/:id', properties.deleteProperty);
 
