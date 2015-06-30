@@ -1,17 +1,20 @@
-angular
-	.module('app')
-	.factory('cachedPropertiesService', function(propertyService) {
-      var propertyList;
-      console.log('==================== PROPERTY LIST1 : ' + propertyList)
-      return {
+(function(){
+    'use strict'
 
-        query: function() {
-          if(!propertyList) {
-            propertyList = propertyService.query();
-            console.log('==================== PROPERTY LIST2 : ' + propertyList)
+    angular
+        .module('app')
+        .factory('cachedPropertiesService', function(propertyService) {
+          var propertyList;
+          return {
+
+            query: function() {
+              if(!propertyList) {
+                propertyList = propertyService.query();
+              }
+
+
+              return propertyList;
+            }
           }
-
-          return propertyList;
-        }
-      }
-})
+    })
+})();

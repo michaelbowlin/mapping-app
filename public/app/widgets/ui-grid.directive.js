@@ -39,37 +39,42 @@
             useExternalSorting: true,
             columnDefs: [{
                 name: 'type',
+                width: 200,
                 cellClass: 'type'
               }, {
                 name: 'dateComplete',
                 cellClass: 'dateComplete',
+                width: 300,
                 enableSorting: false
               }, {
                 name: 'address',
-                width: 250,
+                width: 400,
                 cellClass: 'address',
                 enableSorting: false
               }, {
                 name: 'improvementSize',
+                width: 200,
                 cellClass: 'improvementSize',
                 enableSorting: false
               }, {
-                name: 'acres',
+                name: 'improvementSizeType',
+                width: 200,
                 cellClass: 'acres',
                 enableSorting: false
               }, {
                 name: 'condition',
+                width: 200,
                 cellClass: 'condition',
                 enableSorting: false
               }, {
                 name: 'edit',
                 cellClass: 'edit',
-                width: 50,
+                width: 100,
                 cellTemplate: '<button class="btn btn-info btn-sm" ng-click=""><i class="fa fa-edit"></i></button>'
               }, {
                 name: 'delete',
                 cellClass: 'delete',
-                width: 50,
+                width: 100,
                 // cellTemplate: '<button class="btn btn-danger btn-sm" ng-click=""><i class="fa fa-remove"></i></button>'
                 // cellTemplate: '<a href ng-click="deleteProperty()"> DELETE </a>'
                 cellTemplate: '<delete-property></delete-property>'
