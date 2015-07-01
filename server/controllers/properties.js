@@ -52,25 +52,47 @@ exports.updateProperty = function(req, res) {
   //  return res.end();
   //}
   Property.findById(req.params.id).exec(function(err, property) {
-    // var property;
+    
     var propertyUpdates = req.body;
-    // res.send(property);
-    // if(propertyUpdates.title){res.send(propertyUpdates);}
-    if (propertyUpdates.title) { property.title = propertyUpdates.title; }
-    // if(propertyUpdates.latCoord){req.property.latCoord = propertyUpdates.latCoord;};
-    // if(propertyUpdates.longCoord){req.property.longCoord = propertyUpdates.longCoord;};
+    
+    if ( propertyUpdates.title ) {
+      property.title = propertyUpdates.title; 
+    }
+    if ( propertyUpdates.latCoord ) { 
+      property.latCoord = propertyUpdates.latCoord; 
+    }
+    if ( propertyUpdates.longCoord ) { 
+      property.longCoord = propertyUpdates.longCoord; 
+    }
+    if ( propertyUpdates.description ) { 
+      property.description = propertyUpdates. description; 
+    }
+    if ( propertyUpdates.dateComplete ) { 
+      propertyUpdates.dateComplete = propertyUpdates.dateComplete; 
+    }
+    if ( propertyUpdates.improvementSize ) {
+      property.improvementSize = propertyUpdates.improvementSize;
+    }
+    if ( propertyUpdates.improvementSizeType ) {
+      property.improvementSizeType = propertyUpdates.improvementSizeType;
+    }
+    if ( propertyUpdates.condition ) {
+      property.condition = propertyUpdates.condition;
+    }
+    if ( propertyUpdates.type ) {
+      property.type = propertyUpdates.type;
+    }
+    if ( propertyUpdates.address ) {
+      property.address = propertyUpdates.address;
+    }
+    if( propertyUpdates.tags ) {
+      property.tags = propertyUpdates.tags;
+    }
 
-    // req.property.description = propertyUpdates.description;
-    // req.property.dateComplete = propertyUpdates.dateComplete;
-    // req.property.improvementSize = propertyUpdates.improvementSize;
-    // req.property.improvementSizeType = propertyUpdates.improvementSizeType;
-    // req.property.condition = propertyUpdates.condition;
-    // req.property.type = propertyUpdates.type;
-    // req.property.address = propertyUpdates.address;
-    // req.property.tags = propertyUpdates.tags;
-    // req.property.userAccount = propertyUpdates.userAccount;
-    //     if(err){res.send(err);}
-    // req.property = property;
+    if(err){
+      res.send(err);
+    }
+          
     property.save(function(err) {
       if(err) { res.status(400); return res.send({reason:err.toString()});}
       res.send(req.property);
