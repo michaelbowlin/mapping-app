@@ -48,19 +48,10 @@ div.lightbox-main-content
               input#google_places_ac.form-control(type='text', name='google_places_ac')
               // Hidden Address Field - for form submission (Full google address gets fed in here from the google-maps.directive.js)
               input.form-control(type='hidden', ng-model='property.address')
-
-          // Latitude
-          .form-group
-            label.col-lg-2.control-label(for='') Latitude
-            .col-lg-10
-              input.form-control(type='text', ng-model='property.latCoord')
-
-          // Longitude
-          .form-group
-            label.col-lg-2.control-label(for='') Longitude
-            .col-lg-10
+              // Latitude
+              input.form-control(type='hidden', ng-model='property.latCoord')
               // Longitude
-              input.form-control(type='text', ng-model='property.longCoord')
+              input.form-control(type='hidden', ng-model='property.longCoord')
 
           // Improvment Size
           .form-group
