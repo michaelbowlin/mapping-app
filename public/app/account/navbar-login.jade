@@ -11,7 +11,7 @@
     button.btn.btn-sm.btn-primary(ng-click="signin(username, password)") Sign In
     button.btn.btn-primary(ng-click="") Google Sign In
 
-  ul.nav.navbar-nav(ng-show="identity.isAuthenticated()")
+  ul.nav.navbar-nav.user-tab(ng-show="identity.isAuthenticated()")
     li.dropdown
       a.dropdown-toggle(href="", data-toggle="dropdown")
         | {{identity.currentUser.firstName + " " + identity.currentUser.lastName}}
