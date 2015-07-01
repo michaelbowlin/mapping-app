@@ -488,6 +488,23 @@ body {
   float:left;
 }
 
+/* Navbar login */
+
+.navbar-login {
+  padding:0;
+  margin-right:10px;
+  height:68px
+
+}
+.navbar-login .navbar-form,
+.navbar .navbar-form
+{
+  padding:7px 0 0 0;
+  margin:0 !important;
+
+
+}
+
 /* Video Fullscreen */
 video#bgvid {
   position: fixed;

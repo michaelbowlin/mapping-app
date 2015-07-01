@@ -1,14 +1,16 @@
-mp-de-no-fullscreen
-.navbar-right(ng-controller="mvNavBarLoginCtrl")
+.navbar-right.navbar-login(ng-controller="mvNavBarLoginCtrl")
+
   form.navbar-form(ng-hide="identity.isAuthenticated()")
-    ul.nav.navbar-nav
-      li
-        a(href="/signup") Sign up
+    //ul.nav.navbar-nav
+      //li
+        //a(href="/signup") Sign up
     .form-group
       input.form-control(placeholder="Email", ng-model="username")
     .form-group
       input.form-control(type="password", placeholder="Password", ng-model="password")
-    button.btn.btn-primary(ng-click="signin(username, password)") Sign In
+    button.btn.btn-sm.btn-primary(ng-click="signin(username, password)") Sign In
+    button.btn.btn-primary(ng-click="") Google Sign In
+
   ul.nav.navbar-nav(ng-show="identity.isAuthenticated()")
     li.dropdown
       a.dropdown-toggle(href="", data-toggle="dropdown")
