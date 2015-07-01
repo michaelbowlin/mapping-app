@@ -7,7 +7,7 @@
             return {
                 restrict:'E',
                 scope: {
-                    //location:'=', TODO: pass the location into a map
+                    address: '=',
                     lat: '=',
                     lon: '='
                 },
@@ -21,14 +21,16 @@
                         if ($scope.location === '') {
                             alert('Directive did not update the location property in parent controller.');
                         } else {
+                            var fullAddress =  place.formatted_address;
                             var latLon = $scope.location;
                             var res = latLon.split(",");
                             var latitude = res[0];
                             var longitude = res[1];
 
-                            // Put lat/lon into scope
+                            // Put lat/lon/address into scope
                             $scope.lat = latitude;
                             $scope.lon = longitude;
+                            $scope.address = fullAddress;
 
                         }
 
