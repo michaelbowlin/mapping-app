@@ -80,7 +80,7 @@
                 //cellTemplate: '<a href> DELETE </a>'
                 // cellTemplate: '<delete-property></delete-property>'
                 // cellTemplate: '<a class="" ng-click="deleteProperty()"><i class="fa fa-remove"></i></a>'
-                cellTemplate: '<button class="btn primary" ng-click="grid.appScope.Delete(row)">Delete Me</button>'
+                cellTemplate: '<a ng-click="grid.appScope.Delete(row)"> DELETE </a>'
               }
 
               ],
