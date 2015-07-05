@@ -6583,6 +6583,14 @@ footer p {
     left: 0;
     z-index: 1; }
 
+.lightbox-body .control-label {
+  text-align: left;
+  font-size: 14px;
+  width: 130px;
+  margin: 0 0px 0 0;
+  padding: 0;
+  float: left; }
+
 .lightbox-container {
   -webkit-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;

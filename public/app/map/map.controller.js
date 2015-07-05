@@ -10,6 +10,7 @@
             var vm = this;
             vm.markers = [];
 
+            /* MAPPING */
             vm.removeRes = function() {
 
                 propertyService.query().$promise.then(function (data) {
@@ -56,6 +57,12 @@
 
                 vm.markers.push(marker);
             }
+
+            /* GRID */
+            function deleteProp(){
+                alert('deleteProp');
+            }
+
 
         }
 })();
