@@ -27,7 +27,7 @@
               sort: null
             };
 
-            $scope.gridOptions = {
+            $scope.gridOptions = { //FIXME: make this reusable
               enableFullRowSelection: true,
               exporterMenuCsv: false,
               enableGridMenu: true,
