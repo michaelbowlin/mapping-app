@@ -93,7 +93,7 @@ body,
   width: 272px;
   float: left;
   text-align: left;
-  padding:8px 0 8px 17px;
+  padding:8px 0 8px 22px;
   margin: 0; }
 
 #nav-wrap span {
@@ -177,10 +177,12 @@ img.logo3 {
 
 .brand span {
   position: absolute;
-  top: 11px;
+  top: 13px;
   left: 70px;
   color: #fff;
-  font-size: 32px; }
+  font-size: 26px;
+  letter-spacing:1px;
+}
 
 .brand span small {
   position: absolute;
@@ -428,10 +430,13 @@ body {
 
 #map {
   height: 100%;
-  width: 101%;
+  width: 102%;
   position: absolute !important;
-  top:66px;
-  left: -5px;
+  top: 65px;
+  left: 0;
+  border-left: 78px solid #b3d1ff;
+  border-top: 3px solid #b3d1ff;
+  border-right: 38px solid #b3d1ff;
 }
 .map-panel {
   position:absolute;
@@ -579,6 +584,9 @@ video#bgvid {
   border-bottom: 1px solid transparent;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+}
+.panel-map {
+  margin-left:70px;
 }
 .jumbotron, .well{
   background:#fff;

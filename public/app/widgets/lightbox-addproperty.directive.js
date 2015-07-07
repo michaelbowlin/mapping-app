@@ -10,7 +10,8 @@
             restrict: 'E',
             templateUrl: '/app/widgets/lightbox-addproperty.html',
             scope: {
-                notifyParent: '&method' // since this is a function we're calling
+                refreshMap: '&',
+                refreshGrid: '&'
             },
             link: function(scope, element, attrs) {
 
@@ -121,12 +122,12 @@
 
                 function refreshView(){
 
-                   $scope.notifyParent()();
+                    $scope.refreshMap()();
+                    $scope.refreshGrid()();
+
                    mvNotifier.notify('New Property Added!');
 
                     // $location.path('/map');
-                    /* Repaint Map */
-
 
                     //  , function (reason) {
                     //  alert(reason);

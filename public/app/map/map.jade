@@ -1,8 +1,8 @@
 .row(ng-controller="mapController as vm")
     google-places
-    mp-co-lb-addprop(method="vm.removeRes")
+    mp-co-lb-addprop(refresh-map="vm.paintMap", refresh-grid="vm.paintGrid")
     .col-xs-3
-        .panel.panel-primary.text-center.no-boder.bg-color-green.green.map-panel.-btn-raised
+        .panel.panel-map.panel-primary.text-center.no-boder.bg-color-green.green.map-panel.-btn-raised
             .panel-left.pull-left.green
                  i.fa.fa-map-marker.fa-5x
              .panel-right.pull-right.btn-home-02
