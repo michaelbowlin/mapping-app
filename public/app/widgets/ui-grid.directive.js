@@ -8,9 +8,6 @@
         return {
           restrict: 'E',
           templateUrl: '/app/widgets/ui-grid.template.html',
-          link: function(scope, element, attrs) {
-
-          },
           controller: function($scope, $http, uiGridConstants, $interval, $q, $timeout, propertyManager) {
             /* UI GRID */
             var fakeI18n = function(title) {
@@ -170,10 +167,13 @@
               $scope.gridOptions.data.splice(index, 1);
 
               /* delete item */
-              propertyManager.deleteProperty(id);
-
-
+              propertyManager.deleteProperty(id)
+                  .then(refreshView);
             };
+
+            function refreshView(){
+              alert('Feel the burn!')
+            }
 
           }
         }

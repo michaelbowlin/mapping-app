@@ -443,20 +443,33 @@ body {
   z-index:1;
   overflow:hidden;
 }
+
+
 .map-controls {
   position: absolute;
   padding: 10px;
-  top: 122px;
-  left: 23px;
+  top: 158px;
+  left: -170px;
   z-index: 100;
   border-radius: 0 0 2px 2px;
-  height: 35px;
-  width: 132px; }
+  height: 29px;
+  width: 367px;
+  background: #fff;
+  border-radius:0 0 6px 6px;
+}
+
+.map-controls p {
+  color: green !important;
+  position:absolute;
+  left:245px;
+  top:5px;
+}
 
 .map-controls label {
-  color:#fff !important;
-  margin:0 0 120px 0;
-}
+  color: #fff !important;
+  margin: -7px 0 120px 0;
+  float: right; }
+
 #map-holder {
   height:410px;
 }

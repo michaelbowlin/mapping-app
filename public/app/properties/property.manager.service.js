@@ -27,15 +27,13 @@ angular
         return dfd.promise;
       },
 
-      getPropertiesById: function() {
-
-      },
-
       deleteProperty: function(id) {
+        var dfd = $q.defer();
         $http.delete("/api/properties/" + id)
             .then(function(){
-              getProperties();
+              alert('winning???');
             });
+        return dfd.promise;
       },
 
       updateProperty: function(id){
