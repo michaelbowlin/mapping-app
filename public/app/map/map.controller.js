@@ -24,6 +24,7 @@
 
             vm.paintMap();
 
+
             function createMap(cities) {
                 var mapOptions = {
                     zoom: 4,
@@ -189,6 +190,8 @@
 
                     });
             };
+
+            vm.paintGrid();
 
         }
 })();
