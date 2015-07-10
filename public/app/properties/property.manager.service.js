@@ -29,9 +29,8 @@ angular
 
       deleteProperty: function(id) {
         var dfd = $q.defer();
-        $http.delete("/api/properties/" + id)
-            .then(function(){
-              alert('winning???');
+        $http.delete("/api/properties/" + id).then(function(){
+
             });
         return dfd.promise;
       },
