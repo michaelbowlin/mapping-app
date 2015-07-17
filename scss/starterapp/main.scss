@@ -93,7 +93,7 @@ body,
   width: 272px;
   float: left;
   text-align: left;
-  padding:8px 0 8px 17px;
+  padding:8px 0 8px 22px;
   margin: 0; }
 
 #nav-wrap span {
@@ -177,10 +177,12 @@ img.logo3 {
 
 .brand span {
   position: absolute;
-  top: 11px;
+  top: 13px;
   left: 70px;
   color: #fff;
-  font-size: 32px; }
+  font-size: 26px;
+  letter-spacing:1px;
+}
 
 .brand span small {
   position: absolute;
@@ -428,30 +430,46 @@ body {
 
 #map {
   height: 100%;
-  width: 101%;
+  width: 102%;
   position: absolute !important;
-  top:66px;
-  left: -5px;
+  top: 65px;
+  left: 0;
+  border-left: 78px solid #b3d1ff;
+  border-top: 3px solid #b3d1ff;
+  border-right: 38px solid #b3d1ff;
 }
 .map-panel {
   position:absolute;
   z-index:1;
   overflow:hidden;
 }
+
+
 .map-controls {
   position: absolute;
   padding: 10px;
-  top: 122px;
-  left: 23px;
+  top: 158px;
+  left: -170px;
   z-index: 100;
   border-radius: 0 0 2px 2px;
-  height: 35px;
-  width: 132px; }
+  height: 29px;
+  width: 367px;
+  background: #fff;
+  border-radius:0 0 6px 6px;
+}
+
+.map-controls p {
+  color: green !important;
+  position:absolute;
+  left:245px;
+  top:5px;
+}
 
 .map-controls label {
-  color:#fff !important;
-  margin:0 0 120px 0;
-}
+  color: #fff !important;
+  margin: -7px 0 120px 0;
+  float: right; }
+
 #map-holder {
   height:410px;
 }
@@ -579,6 +597,9 @@ video#bgvid {
   border-bottom: 1px solid transparent;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+}
+.panel-map {
+  margin-left:70px;
 }
 .jumbotron, .well{
   background:#fff;
@@ -776,6 +797,16 @@ footer p{
       position:absolute;top:0;left:0;z-index:1;
     }
   }
+}
+
+
+.lightbox-body .control-label {
+  text-align:left;
+  font-size:14px;
+  width:130px;
+  margin:0 0px 0 0;
+  padding:0;
+  float:left;
 }
 
 //== Extends

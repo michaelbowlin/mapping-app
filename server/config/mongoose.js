@@ -1,19 +1,21 @@
 var mongoose = require('mongoose'),
-    userModel = require('../models/UserModel'),
+    dropDownListModel = require('../models/DropDownListModel'),
     courseModel = require('../models/CourseModel'),
-    propertyModel = require('../models/PropertyModel');
+    propertyModel = require('../models/PropertyModel')
+    userModel = require('../models/UserModel');
 
 module.exports = function(config) {
   mongoose.connect(config.db);
   var db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error...'));
   db.once('open', function callback() {
-    console.log('mapping application db opened');
+    console.log('appraisal application db opened');
   });
 
-  userModel.createDefaultUsers();
+  dropDownListModel.createDropDownLists();
   courseModel.createDefaultCourses();
   propertyModel.createDefaultProperties();
+  userModel.createDefaultUsers();
 
 };
 

@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .factory('propertyManager', function($http, $q, propertyService) {
+  .factory('propertyManager', function($http, $q, propertyService, $resource) {
     return {
 
       createProperty: function(newPropertyData) {
@@ -27,20 +27,12 @@ angular
         return dfd.promise;
       },
 
-      getPropertiesById: function() {
+      deleteProperty: function(id) {
+        var dfd = $q.defer();
+        $http.delete("/api/properties/" + id).then(function(){
 
-      },
-
-      deleteProperty: function(id) { // TODO: make this delete work
-        return $resource('properties', {
-          remove: {
-            method: 'DELETE',
-            url: '/api/properties/:_id',
-            params: {
-              id: '@_id'
-            }
-          }
-        });
+            });
+        return dfd.promise;
       },
 
       updateProperty: function(id){

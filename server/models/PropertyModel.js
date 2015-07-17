@@ -2,31 +2,19 @@ var mongoose = require('mongoose'),
     addressSchema = require('./AddressModel.js');
 
 var propertySchema = mongoose.Schema({
-  // title: {type:String, required:'{PATH} is required!'},
-  // latCoord: {type: Number, required:'{PATH} is required!'},
-  // longCoord: {type: Number, required:'{PATH} is required!'},
-  // description: {type: String, required:'{PATH} is required!'},
-  // dateAdded: {type: Date, required:'{PATH} is required!', default: Date.now()},
-  // dateComplete: {type: Date, required:'{PATH} is required!', default: Date.now()},
-  // imporvementSize: {type:Number},
-  // improvementSizeType: {type: String, default: "Acres"},
-  // condition: {type: String},
-  // type: {type: String, required:'{PATH} is required!', default: 'Commercial'},
-  // address: [ addressSchema ],
-  // userAccount: {type: String},
-  // tags: [String]
-
-  title: {type:String, required:'{PATH} is required!', default:'Test'},
-  latCoord: {type: Number},
-  longCoord: {type: Number},
-  description: {type: String},
+  title: {type:String, required:'{PATH} is required!', default:'Title'},
+  productType: {type: String},
   dateAdded: {type: Date, required:'{PATH} is required!', default: Date.now()},
   dateComplete: {type: Date, required:'{PATH} is required!', default: Date.now()},
+  address: [ addressSchema ],
+  latCoord: {type: Number},
+  longCoord: {type: Number},
+  description: {type: String},  
   imporvementSize: {type:Number},
   improvementSizeType: {type: String, default: "Acres"},
-  condition: {type: String},
-  type: {type: String, required:'{PATH} is required!', default: 'Commercial'},
-  address: [ addressSchema ],
+  landSize: {type: Number},
+  relevantCondition: {type: String},
+  propertyType: {type: String, required:'{PATH} is required!', default: 'Commercial'},
   userAccount: {type: String},
   tags: [String]
 });
@@ -37,14 +25,17 @@ var Property = mongoose.model('Property', propertySchema);
 function createDefaultProperties() {
   Property.find({}).exec(function(err, collection) {
     if(collection.length === 0) {
-      Property.create({title: "Colorado Capital",
+      Property.create({
+        title: "Colorado Capital",
+        productType: "Appraisal",
         latCoord: 39.7394199,
         longCoord: -104.9847909,
+        landSize: 5,
         description: "Colorado Capital Building, Denver",
         type:"Commercial",
         tags: ["Denver"],
         improvementSize: 2.25,
-        condition: "Good",
+        relevantCondition: "Good",
         address: [{
           street: "123 Colorado Street",
           city: "Denver",
