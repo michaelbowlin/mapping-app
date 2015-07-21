@@ -36,7 +36,7 @@ div.lightbox-main-content
               //  button.btn.btn-default(type='button', ng-click='property.openDatePicker($event)')
               //    i.glyphicon.glyphicon-calendar
               p.input-group
-                input.form-control.date-picker(type='date', datepicker-popup='', ng-model='property.dateComplete', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+                input.form-control.date-picker(type='date', datepicker-popup='', ng-model='property.dateComplete', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='property.dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
                 span.input-group-btn
                   //button.btn.btn-default(type='button', ng-click='open($event)') // TODO: Add fancy datepicker
                     //i.glyphicon.glyphicon-calendar
@@ -94,6 +94,6 @@ div.lightbox-main-content
       a.close-lightbox
         button.btn.btn-large.btn-default.close-lightbox(ng-click='cancel()') Cancel
       a.close-lightbox
-        button.btn.btn-large.btn-primary.btn-raised.close-lightbox(ng-click='addProperty(property)') Add Property
+        button.btn.btn-large.btn-primary.btn-raised.close-lightbox(ng-click='property.addProperty(property)') Add Property
 
       //#source-button.btn.btn-primary.btn-xs(style='display: block;') < >

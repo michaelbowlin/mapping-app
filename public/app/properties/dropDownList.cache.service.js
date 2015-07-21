@@ -7,12 +7,10 @@
       var dropDownList;
       return {
 
-        query: function() {
+        getLists: function() {
           if (!dropDownList) {
-            dropDownList = dropDownListService.get();
+            dropDownList = dropDownListService.getLists();
           }
-          
-          // console.log(dropDownList);
           
           return dropDownList;
         }

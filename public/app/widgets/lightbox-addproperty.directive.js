@@ -31,9 +31,19 @@
         //vm.types = [{Type:'Residential', Type:'Commericial'}]
 
         vm.getLists = function() {
-          var lists = dropDownListService.query().$promise.then(function(){
-            console.log('Lists: ' + lists);
+          
+          cachedDropDownListService.getLists().then(function(response) {
+
+            vm.ddlStates = response.data[0].list;
+            vm.ddlImprovementSize = response.data[1].list;
+            vm.ddlImprovementSizeMultiFamily = response.data[2].list; 
+            vm.ddlProductType = response.data[3].list;
+            vm.ddlPropertyType = response.data[4].list;
+            vm.ddlRelevantCondition = response.data[0].list;
+            vm.ddlLandSize = response.data[0].list;
+
           });
+
         }
         vm.getLists();
 
@@ -64,7 +74,7 @@
           $scope.opened = true;
         };
 
-        $scope.dateOptions = {
+        vm.dateOptions = {
           formatYear: 'yy',
           startingDay: 1
         };
@@ -101,21 +111,24 @@
         };
 
 
-        $scope.addProperty = function(newProp) {
+        vm.addProperty = function(newProp) {
 
           var newPropertyData = {
             title: newProp.title,
-            type: newProp.type,
+            propertyType: newProp.propertyType,
             dateComplete: newProp.dateComplete,
             address: newProp.address,
             improvementSize: newProp.improvementSize,
+            improvementSizeMultiFamily: newProp.improvementSizeMultiFamily,
             improvementSizeType: newProp.improvementSizeType,
             latCoord: newProp.latCoord,
             longCoord: newProp.longCoord,
-            condition: newProp.condition
+            relevantCondition: newProp.relevantCondition,
+            state: newProp.state,
+            productType: newProp.productType,
+            landSize: newProp.landSize
               //userAccount: identityService.currentUser._id TODO: Find out why we need this
           };
-          //console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!' + newPropertyData);
 
           propertyManager.createProperty(newPropertyData).then(refreshView());
 
