@@ -3,16 +3,14 @@
 
   angular
     .module('app')
-    .factory('dropDownListService', function($http) {
-      return {
+    .factory('dropDownListService', function($resource) {
 
-        get: function(){
-          $http.get('/api/lists').success(function(response) {
-            console.log(response);
-            return response;
-          });
-        }
-      }
+      var listResource = $resource('/api/lists', 
+      	{query: {method: 'GET', isArray: true}
+      });
 
+
+
+      return listResource;
     });
 })();

@@ -23,14 +23,15 @@
         propertyManager,
         $http,
         cachedDropDownListService,
-        dropDownListService) {
+        dropDownListService,
+        $q,
+        $resource) {
         var vm = this;
         //
         //vm.types = [{Type:'Residential', Type:'Commericial'}]
 
         vm.getLists = function() {
-          var lists = dropDownListService.get();
-          lists.then(function(response) {
+          var lists = dropDownListService.query().$promise.then(function(){
             console.log('Lists: ' + lists);
           });
         }
