@@ -2,10 +2,13 @@ var auth = require('./auth'),
     users = require('../controllers/users'),
     courses = require('../controllers/courses'),
     properties = require('../controllers/properties'),
+    lists = require('../controllers/dropDownList'),
     mongoose = require('mongoose'),
     User = mongoose.model('User');
 
 module.exports = function(app) {
+
+  app.get('/api/lists', lists.getLists);
 
   //app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
   app.get('/api/users', users.getUsers);
