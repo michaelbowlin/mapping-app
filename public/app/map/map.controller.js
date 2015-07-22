@@ -182,16 +182,16 @@
             };
 
             vm.paintGrid = function(){
+                //$scope.gridApi.core.refresh();
                 $http.get('/api/properties/')
                     .success(function(data) {
                         $scope.gridOptions.totalItems = 100;
                         var firstRow = (paginationOptions.pageNumber - 1) * paginationOptions.pageSize;
                         $scope.gridOptions.data = data.slice(firstRow, firstRow + paginationOptions.pageSize);
-
                     });
             };
 
-            vm.paintGrid();
+
 
         }
 })();

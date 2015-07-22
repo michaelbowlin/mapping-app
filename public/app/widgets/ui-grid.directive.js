@@ -70,16 +70,11 @@
                 name: 'edit',
                 cellClass: 'edit',
                 width: 100,
-                //cellTemplate: '<button class="btn btn-info btn-sm" ng-click=""><i class="fa fa-edit"></i></button>'
-                cellTemplate: '<a href="#"> EDIT </a>'
+                cellTemplate: '<edit-property-button></edit-property-button>'
               }, {
                 name: 'delete',
                 cellClass: 'delete',
                 width: 100,
-                // cellTemplate: '<button class="btn btn-danger btn-sm" ng-click=""><i class="fa fa-remove"></i></button>'
-                //cellTemplate: '<a href> DELETE </a>'
-                // cellTemplate: '<delete-property></delete-property>'
-                // cellTemplate: '<a class="" ng-click="deleteProperty()"><i class="fa fa-remove"></i></a>'
                 cellTemplate: '<a ng-click="grid.appScope.Delete(row)"> DELETE </a>'
               }
 
@@ -110,11 +105,13 @@
                   }
                   getPage();
                 });
+
                 gridApi.pagination.on.paginationChanged($scope, function(newPage, pageSize) {
                   paginationOptions.pageNumber = newPage;
                   paginationOptions.pageSize = pageSize;
                   getPage();
                 });
+
                 // interval of zero just to allow the directive to have initialized
                 $interval(function() {
                   gridApi.core.addToGridMenu(gridApi.grid, [{
@@ -163,6 +160,11 @@
 
             getPage();
 
+            /*
+             *
+             *  Delete Row
+             *
+            */
             $scope.Delete = function(row) {
               /* deletes row */
               var index = $scope.gridOptions.data.indexOf(row.entity);
@@ -177,6 +179,21 @@
             function refreshView(){
               $scope.refreshMap()();
             }
+
+
+            /*
+             *
+             *  Edit Row
+             *
+            */
+            $scope.editRow = function(row) {
+              console.log(row);
+              /* Edit Row */
+
+              /* Edit Item */
+
+            }
+
 
           }
         }

@@ -5878,6 +5878,10 @@ body,
   background: #303f3e;
   min-width: 88px; }
 
+.edit-btn {
+  padding: 3px 39px !important;
+  margin: 0 !important; }
+
 .left-side {
   float: none;
   display: table-cell;
@@ -6323,7 +6327,7 @@ body {
   position: fixed;
   bottom: 0px;
   left: 0px;
-  z-index: 900;
+  z-index: 100;
   border-top: 20px solid #f5f5f5;
   border-bottom: 30px solid #f5f5f5;
   -webkit-transition: .4s ease-in-out;
