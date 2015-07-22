@@ -33,15 +33,17 @@
         vm.getLists = function() {
           
           cachedDropDownListService.getLists().then(function(response) {
+            // vm.ddlStates = response.data[0].list;
+            // vm.ddlProductType = response.data[1].list;
+            
 
-            vm.ddlStates = response.data[0].list;
-            vm.ddlImprovementSize = response.data[1].list;
-            vm.ddlImprovementSizeMultiFamily = response.data[2].list; 
-            vm.ddlProductType = response.data[3].list;
-            vm.ddlPropertyType = response.data[4].list;
-            vm.ddlRelevantCondition = response.data[0].list;
-            vm.ddlLandSize = response.data[0].list;
-
+            // vm.ddlImprovementSize = response.data[1].list;
+            // vm.ddlImprovementSizeMultiFamily = response.data[2].list; 
+            
+            // vm.ddlPropertyType = response.data[4].list;
+            // vm.ddlRelevantCondition = response.data[0].list;
+            // vm.ddlLandSize = response.data[0].list;
+console.log(response);
           });
 
         }
