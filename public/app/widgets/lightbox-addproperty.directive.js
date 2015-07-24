@@ -27,23 +27,26 @@
         $q,
         $resource) {
         var vm = this;
-        //
-        //vm.types = [{Type:'Residential', Type:'Commericial'}]
 
         vm.getLists = function() {
           
           cachedDropDownListService.getLists().then(function(response) {
-            // vm.ddlStates = response.data[0].list;
-            // vm.ddlProductType = response.data[1].list;
+            vm.ddlStates = response.data[0].list;
+            vm.ddlProductType = response.data[1].list;
+            vm.ddlPropertyTypeCategory = response.data[2].list;
+            vm.ddlPropertyTypeLand = response.data[3].list;
+            vm.ddlPropertyTypeIndustrial = response.data[4].list;
+            vm.ddlPropertyTypeOffice = response.data[5].list;
+            vm.ddlPropertyTypeRetail = response.data[6].list;
+            vm.ddlPropertyTypeMultiFamily = response.data[7].list;
+            vm.ddlPropertyTypeHotel = response.data[8].list;
+            vm.ddlPropertyTypeSpecialPurpose = response.data[9].list;
+            vm.ddlImprovementSize = response.data[10].list;
+            vm.ddlImprovementSizeMultiFamily = response.data[11].list; 
+            vm.ddlLandSize = response.data[12].list;
+            vm.ddlRelevantCondition = response.data[13].list;            
             
-
-            // vm.ddlImprovementSize = response.data[1].list;
-            // vm.ddlImprovementSizeMultiFamily = response.data[2].list; 
-            
-            // vm.ddlPropertyType = response.data[4].list;
-            // vm.ddlRelevantCondition = response.data[0].list;
-            // vm.ddlLandSize = response.data[0].list;
-console.log(response);
+            console.log(vm.ddlStates);
           });
 
         }

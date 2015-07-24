@@ -53,6 +53,9 @@ div.lightbox-main-content
               // Hidden Longitude
               input.form-control(type='hidden', ng-model='property.longCoord')
 
+          select
+            option(ng-repeat='state in property.ddlStates') {{state}}
+
           // Improvment Size
           .form-group
             label.col-lg-2.control-label(for='') Improvement Size
