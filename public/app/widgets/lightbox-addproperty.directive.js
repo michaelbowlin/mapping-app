@@ -16,6 +16,7 @@
       link: function(scope, element, attrs) {
 
       },
+      controllerAs: "property",
       controller: function($scope,
         $location,
         identityService,

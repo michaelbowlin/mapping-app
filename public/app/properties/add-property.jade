@@ -7,23 +7,29 @@ div.lightbox-main-content
           legend Legend
           .form-group
 
-            // Property Type
-            label.col-lg-2.control-label Type
+            //- Product Type
+            .form-group
+            label.col-lg-2.control-label(for='') Product Type
             .col-lg-8
-              .radio.radio-primary
-                label
-                  //input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
-                  input#optionsRadios1(type='radio', ng-model='property.type', name='homeOption1', ng-checked='true', value='Residential')
-                  span.circle
-                  span.check
-                  |                                                     Residential
-              .radio.radio-primary
-                label
-                  // input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
-                  input#optionsRadios2(type='radio', ng-model='property.type', name='commercialpOption2', value='Commercial')
-                  span.circle
-                  span.check
-                  |                                                     Commercial
+              select
+                option(ng-repeat='type in property.ddlProductType') {{type}}
+
+            // Property Type Categories
+            .form-group
+            label.col-lg-2.control-label(for='') Property Type
+            .col-lg-8
+              select
+                option(ng-repeat='type in property.ddlPropertyTypeCategory') {{type}}
+            
+            .form-group
+              //- Land 
+            label.col-lg-2.control-label(for='') Land
+            .col-lg-8
+              select
+                option(ng-repeat='land in property.ddlPropertyTypeLand') {{land}}
+
+
+
 
             // date of completion
           .form-group
@@ -53,8 +59,11 @@ div.lightbox-main-content
               // Hidden Longitude
               input.form-control(type='hidden', ng-model='property.longCoord')
 
-          select
-            option(ng-repeat='state in property.ddlStates') {{state}}
+          .form-group
+            label.col-lg-2.control-label(for='') State
+            .col-lg-8
+              select
+                option(ng-repeat='state in property.ddlStates') {{state}}
 
           // Improvment Size
           .form-group
