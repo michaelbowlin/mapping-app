@@ -46,8 +46,6 @@
             vm.ddlImprovementSizeMultiFamily = response.data[11].list; 
             vm.ddlLandSize = response.data[12].list;
             vm.ddlRelevantCondition = response.data[13].list;            
-            
-            console.log(vm.ddlStates);
           });
 
         }
@@ -118,10 +116,30 @@
 
 
         vm.addProperty = function(newProp) {
+          var propertyType;
+          
+          if( newProp.propertyTypeLand ){
+            propertyType = newprop.propertyTypeLand;
+          } else if( newProp.propertyTypeIndustrial ){
+            propertyType = newProp.propertyTypeIndustrial;
+          } else if( newProp.propertyTypeOffice ) {
+            propertyType = newProp.propertyTypeOffice;
+          } else if( newProp.propertyTypeRetail ) {
+            propertyType = newProp.propertyTypeRetail;
+          } else if( newProp.propertyTypeMulti ) {
+            propertyType = newProp.propertyTypeMulti;
+          } else if( newProp.propertyTypeHotel ) {
+            propertyType = newProp.propertyTypeHotel;
+          } else if( newProp.propertyTypeSpecial ) {
+            propertyType = newProp.propertyTypeSpecial;
+          } else {
+            propertyType = "";
+          };
 
           var newPropertyData = {
             title: newProp.title,
-            propertyType: newProp.propertyType,
+            productType: newProp.productType,
+            propertyType: propertyType,
             dateComplete: newProp.dateComplete,
             address: newProp.address,
             improvementSize: newProp.improvementSize,

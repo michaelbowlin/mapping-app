@@ -24,6 +24,7 @@ exports.getPropertiesByUserId = function(req, res) {
 
 exports.createProperty = function(req, res, next) { // request, response, next function etc
   var propertyData = req.body;
+  console.log(propertyData);
   Property.create(propertyData, function(err) {
     if (err) {
       res.status(400);
