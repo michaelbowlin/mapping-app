@@ -116,10 +116,21 @@
 
 
         vm.addProperty = function(newProp) {
-          var propertyType;
-          
+          var improvementSize, propertyType;
+          console.log(newProp);
+
+          if( newProp.improvementSize ){
+            improvementSize = newProp.improvementSize;
+          } else if( newProp.improvementSizeMulti ){
+            improvementSize = newProp.improvementSizeMulti;
+          } else if( newProp.landSize ){
+            improvementSize = newProp.landSize;
+          } else {
+            improvementSize = "";
+          };
+
           if( newProp.propertyTypeLand ){
-            propertyType = newprop.propertyTypeLand;
+            propertyType = newProp.propertyTypeLand;
           } else if( newProp.propertyTypeIndustrial ){
             propertyType = newProp.propertyTypeIndustrial;
           } else if( newProp.propertyTypeOffice ) {
@@ -139,19 +150,19 @@
           var newPropertyData = {
             title: newProp.title,
             productType: newProp.productType,
-            propertyType: propertyType,
-            dateComplete: newProp.dateComplete,
+            propertyTypeCategory: newProp.propertyTypeCategory,
+            propertyType: propertyType,            
             address: newProp.address,
-            improvementSize: newProp.improvementSize,
-            improvementSizeMultiFamily: newProp.improvementSizeMultiFamily,
-            improvementSizeType: newProp.improvementSizeType,
             latCoord: newProp.latCoord,
             longCoord: newProp.longCoord,
+            improvementSize: improvementSize,
             relevantCondition: newProp.relevantCondition,
-            state: newProp.state,
-            productType: newProp.productType,
-            landSize: newProp.landSize
-              //userAccount: identityService.currentUser._id TODO: Find out why we need this
+            relevantCondition2: newProp.relevantCondition2,
+            relevantCondition3: newProp.relevantCondition3,
+            relevantCondition4: newProp.relevantCondition4,
+            dateComplete: newProp.dateComplete
+            // state: newProp.state
+            // userAccount: identityService.currentUser._id TODO: Find out why we need this
           };
 
           propertyManager.createProperty(newPropertyData).then(refreshView());

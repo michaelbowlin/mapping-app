@@ -7,6 +7,14 @@ div.lightbox-main-content
           legend Legend
           .form-group
 
+            //- Title
+            .form-group
+            label.col-lg-2.control-label(for='') Title
+            .col-lg-8
+              //- input(type='text', name='title')
+              //- Hidden Address Field - for form submission (Full google address gets fed in here from the google-maps.directive.js)
+              input.form-control(type='text', ng-model='property.title')
+
             //- Product Type
             .form-group
             label.col-lg-2.control-label(for='') Product Type
@@ -18,31 +26,31 @@ div.lightbox-main-content
             .form-group
             label.col-lg-2.control-label(for='') Property Type
             .col-lg-8
-              select(ng-model="selected")
+              select(ng-model="property.propertyTypeCategory")
                 option(ng-repeat='propertyType in property.ddlPropertyTypeCategory') {{propertyType}}
 
             //- Land
             .form-group
-            label.col-lg-2.control-label(for='') {{selected}}
+            label.col-lg-2.control-label(for='') {{property.propertyTypeCategory}}
             .col-lg-8
-              select(ng-if="selected === 'Land'" ng-model="property.propertyType")
+              select(ng-if="property.propertyTypeCategory === 'Land'" ng-model="property.propertyTypeLand")
                 option(ng-repeat='land in property.ddlPropertyTypeLand') {{land}}
-              select(ng-if="selected === 'Industrial'" ng-model="property.propertyType")
+              select(ng-if="property.propertyTypeCategory === 'Industrial'" ng-model="property.propertyTypeIndustrial")
                 option(ng-repeat='industrial in property.ddlPropertyTypeIndustrial') {{industrial}}
-              select(ng-if="selected === 'Office'" ng-model="property.propertyType")
+              select(ng-if="property.propertyTypeCategory === 'Office'" ng-model="property.propertyTypeOffice")
                 option(ng-repeat='office in property.ddlPropertyTypeOffice') {{office}}
-              select(ng-if="selected === 'Retail'" ng-model="property.propertyType")
+              select(ng-if="property.propertyTypeCategory === 'Retail'" ng-model="property.propertyTypeRetail")
                 option(ng-repeat='retail in property.ddlPropertyTypeRetail') {{retail}}
-              select(ng-if="selected === 'Multi-Family'" ng-model="property.propertyType")
+              select(ng-if="property.propertyTypeCategory === 'Multi-Family'" ng-model="property.propertyTypeMulti")
                 option(ng-repeat='multi in property.ddlPropertyTypeMultiFamily') {{multi}}
-              select(ng-if="selected === 'Hotel'" ng-model="property.propertyType")
+              select(ng-if="property.propertyTypeCategory === 'Hotel'" ng-model="property.propertyTypeHotel")
                 option(ng-repeat='hotel in property.ddlPropertyTypeHotel') {{hotel}}
-              select(ng-if="selected === 'Special Purpose'" ng-model="property.propertyType")
+              select(ng-if="property.propertyTypeCategory === 'Special Purpose'" ng-model="property.propertyTypeSpecial")
                 option(ng-repeat='special in property.ddlPropertyTypeSpecialPurpose') {{special}}
 
           //- Date of Completion
           .form-group
-            label.col-lg-2.control-label(for='') Date Picker
+            label.col-lg-2.control-label(for='') Date Completed
             .col-sm-8
               //input.form-control(type='text', datepicker-popup='{{format}}', ng-model='property.dateComplete',
               //is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions',
@@ -68,29 +76,45 @@ div.lightbox-main-content
               // Hidden Longitude
               input.form-control(type='hidden', ng-model='property.longCoord')
 
-          .form-group
-            label.col-lg-2.control-label(for='') State
-            .col-lg-8
-              select
-                option(ng-repeat='state in property.ddlStates') {{state}}
+          //- State
+          //- .form-group
+          //-   label.col-lg-2.control-label(for='') State
+          //-   .col-lg-8
+          //-     select
+          //-       option(ng-repeat='state in property.ddlStates') {{state}}
 
           //- Improvment Size
           .form-group 
             label.col-lg-2.control-label(for='') Improvement Size
             .col-lg-8
-              select(ng-if="selected !== 'Multi-Family' && selected !== 'Land'")
-                option(ng-repeat='improvementSize in property.ddlImprovementSize') {{improvementSize}}
-              select(ng-if="selected === 'Multi-Family'")
-                option(ng-repeat='improvementSizeMulti in property.ddlImprovementSizeMultiFamily') {{improvementSizeMulti}}
-              select(ng-if="selected === 'Land'")
-                option(ng-repeat='landSize in property.ddlLandSize') {{landSize}}
+              select(ng-if="property.propertyTypeCategory !== 'Multi-Family' && property.propertyTypeCategory !== 'Land' && property.propertyTypeCategory !== 'Hotel'")
+                option(ng-repeat='improvementSize in property.ddlImprovementSize' ng-model="property.improvementSize") {{improvementSize}}
+              select(ng-if="property.propertyTypeCategory === 'Multi-Family' || property.propertyTypeCategory === 'Hotel' ")
+                option(ng-repeat='improvementSizeMulti in property.ddlImprovementSizeMultiFamily' ng-model="property.improvementSizeMulti") {{improvementSizeMulti}}
+              select(ng-if="property.propertyTypeCategory === 'Land'")
+                option(ng-repeat='landSize in property.ddlLandSize' ng-model="property.landSize") {{landSize}}
 
 
           //- Condition
           .form-group 
             label.col-lg-2.control-label(for='') Relevant Condition
             .col-lg-8
-              select
+              select(ng-model="property.relevantCondition")
+                option(ng-repeat='condition in property.ddlRelevantCondition') {{condition}}
+          .form-group
+            label.col-lg-2.control-label(for='') Relevant Condition
+            .col-lg-8
+              select(ng-model="property.relevantCondition2")
+                option(ng-repeat='condition in property.ddlRelevantCondition') {{condition}}
+          .form-group
+            label.col-lg-2.control-label(for='') Relevant Condition
+            .col-lg-8
+              select(ng-model="property.relevantCondition3")
+                option(ng-repeat='condition in property.ddlRelevantCondition') {{condition}}
+          .form-group
+            label.col-lg-2.control-label(for='') Relevant Condition
+            .col-lg-8
+              select(ng-model="property.relevantCondition4")
                 option(ng-repeat='condition in property.ddlRelevantCondition') {{condition}}
 
 .modal-footer
