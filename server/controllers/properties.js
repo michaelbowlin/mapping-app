@@ -59,6 +59,9 @@ exports.updateProperty = function(req, res) {
     if ( propertyUpdates.title ) {
       property.title = propertyUpdates.title; 
     }
+    if ( propertyUpdates.company ) {
+      property.company = propertyUpdates.company; 
+    }
     if ( propertyUpdates.latCoord ) { 
       property.latCoord = propertyUpdates.latCoord; 
     }
