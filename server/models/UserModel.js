@@ -10,7 +10,8 @@ var userSchema = mongoose.Schema({
   dateUpdated: {type: Date, required:'{PATH} is required!', default: Date.now()},
   firstName: {type:String, required:'{PATH} is required!'},
   lastName: {type:String, required:'{PATH} is required!'},
-  accountKey: {type:String},
+  company: { type: String },
+  accountKey: { type:String },
   username: {
     type: String,
     required: '{PATH} is required!',
@@ -46,6 +47,7 @@ function createDefaultUsers() {
       User.create({firstName:'Michael',
         lastName:'Bowlin',
         username:'michael',
+        company: 'ACME Limited',
         salt: salt,
         hashed_pwd: hash,
         roles: ['admin'],
