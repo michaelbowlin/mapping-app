@@ -22,7 +22,12 @@
                 });
             };
 
+            vm.fillRow = function(){
+
+            }
+
             vm.paintMap();
+            vm.fillRow();
 
 
             function createMap(cities) {

@@ -10,8 +10,8 @@
             restrict: 'E',
             templateUrl: '/app/widgets/lightbox-editproperty.html',
             scope: {
-                refreshMap: '&',
-                refreshGrid: '&'
+                //refreshMap: '&',
+                //refreshGrid: '&'
             },
             link: function(scope, element, attrs) {
 

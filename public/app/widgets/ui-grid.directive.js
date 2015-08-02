@@ -9,7 +9,8 @@
           restrict: 'E',
           templateUrl: '/app/widgets/ui-grid.template.html',
           scope: {
-            refreshMap: '&'
+            refreshMap: '&',
+            fillForm: '&'
           },
           controller: function($scope, $http, uiGridConstants, $interval, $q, $timeout, propertyManager) {
             /* UI GRID */
@@ -187,11 +188,36 @@
              *
             */
             $scope.editRow = function(row) {
-              console.log(row);
+              console.log(row.entity.latCoord);
+              //$scope.fillForm = row.entity.latCoord;
+
+
+              updateForm();
+
+              /*
+              entity: Object
+                $$hashKey: "uiGrid-00L"
+                __v: 0
+                _id: "559fc0a8a65319da53e68f24"
+                address: Array[1]
+                dateAdded: "2015-07-10T12:54:20.153Z"
+                dateComplete: "2015-07-10T12:54:20.153Z"
+                improvementSizeType: "Acres"
+                latCoord: 32.1656221
+                longCoord: -82.90007509999998
+                tags: Array[0]
+                title: "Test"
+                type: "Commercial"
+              */
+
               /* Edit Row */
 
               /* Edit Item */
 
+            }
+
+            function updateForm(){
+              $scope.fillForm();
             }
 
 
