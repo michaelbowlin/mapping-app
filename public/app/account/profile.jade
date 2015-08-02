@@ -58,7 +58,8 @@
             label.col-lg-2.control-label(for='') State
             .col-lg-8
               select(ng-model="profile.addressState")
-                option(ng-repeat='state in property.ddlStates') {{state}}
+                option(ng-repeat='state in profile.ddlStates') {{state}}
+                p
           .form-group
             label.col-md-2.control-label() Zip Code
             .col-md-10
