@@ -3,22 +3,21 @@ var mongoose = require('mongoose'),
 
 var propertySchema = mongoose.Schema({
   title: {type:String, required:'{PATH} is required!', default:'New Property'},
-  productType: {type: String},
-  propertyType: {type: String},
-  dateAdded: {type: Date, required:'{PATH} is required!', default: Date.now()},
-  dateComplete: {type: Date, required:'{PATH} is required!', default: Date.now()},
-  address: [ addressSchema ],
-  latCoord: {type: Number},
-  longCoord: {type: Number},
-  // description: {type: String},  
-  imporvementSize: {type: String},
-  imporvementSizeMultiFamily: {type: String},
-  state: {type: String},
-  // improvementSizeType: {type: String, default: "Acres"},
-  landSize: {type: Number},
-  relevantCondition: {type: String},
+  productType: { type: String },
+  propertyTypeCategory: { type: String },
   propertyType: {type: String, required:'{PATH} is required!', default: 'Commercial'},
-  userAccount: {type: String}
+  address: [ addressSchema ],
+  latCoord: { type: Number },
+  longCoord: { type: Number },
+  imporvementSize: { type: String },
+  // state: { type: String },
+  relevantCondition: { type: String },
+  relevantCondition2: { type: String },
+  relevantCondition3: { type: String },
+  relevantCondition4: { type: String },
+  dateAdded: { type: Date, required:'{PATH} is required!', default: Date.now() },
+  dateComplete: { type: Date, required:'{PATH} is required!', default: Date.now() },
+  userAccount: { type: String }
 });
 
 

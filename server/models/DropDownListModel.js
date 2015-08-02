@@ -11,11 +11,6 @@ function createDropDownLists() {
   DropDownList.find({}).exec(function(err, collection) {
     if (collection.length === 0) {
       DropDownList.create({
-        title: "Product Type",
-        list: ['Appraisal', 'Highest and Best Analysis',
-          'Consultation', 'Market Analysis', 'Market Rent Analysis', 'Other']
-      });
-      DropDownList.create({
         title: "State",
         list: ['Alabama, AL', 'Alaska, AK', 'Arizona, AZ', 'Arkansas, AR', 'California, CA',
           'Colorado, CO', 'Connecticut, CT', 'Deleware, DE', 'Florida, FL', 'Georgia, GA',
@@ -29,20 +24,56 @@ function createDropDownLists() {
           'Virginia, VA', 'Washington, WA', 'West Virginia, WV', 'Wisconsin, WI',
           'Wyoming, WY']
       });
+
       DropDownList.create({
-        title: "Property Type",
-        list: [
-          '<b>Land</b>', 'Residential Development', 'Commercial', 'Agricultural',
-          '<b>Industrial</b>', 'Office Warehouse', 'Showroom Warehouse', 'Flex',
-          'Manufacturing', 'Refrigerated/Cold Storage', 'Office', 'CBD', 'Suburban',
-          'Medical', 'R&D', 'Retail', 'Shopping Center – Power Center, Community Center',
+        title: "Product Type",
+        list: ['Appraisal', 'Highest and Best Analysis',
+          'Consultation', 'Market Analysis', 'Market Rent Analysis', 'Other']
+      });
+
+      DropDownList.create({
+        title: "Property Type: Categories",
+        list: ['Land', 'Industrial', 'Office', 'Retail', 'Multi-Family', 'Hotel', 'Special Purpose']
+      });
+
+      DropDownList.create({
+        title: "Property Type: Land",
+        list: ['Residential Development', 'Commercial', 'Agricultural']
+      });
+
+      DropDownList.create({
+        title: "Property Type: Industrial",
+        list: ['Office Warehouse', 'Showroom Warehouse', 'Flex', 'Manufacturing',
+         'Refrigerated/Cold Storage']
+      });
+
+      DropDownList.create({
+        title: "Property Type: Office",
+        list: ['CBD', 'Suburban', 'Medical', 'R&D']
+      });
+
+      DropDownList.create({
+        title: "Property Type: Retail",
+        list: ['Shopping Center – Power Center, Community Center',
           'Shopping Center – Neighborhood Center, Convenience Center',
           'Freestanding Building', 'Restaurant', 'Regional Mall/Lifestyle Center',
-          'Convenience Store', '<b>Multi-Family</b>', 'Garden-style', 'Tower',
-          'Income-restricted', 'Student Housing', 'Senior/Assisted Living',
-          'Mobile Home/RV Community', '<b>Hotel</b>', 'Limited-Service',
-          'Full-Service', 'Extended-Stay', 'Hotel/Casino', '<b>Special Purpose</b>',
-          'Winery/Vineyard', 'Water Treatment Facility', 'Water Retention Facility',
+          'Convenience Store']
+      });
+
+      DropDownList.create({
+        title: "Property Type: Multi-Family",
+        list: ['Garden-style', 'Tower', 'Income-restricted', 'Student Housing', 
+        'Senior/Assisted Living', 'Mobile Home/RV Community']
+      });
+
+      DropDownList.create({
+        title: "Property Type: Hotel",
+        list: ['Limited-Service', 'Full-Service', 'Extended-Stay', 'Hotel/Casino']
+      });
+
+      DropDownList.create({
+        title: "Property Type: Special Purpose",
+        list: ['Winery/Vineyard', 'Water Treatment Facility', 'Water Retention Facility',
           'Veterinarian/Kennel', 'Utility Sub-Station', 'Truck Terminal',
           'Truck Stop', 'Theater/Concert Hall', 'Swimming Pool', 'Sorority / Fraternity House',
           'Skilled Nursing/Rehabilitation Facility', 'Skating Rink', 'Shipyard',
@@ -92,7 +123,7 @@ function createDropDownLists() {
           'Trophy-Level Asset']
       });
     }
-  })
+  });
 }
 
 exports.createDropDownLists = createDropDownLists;

@@ -16,6 +16,7 @@
       link: function(scope, element, attrs) {
 
       },
+      controllerAs: "property",
       controller: function($scope,
         $location,
         identityService,
@@ -27,21 +28,24 @@
         $q,
         $resource) {
         var vm = this;
-        //
-        //vm.types = [{Type:'Residential', Type:'Commericial'}]
 
         vm.getLists = function() {
           
           cachedDropDownListService.getLists().then(function(response) {
-
             vm.ddlStates = response.data[0].list;
-            vm.ddlImprovementSize = response.data[1].list;
-            vm.ddlImprovementSizeMultiFamily = response.data[2].list; 
-            vm.ddlProductType = response.data[3].list;
-            vm.ddlPropertyType = response.data[4].list;
-            vm.ddlRelevantCondition = response.data[0].list;
-            vm.ddlLandSize = response.data[0].list;
-
+            vm.ddlProductType = response.data[1].list;
+            vm.ddlPropertyTypeCategory = response.data[2].list;
+            vm.ddlPropertyTypeLand = response.data[3].list;
+            vm.ddlPropertyTypeIndustrial = response.data[4].list;
+            vm.ddlPropertyTypeOffice = response.data[5].list;
+            vm.ddlPropertyTypeRetail = response.data[6].list;
+            vm.ddlPropertyTypeMultiFamily = response.data[7].list;
+            vm.ddlPropertyTypeHotel = response.data[8].list;
+            vm.ddlPropertyTypeSpecialPurpose = response.data[9].list;
+            vm.ddlImprovementSize = response.data[10].list;
+            vm.ddlImprovementSizeMultiFamily = response.data[11].list; 
+            vm.ddlLandSize = response.data[12].list;
+            vm.ddlRelevantCondition = response.data[13].list;            
           });
 
         }
@@ -112,22 +116,53 @@
 
 
         vm.addProperty = function(newProp) {
+          var improvementSize, propertyType;
+          console.log(newProp);
+
+          if( newProp.improvementSize ){
+            improvementSize = newProp.improvementSize;
+          } else if( newProp.improvementSizeMulti ){
+            improvementSize = newProp.improvementSizeMulti;
+          } else if( newProp.landSize ){
+            improvementSize = newProp.landSize;
+          } else {
+            improvementSize = "";
+          };
+
+          if( newProp.propertyTypeLand ){
+            propertyType = newProp.propertyTypeLand;
+          } else if( newProp.propertyTypeIndustrial ){
+            propertyType = newProp.propertyTypeIndustrial;
+          } else if( newProp.propertyTypeOffice ) {
+            propertyType = newProp.propertyTypeOffice;
+          } else if( newProp.propertyTypeRetail ) {
+            propertyType = newProp.propertyTypeRetail;
+          } else if( newProp.propertyTypeMulti ) {
+            propertyType = newProp.propertyTypeMulti;
+          } else if( newProp.propertyTypeHotel ) {
+            propertyType = newProp.propertyTypeHotel;
+          } else if( newProp.propertyTypeSpecial ) {
+            propertyType = newProp.propertyTypeSpecial;
+          } else {
+            propertyType = "";
+          };
 
           var newPropertyData = {
             title: newProp.title,
-            propertyType: newProp.propertyType,
-            dateComplete: newProp.dateComplete,
+            productType: newProp.productType,
+            propertyTypeCategory: newProp.propertyTypeCategory,
+            propertyType: propertyType,            
             address: newProp.address,
-            improvementSize: newProp.improvementSize,
-            improvementSizeMultiFamily: newProp.improvementSizeMultiFamily,
-            improvementSizeType: newProp.improvementSizeType,
             latCoord: newProp.latCoord,
             longCoord: newProp.longCoord,
+            improvementSize: improvementSize,
             relevantCondition: newProp.relevantCondition,
-            state: newProp.state,
-            productType: newProp.productType,
-            landSize: newProp.landSize
-              //userAccount: identityService.currentUser._id TODO: Find out why we need this
+            relevantCondition2: newProp.relevantCondition2,
+            relevantCondition3: newProp.relevantCondition3,
+            relevantCondition4: newProp.relevantCondition4,
+            dateComplete: newProp.dateComplete
+            // state: newProp.state
+            // userAccount: identityService.currentUser._id TODO: Find out why we need this
           };
 
           propertyManager.createProperty(newPropertyData).then(refreshView());

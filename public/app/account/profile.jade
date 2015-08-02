@@ -23,31 +23,43 @@
           .form-group
             label.col-md-2.control-label(for="email") Email
             .col-md-10
-              input.form-control(name="email", type="email", placeholder="Email", ng-model="profile.email", required)
+              input.form-control(name="email", type="email", placeholder="john@example.com", ng-model="profile.email", required)
           .form-group
             label.col-md-2.control-label(for="fname") First Name
             .col-md-10
-              input.form-control(name="fname", type="text", placeholder="First Name", ng-model="profile.fname", required)
+              input.form-control(name="fname", type="text", placeholder="John", ng-model="profile.fname", required)
           .form-group
             label.col-md-2.control-label(for="lname") Last Name
             .col-md-10
-              input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="profile.lname", required)
+              input.form-control(name="lname", type="text", placeholder="Rogers", ng-model="profile.lname", required)
           .form-group
             label.col-md-2.control-label(for="password") Password
             .col-md-10
               input.form-control(name="password", type="password", placeholder="Password", ng-model="profile.password")
           .form-group
+            label.col-md-2.control-label(for="company") Company
+            .col-md-10
+              input.form-control(name="company", type="company", placeholder="ACME Limited", ng-model="profile.company")
+
+          .form-group
             label.col-md-2.control-label() Address
             .col-md-10
-              input.form-control(name="addressStreet", type="text", placeholder="Address", ng-model="profile.addressStreet")
+              input.form-control(name="addressStreet", type="text", placeholder="123 Elm Street", ng-model="profile.addressStreet")
           .form-group
             label.col-md-2.control-label() City
             .col-md-10
-              input.form-control(name="addressCity", type="text", placeholder="City", ng-model="profile.addressCity")
+              input.form-control(name="addressCity", type="text", placeholder="Somewhere", ng-model="profile.addressCity")
+          //- .form-group
+          //-   label.col-md-2.control-label() State
+          //-   .col-md-10
+          //-     input.form-control(name="addressState", type="text", placeholder="NE", ng-model="profile.addressState")
+          //- State
           .form-group
-            label.col-md-2.control-label() State
-            .col-md-10
-              input.form-control(name="addressState", type="text", placeholder="State", ng-model="profile.addressState")
+            label.col-lg-2.control-label(for='') State
+            .col-lg-8
+              select(ng-model="profile.addressState")
+                option(ng-repeat='state in profile.ddlStates') {{state}}
+                p
           .form-group
             label.col-md-2.control-label() Zip Code
             .col-md-10

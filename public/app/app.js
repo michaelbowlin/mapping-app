@@ -82,7 +82,7 @@
       .when('/property/add', {
         templateUrl: '/partials/properties/add-property',
         controller: 'addPropertyController',
-        controllerAs: "property"
+        controllerAs: 'property'
       })
 
   });
