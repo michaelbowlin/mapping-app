@@ -1,6 +1,5 @@
 var auth = require('./auth'),
     users = require('../controllers/users'),
-    courses = require('../controllers/courses'),
     properties = require('../controllers/properties'),
     lists = require('../controllers/dropDownList'),
     mongoose = require('mongoose'),

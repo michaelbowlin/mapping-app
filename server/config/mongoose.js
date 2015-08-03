@@ -1,6 +1,5 @@
 var mongoose = require('mongoose'),
     dropDownListModel = require('../models/DropDownListModel'),
-    courseModel = require('../models/CourseModel'),
     propertyModel = require('../models/PropertyModel')
     userModel = require('../models/UserModel');
 
@@ -13,7 +12,6 @@ module.exports = function(config) {
   });
 
   dropDownListModel.createDropDownLists();
-  courseModel.createDefaultCourses();
   propertyModel.createDefaultProperties();
   userModel.createDefaultUsers();
 
