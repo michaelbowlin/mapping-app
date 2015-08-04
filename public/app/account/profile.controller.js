@@ -7,8 +7,7 @@
 
       var vm = this;
       cachedDropDownListService.getLists().then(function(response) {
-        console.log('here', response);
-        vm.ddlStates = response.data[0].list;
+        vm.ddlStates = response.data["State"].list;
       });
 
       vm.email = identityService.currentUser.username;
