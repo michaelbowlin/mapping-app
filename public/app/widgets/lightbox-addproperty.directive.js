@@ -32,20 +32,20 @@
         vm.getLists = function() {
           
           cachedDropDownListService.getLists().then(function(response) {
-            vm.ddlStates = response.data[0].list;
-            vm.ddlProductType = response.data[1].list;
-            vm.ddlPropertyTypeCategory = response.data[2].list;
-            vm.ddlPropertyTypeLand = response.data[3].list;
-            vm.ddlPropertyTypeIndustrial = response.data[4].list;
-            vm.ddlPropertyTypeOffice = response.data[5].list;
-            vm.ddlPropertyTypeRetail = response.data[6].list;
-            vm.ddlPropertyTypeMultiFamily = response.data[7].list;
-            vm.ddlPropertyTypeHotel = response.data[8].list;
-            vm.ddlPropertyTypeSpecialPurpose = response.data[9].list;
-            vm.ddlImprovementSize = response.data[10].list;
-            vm.ddlImprovementSizeMultiFamily = response.data[11].list; 
-            vm.ddlLandSize = response.data[12].list;
-            vm.ddlRelevantCondition = response.data[13].list;            
+            vm.ddlStates = response.data["State"].list;
+            vm.ddlProductType = response.data["Product Type"].list;
+            vm.ddlPropertyTypeCategory = response.data["Property Type: Categories"].list;
+            vm.ddlPropertyTypeLand = response.data["Property Type: Land"].list;
+            vm.ddlPropertyTypeIndustrial = response.data["Property Type: Industrial"].list;
+            vm.ddlPropertyTypeOffice = response.data["Property Type: Office"].list;
+            vm.ddlPropertyTypeRetail = response.data["Property Type: Retail"].list;
+            vm.ddlPropertyTypeMultiFamily = response.data["Property Type: Multi-Family"].list;
+            vm.ddlPropertyTypeHotel = response.data["Property Type: Hotel"].list;
+            vm.ddlPropertyTypeSpecialPurpose = response.data["Property Type: Special Purpose"].list;
+            vm.ddlImprovementSize = response.data["Improvement Size"].list;
+            vm.ddlImprovementSizeMultiFamily = response.data["Improvement Size: Multi-Family"].list; 
+            vm.ddlLandSize = response.data["Land Size"].list;
+            vm.ddlRelevantCondition = response.data["Relevant Condition"].list;            
           });
 
         }
@@ -160,9 +160,8 @@
             relevantCondition2: newProp.relevantCondition2,
             relevantCondition3: newProp.relevantCondition3,
             relevantCondition4: newProp.relevantCondition4,
-            dateComplete: newProp.dateComplete
-            // state: newProp.state
-            // userAccount: identityService.currentUser._id TODO: Find out why we need this
+            dateComplete: newProp.dateComplete,
+            userAccount: identityService.currentUser._id
           };
 
           propertyManager.createProperty(newPropertyData).then(refreshView());

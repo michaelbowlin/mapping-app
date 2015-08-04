@@ -5,15 +5,12 @@ angular
     var vm = this;
 
     vm.signup = function(newUser) {
-      console.log('here');
-      // var newUserData = {
-      //   username: newUser.email,
-      //   password: newUser.password,
-      //   firstName: newUser.fname,
-      //   lastName: newUser.lname
-      // };
-
-      // console.log(newUser, newUserData);
+      var newUserData = {
+        username: newUser.email,
+        password: newUser.password,
+        firstName: newUser.fname,
+        lastName: newUser.lname
+      };
 
       mvAuth.createUser(newUserData).then(function() {
         mvNotifier.notify('User account created!');
