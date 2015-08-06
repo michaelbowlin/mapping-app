@@ -33,20 +33,21 @@
           firstName: vm.fname,
           lastName: vm.lname,
           address: {
-            street: vm.addressStreet
-              //city: vm.addressCity,
-              //state: vm.addressState,
-              //zipCode: vm.addressZipCode
-          }
+            street: vm.addressStreet,
+            city: vm.addressCity,
+            state: vm.addressState,
+            zipCode: vm.addressZipCode
+          },
 
-          //billing:[{
-          //  accountType: vm.accountType,
-          //  accountContact: [{
-          //    contactName: vm.accountContactName,
-          //    contactEmail: vm.accountContactEmail
-          //  }]
+          billing: [{
+            accountType: vm.accountType,
+            accountContact: [{
+              contactName: vm.accountContactName,
+              contactEmail: vm.accountContactEmail
+            }]
+          }]
+        };
 
-        }
 
         if (vm.password && vm.password.length > 0) {
           newUserData.password = vm.password;

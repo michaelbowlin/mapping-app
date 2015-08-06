@@ -14,7 +14,6 @@
         var vm = this;
 
         vm.signup = function( newUser ) {
-          console.log(newUser);
           var newUserData = {
             username: newUser.email,
             password: newUser.password,

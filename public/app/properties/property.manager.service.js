@@ -17,7 +17,6 @@ angular
 
       getProperties: function() {
         var dfd = $q.defer();
-        console.log("called");
 
         propertyService.query(function() {
           dfd.resolve();
@@ -37,7 +36,6 @@ angular
 
       updateProperty: function(id){
         var dfd = $q.defer();
-        console.log("called");
 
         propertyService.query(function() {
           dfd.resolve();

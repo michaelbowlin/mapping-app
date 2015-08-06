@@ -1,8 +1,8 @@
 var mongoose = require('mongoose'),
-    dropDownListModel = require('../models/DropDownListModel'),
-    courseModel = require('../models/CourseModel'),
-    propertyModel = require('../models/PropertyModel')
-    userModel = require('../models/UserModel');
+  dropDownListModel = require('../models/DropDownListModel'),
+  courseModel = require('../models/CourseModel'),
+  propertyModel = require('../models/PropertyModel'),
+  userModel = require('../models/UserModel');
 
 module.exports = function(config) {
   mongoose.connect(config.db);
@@ -18,4 +18,3 @@ module.exports = function(config) {
   userModel.createDefaultUsers();
 
 };
-
