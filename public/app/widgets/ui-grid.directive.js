@@ -44,9 +44,11 @@
               }, {
                 name: 'dateComplete',
                 cellClass: 'dateComplete',
-                width: 200,
-                enableSorting: false
-              }, {
+                cellFilter: 'date:\'MM-dd-yyyy\'',
+                width: 120,
+                enableSorting: true
+              },
+                {
                 name: 'address',
                 width: 500,
                 cellClass: 'address',
