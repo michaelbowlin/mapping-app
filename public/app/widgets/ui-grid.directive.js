@@ -37,38 +37,77 @@
               paginationPageSize: 5,
               useExternalPagination: true,
               useExternalSorting: true,
-              columnDefs: [{
-                name: 'type',
-                width: 100,
-                cellClass: 'type'
-              }, {
+              columnDefs: [
+                {
+                  displayName: 'Type',
+                  name: 'propertyType',
+                  width: 120,
+                  cellClass: 'propertyType',
+                  enableSorting: false
+                },
+                {
+                displayName: 'Date',
                 name: 'dateComplete',
                 cellClass: 'dateComplete',
                 cellFilter: 'date:\'MM-dd-yyyy\'',
-                width: 120,
+                width: 110,
                 enableSorting: true
               },
                 {
-                name: 'address',
-                width: 500,
+                displayName: 'Address',
+                name: 'address[0]',
+                width: 310,
                 cellClass: 'address',
                 enableSorting: false
-              }, {
-                name: 'improvementSize',
-                width: 200,
-                cellClass: 'improvementSize',
+              },
+                {
+                  displayName: 'Type',
+                  name: 'productType',
+                  width: 240,
+                  cellClass: 'type'
+                },
+                {
+                name: 'productType',
+                displayName: 'Product',
+                width: 120,
+                cellClass: 'productType',
                 enableSorting: false
-              }, {
-                name: 'improvementSizeType',
-                width: 200,
-                cellClass: 'acres',
-                enableSorting: false
-              }, {
-                name: 'condition',
-                width: 200,
-                cellClass: 'condition',
-                enableSorting: false
-              }, {
+              },
+                {
+                  field: 'relevantCondition',
+                  displayName: 'Condition 1',
+                  //cellTemplate: 'relevantCondition2',
+                  width: 165,
+                  cellClass: 'relevantCondition',
+                  enableSorting: false
+                },
+                {
+                  field: 'relevantCondition2',
+                  displayName: 'Condition 2',
+                  //cellTemplate: 'relevantCondition2',
+                  width: 165,
+                  cellClass: 'relevantCondition',
+                  enableSorting: false
+                },
+                {
+                  field: 'relevantCondition3',
+                  displayName: 'Condition 3',
+                  //cellTemplate: 'relevantCondition2',
+                  width: 165,
+                  cellClass: 'relevantCondition',
+                  enableSorting: false
+                },
+                {
+                  field: 'relevantCondition4',
+                  displayName: 'Condition 4',
+                  //cellTemplate: 'relevantCondition2',
+                  width: 165,
+                  cellClass: 'relevantCondition',
+                  enableSorting: false
+                },
+
+
+                {
                 name: 'edit',
                 cellClass: 'edit',
                 width: 100,
@@ -156,6 +195,8 @@
 
               $http.get(url)
                   .success(function(data) {
+                    console.log(data);
+                    var condtion = data[0].relevantCondition;
                     $scope.gridOptions.totalItems = 100;
                     var firstRow = (paginationOptions.pageNumber - 1) * paginationOptions.pageSize;
                     $scope.gridOptions.data = data.slice(firstRow, firstRow + paginationOptions.pageSize);
