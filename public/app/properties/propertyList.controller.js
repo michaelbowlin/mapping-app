@@ -8,6 +8,5 @@
 
 		  vm.properties = propertyService.query();
 
-		  console.log(vm.properties);
 	});
 })();

@@ -446,23 +446,21 @@ body {
 
 
 .map-controls {
-  position: absolute;
+
   padding: 10px;
-  top: 158px;
-  left: -170px;
-  z-index: 100;
   border-radius: 0 0 2px 2px;
   height: 29px;
-  width: 367px;
+  width: 324px;
   background: #fff;
-  border-radius:0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  float:left;
+  margin:157px 0 0 55px;
 }
 
 .map-controls p {
   color: green !important;
-  position:absolute;
-  left:245px;
-  top:5px;
+  float:left;
+  margin:0px 14px 0 0;
 }
 
 .map-controls label {
@@ -636,7 +634,7 @@ video#bgvid {
 .panel-primary{
   display:inline-block;
   margin-bottom:30px;
-  width:100%;
+  width: 324px;
 }
 .green {
   background:#5cb85c;
