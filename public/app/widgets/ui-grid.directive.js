@@ -41,8 +41,7 @@
                 {
                   displayName: 'Type',
                   name: 'propertyType',
-                  width: 120,
-                  cellClass: 'propertyType',
+                   cellClass: 'propertyType',
                   enableSorting: false
                 },
                 {
@@ -50,7 +49,7 @@
                 name: 'dateComplete',
                 cellClass: 'dateComplete',
                 cellFilter: 'date:\'MM-dd-yyyy\'',
-                width: 110,
+                width: 80,
                 enableSorting: true
               },
                 {
@@ -69,55 +68,54 @@
                 {
                 name: 'productType',
                 displayName: 'Product',
-                width: 120,
-                cellClass: 'productType',
+                 cellClass: 'productType',
                 enableSorting: false
               },
                 {
                   field: 'relevantCondition',
                   displayName: 'Condition 1',
                   //cellTemplate: 'relevantCondition2',
-                  width: 165,
-                  cellClass: 'relevantCondition',
+                   cellClass: 'relevantCondition',
                   enableSorting: false
                 },
                 {
                   field: 'relevantCondition2',
                   displayName: 'Condition 2',
                   //cellTemplate: 'relevantCondition2',
-                  width: 165,
-                  cellClass: 'relevantCondition',
+                   cellClass: 'relevantCondition',
                   enableSorting: false
                 },
                 {
                   field: 'relevantCondition3',
                   displayName: 'Condition 3',
                   //cellTemplate: 'relevantCondition2',
-                  width: 165,
-                  cellClass: 'relevantCondition',
+                   cellClass: 'relevantCondition',
                   enableSorting: false
                 },
                 {
                   field: 'relevantCondition4',
                   displayName: 'Condition 4',
                   //cellTemplate: 'relevantCondition2',
-                  width: 165,
-                  cellClass: 'relevantCondition',
+                   cellClass: 'relevantCondition',
                   enableSorting: false
                 },
 
 
                 {
                 name: 'edit',
+                displayName: '',
                 cellClass: 'edit',
-                width: 100,
-                //cellTemplate: '<button class="btn btn-info btn-sm" ng-click=""><i class="fa fa-edit"></i></button>'
+                  width: 40,
+
+                  //cellTemplate: '<button class="btn btn-info btn-sm" ng-click=""><i class="fa fa-edit"></i></button>'
                 cellTemplate: '<a href="#"> EDIT </a>'
               }, {
                 name: 'delete',
+               displayName: '',
                 cellClass: 'delete',
-                width: 100,
-                // cellTemplate: '<button class="btn btn-danger btn-sm" ng-click=""><i class="fa fa-remove"></i></button>'
+                width: 40,
+
+                  // cellTemplate: '<button class="btn btn-danger btn-sm" ng-click=""><i class="fa fa-remove"></i></button>'
                 //cellTemplate: '<a href> DELETE </a>'
                 // cellTemplate: '<delete-property></delete-property>'
                 // cellTemplate: '<a class="" ng-click="deleteProperty()"><i class="fa fa-remove"></i></a>'
