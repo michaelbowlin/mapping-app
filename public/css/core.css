@@ -6287,22 +6287,19 @@ body {
   overflow: hidden; }
 
 .map-controls {
-  position: absolute;
   padding: 10px;
-  top: 158px;
-  left: -170px;
-  z-index: 100;
   border-radius: 0 0 2px 2px;
   height: 29px;
-  width: 367px;
+  width: 324px;
   background: #fff;
-  border-radius: 0 0 6px 6px; }
+  border-radius: 0 0 6px 6px;
+  float: left;
+  margin: 157px 0 0 55px; }
 
 .map-controls p {
   color: green !important;
-  position: absolute;
-  left: 245px;
-  top: 5px; }
+  float: left;
+  margin: 0px 14px 0 0; }
 
 .map-controls label {
   color: #fff !important;
@@ -6319,21 +6316,64 @@ body {
 .grid-wrap {
   height: auto;
   width: 100%;
-  background: #fff;
   position: fixed;
-  bottom: 0px;
+  bottom: -20px;
   left: 0px;
-  z-index: 900;
-  border-top: 20px solid #f5f5f5;
-  border-bottom: 30px solid #f5f5f5;
+  z-index: 200;
+  padding: 0 10px 27px 10px;
   -webkit-transition: .4s ease-in-out;
   -moz-transition: .4s ease-in-out;
   -o-transition: .4s ease-in-out;
-  transition: .4s ease-in-out; }
+  transition: .4s ease-in-out;
+  background-color: #fff; }
+
+.ui-grid-top-panel {
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.3);
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  color: #303f3e; }
+
+.ui-grid-cell {
+  overflow: hidden;
+  float: left;
+  background-color: inherit;
+  border-right: none;
+  box-sizing: border-box; }
+
+.ui-grid-row:nth-child(even) .ui-grid-cell {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.ui-grid-row:nth-child(odd) .ui-grid-cell {
+  background-color: rgba(255, 255, 255, 0.6); }
+
+.ui-grid-pager-control button {
+  height: 25px;
+  min-width: 26px;
+  background-color: #fff;
+  border: none !important; }
+
+.ui-grid-header-cell {
+  position: relative;
+  box-sizing: border-box;
+  background-color: inherit;
+  border: none;
+  display: table-cell;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 0; }
 
 .grid-toggle {
   /*display:none;*/
   bottom: -900px; }
+
+#addProp {
+  z-index: 9999 !important; }
 
 .navbar-inverse {
   background-color: #009587 !important;
@@ -6430,7 +6470,8 @@ video#bgvid {
   border-top-right-radius: 3px; }
 
 .panel-map {
-  margin-left: 70px; }
+  margin-left: 70px;
+  width: 324px !important; }
 
 .jumbotron, .well {
   background: #fff; }

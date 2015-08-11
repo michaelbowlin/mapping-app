@@ -37,46 +37,85 @@
               paginationPageSize: 5,
               useExternalPagination: true,
               useExternalSorting: true,
-              columnDefs: [{
-                name: 'type',
-                width: 100,
-                cellClass: 'type'
-              }, {
+              columnDefs: [
+                {
+                  displayName: 'Type',
+                  name: 'propertyType',
+                   cellClass: 'propertyType',
+                  enableSorting: false
+                },
+                {
+                displayName: 'Date',
                 name: 'dateComplete',
                 cellClass: 'dateComplete',
-                width: 200,
-                enableSorting: false
-              }, {
-                name: 'address',
-                width: 500,
+                cellFilter: 'date:\'MM-dd-yyyy\'',
+                width: 80,
+                enableSorting: true
+              },
+                {
+                displayName: 'Address',
+                name: 'address[0]',
+                width: 310,
                 cellClass: 'address',
                 enableSorting: false
-              }, {
-                name: 'improvementSize',
-                width: 200,
-                cellClass: 'improvementSize',
+              },
+                {
+                  displayName: 'Type',
+                  name: 'productType',
+                  width: 240,
+                  cellClass: 'type'
+                },
+                {
+                name: 'productType',
+                displayName: 'Product',
+                 cellClass: 'productType',
                 enableSorting: false
-              }, {
-                name: 'improvementSizeType',
-                width: 200,
-                cellClass: 'acres',
-                enableSorting: false
-              }, {
-                name: 'condition',
-                width: 200,
-                cellClass: 'condition',
-                enableSorting: false
-              }, {
+              },
+                {
+                  field: 'relevantCondition',
+                  displayName: 'Condition 1',
+                  //cellTemplate: 'relevantCondition2',
+                   cellClass: 'relevantCondition',
+                  enableSorting: false
+                },
+                {
+                  field: 'relevantCondition2',
+                  displayName: 'Condition 2',
+                  //cellTemplate: 'relevantCondition2',
+                   cellClass: 'relevantCondition',
+                  enableSorting: false
+                },
+                {
+                  field: 'relevantCondition3',
+                  displayName: 'Condition 3',
+                  //cellTemplate: 'relevantCondition2',
+                   cellClass: 'relevantCondition',
+                  enableSorting: false
+                },
+                {
+                  field: 'relevantCondition4',
+                  displayName: 'Condition 4',
+                  //cellTemplate: 'relevantCondition2',
+                   cellClass: 'relevantCondition',
+                  enableSorting: false
+                },
+
+
+                {
                 name: 'edit',
+                displayName: '',
                 cellClass: 'edit',
-                width: 100,
-                //cellTemplate: '<button class="btn btn-info btn-sm" ng-click=""><i class="fa fa-edit"></i></button>'
+                  width: 40,
+
+                  //cellTemplate: '<button class="btn btn-info btn-sm" ng-click=""><i class="fa fa-edit"></i></button>'
                 cellTemplate: '<a href="#"> EDIT </a>'
               }, {
                 name: 'delete',
+               displayName: '',
                 cellClass: 'delete',
-                width: 100,
-                // cellTemplate: '<button class="btn btn-danger btn-sm" ng-click=""><i class="fa fa-remove"></i></button>'
+                width: 40,
+
+                  // cellTemplate: '<button class="btn btn-danger btn-sm" ng-click=""><i class="fa fa-remove"></i></button>'
                 //cellTemplate: '<a href> DELETE </a>'
                 // cellTemplate: '<delete-property></delete-property>'
                 // cellTemplate: '<a class="" ng-click="deleteProperty()"><i class="fa fa-remove"></i></a>'
@@ -154,6 +193,8 @@
 
               $http.get(url)
                   .success(function(data) {
+                    console.log(data);
+                    var condtion = data[0].relevantCondition;
                     $scope.gridOptions.totalItems = 100;
                     var firstRow = (paginationOptions.pageNumber - 1) * paginationOptions.pageSize;
                     $scope.gridOptions.data = data.slice(firstRow, firstRow + paginationOptions.pageSize);
