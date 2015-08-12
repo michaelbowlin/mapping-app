@@ -106,7 +106,7 @@
                   displayName: '',
                   cellClass: 'edit',
                   width: 40,
-                  cellTemplate: '<span class="col-xs-1 margin-auto"><p></p><i class="fa fa-edit"></i></span>'
+                  cellTemplate: '<edit-property-button></edit-property-button>'
                 }, {
                   name: 'delete',
                   displayName: '',
