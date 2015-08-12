@@ -5868,6 +5868,9 @@ body,
   width: 100%;
   min-width: 1100px !important; }
 
+.margin-auto {
+  margin: 0 auto !important; }
+
 .ui-grid {
   border: none; }
 

@@ -41,24 +41,24 @@
                 {
                   displayName: 'Type',
                   name: 'propertyType',
-                   cellClass: 'propertyType',
+                  cellClass: 'propertyType',
                   enableSorting: false
                 },
                 {
-                displayName: 'Date',
-                name: 'dateComplete',
-                cellClass: 'dateComplete',
-                cellFilter: 'date:\'MM-dd-yyyy\'',
-                width: 80,
-                enableSorting: true
-              },
+                  displayName: 'Date',
+                  name: 'dateComplete',
+                  cellClass: 'dateComplete',
+                  cellFilter: 'date:\'MM-dd-yyyy\'',
+                  width: 100,
+                  enableSorting: true
+                },
                 {
-                displayName: 'Address',
-                name: 'address[0]',
-                width: 310,
-                cellClass: 'address',
-                enableSorting: false
-              },
+                  displayName: 'Address',
+                  name: 'address[0]',
+                  width: 310,
+                  cellClass: 'address',
+                  enableSorting: false
+                },
                 {
                   displayName: 'Type',
                   name: 'productType',
@@ -66,61 +66,54 @@
                   cellClass: 'type'
                 },
                 {
-                name: 'productType',
-                displayName: 'Product',
-                 cellClass: 'productType',
-                enableSorting: false
-              },
+                  name: 'productType',
+                  displayName: 'Product',
+                  cellClass: 'productType',
+                  enableSorting: false
+                },
                 {
                   field: 'relevantCondition',
                   displayName: 'Condition 1',
                   //cellTemplate: 'relevantCondition2',
-                   cellClass: 'relevantCondition',
+                  cellClass: 'relevantCondition',
                   enableSorting: false
                 },
                 {
                   field: 'relevantCondition2',
                   displayName: 'Condition 2',
                   //cellTemplate: 'relevantCondition2',
-                   cellClass: 'relevantCondition',
+                  cellClass: 'relevantCondition',
                   enableSorting: false
                 },
                 {
                   field: 'relevantCondition3',
                   displayName: 'Condition 3',
                   //cellTemplate: 'relevantCondition2',
-                   cellClass: 'relevantCondition',
+                  cellClass: 'relevantCondition',
                   enableSorting: false
                 },
                 {
                   field: 'relevantCondition4',
                   displayName: 'Condition 4',
                   //cellTemplate: 'relevantCondition2',
-                   cellClass: 'relevantCondition',
+                  cellClass: 'relevantCondition',
                   enableSorting: false
                 },
 
 
                 {
-                name: 'edit',
-                displayName: '',
-                cellClass: 'edit',
+                  name: 'edit',
+                  displayName: '',
+                  cellClass: 'edit',
                   width: 40,
-
-                  //cellTemplate: '<button class="btn btn-info btn-sm" ng-click=""><i class="fa fa-edit"></i></button>'
-                cellTemplate: '<a href="#"> EDIT </a>'
-              }, {
-                name: 'delete',
-               displayName: '',
-                cellClass: 'delete',
-                width: 40,
-
-                  // cellTemplate: '<button class="btn btn-danger btn-sm" ng-click=""><i class="fa fa-remove"></i></button>'
-                //cellTemplate: '<a href> DELETE </a>'
-                // cellTemplate: '<delete-property></delete-property>'
-                // cellTemplate: '<a class="" ng-click="deleteProperty()"><i class="fa fa-remove"></i></a>'
-                cellTemplate: '<a ng-click="grid.appScope.Delete(row)"> DELETE </a>'
-              }
+                  cellTemplate: '<span class="col-xs-1 margin-auto"><p></p><i class="fa fa-edit"></i></span>'
+                }, {
+                  name: 'delete',
+                  displayName: '',
+                  cellClass: 'delete',
+                  width: 40,
+                  cellTemplate: '<span class="col-xs-1 margin-auto" ng-click="grid.appScope.Delete(row)"><p></p><i class="fa fa-trash"></i></span>'
+                }
 
               ],
               gridMenuCustomItems: [{
@@ -134,11 +127,11 @@
               onRegisterApi: function(gridApi) {
                 $scope.gridApi = gridApi;
                 /*
-                gridApi.selection.on.rowSelectionChanged($scope, function(){
-                  console.log(gridApi.selection.getSelectedRows());
-                  // $scope.openInfoWindow = function(e, selectedMarker){
+                 gridApi.selection.on.rowSelectionChanged($scope, function(){
+                 console.log(gridApi.selection.getSelectedRows());
+                 // $scope.openInfoWindow = function(e, selectedMarker){
 
-                })TODO: Took this out because it was throwing an error */
+                 })TODO: Took this out because it was throwing an error */
 
 
                 $scope.gridApi.core.on.sortChanged($scope, function(grid, sortColumns) {
