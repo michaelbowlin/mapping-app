@@ -9,6 +9,11 @@
 
     var vm = this;
     vm.markers = [];
+    vm.fillRow = fillRow;
+
+    function fillRow(data){
+      console.log('HERE > ' + data);
+    };
 
     /* MAPPING */
     vm.paintMap = function() {
@@ -24,6 +29,17 @@
 
     vm.paintMap();
 
+    vm.paintGrid = function() {
+      $http.get('/api/properties/')
+          .success(function(data) {
+            $scope.gridOptions.totalItems = 100;
+            var firstRow = (paginationOptions.pageNumber - 1) * paginationOptions.pageSize;
+            $scope.gridOptions.data = data.slice(firstRow, firstRow + paginationOptions.pageSize);
+
+          });
+    };
+
+    vm.paintGrid();
 
     function createMap(cities) {
       var mapOptions = {
@@ -181,17 +197,8 @@
       }
     };
 
-    vm.paintGrid = function() {
-      $http.get('/api/properties/')
-        .success(function(data) {
-          $scope.gridOptions.totalItems = 100;
-          var firstRow = (paginationOptions.pageNumber - 1) * paginationOptions.pageSize;
-          $scope.gridOptions.data = data.slice(firstRow, firstRow + paginationOptions.pageSize);
 
-        });
-    };
 
-    vm.paintGrid();
 
   }
 })();

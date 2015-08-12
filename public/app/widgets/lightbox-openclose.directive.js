@@ -20,7 +20,7 @@
 
           $('.lightbox-container').addClass('launch-lightbox');
           setTimeout(function() {
-            $('#' + lightboxID + 'Lightbox').toggleClass('launch-lightbox');
+            $('#' + lightboxID + 'Lightbox').addClass('launch-lightbox');
           }, 50);
         });
         $('.close-lightbox').on('click', function() {
