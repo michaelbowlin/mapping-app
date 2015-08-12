@@ -1,1 +1,15 @@
-<div id="nav-wrap"><ul nav-active-class=""><li class="withripple"><a href="/"><i class="fa fa-home"></i><span>HOME</span></a></li><li class="withripple"><a href="/dashboard"><i class="fa fa-pie-chart"></i><span>DASHBOARD</span></a></li><li class="withripple"><a href="/map"><i class="fa fa-map-marker"></i><span>MAP</span></a></li><li class="withripple"><a href="/properties"><i class="fa fa-university"></i><span>PROPERTIES</span></a></li><li class="withripple"><a href="/marketing"><i class="fa fa-diamond"></i><span>MARKETING</span></a></li><!--li.withripple(ng-hide="identity.isAuthenticated()")--><!--    a(href='/profile')--><!--        i.fa.fa-gear--><!--        span--><!--            | PROFILE--><li class="withripple"><a href="#" id="nav-toggle"><i class="fa fa-chevron-right"></i></a></li></ul></div>
+<div id="nav-wrap">
+  <ul nav-active-class="">
+    <li class="withripple"><a href="/"><i class="fa fa-home"></i><span>HOME</span></a></li>
+    <li ng-if="isAuthenticated()" class="withripple"><a href="/dashboard"><i class="fa fa-pie-chart"></i><span>DASHBOARD</span></a></li>
+    <li ng-if="isAuthenticated()" class="withripple"><a href="/map"><i class="fa fa-map-marker"></i><span>MAP</span></a></li>
+    <li ng-if="isAuthenticated()" class="withripple"><a href="/properties"><i class="fa fa-university"></i><span>PROPERTIES</span></a></li>
+    <li class="withripple"><a href="/marketing"><i class="fa fa-diamond"></i><span>MARKETING</span></a></li>
+    <!--li.withripple(ng-hide="identity.isAuthenticated()")-->
+    <!--    a(href='/profile')-->
+    <!--        i.fa.fa-gear-->
+    <!--        span-->
+    <!--            | PROFILE-->
+    <li class="withripple"><a href="#" id="nav-toggle"><i class="fa fa-chevron-right"></i></a></li>
+  </ul>
+</div>

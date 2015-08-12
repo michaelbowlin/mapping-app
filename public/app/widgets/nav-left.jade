@@ -5,17 +5,17 @@ div#nav-wrap
                 i.fa.fa-home
                 span
                     | HOME
-        li.withripple
+        li.withripple(ng-if="isAuthenticated()")
             a(href='/dashboard')
                 i.fa.fa-pie-chart
                 span
                     | DASHBOARD
-        li.withripple
+        li.withripple(ng-if="isAuthenticated()")
             a(href="/map")
                 i.fa.fa-map-marker
                 span
                     | MAP
-        li.withripple
+        li.withripple(ng-if="isAuthenticated()")
             a(href='/properties')
                 i.fa.fa-university
                 span
