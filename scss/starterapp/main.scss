@@ -26,7 +26,9 @@ body,
   width:100%;
   min-width:1100px !important
 }
-
+.margin-auto {
+  margin:0 auto !important;
+}
 .ui-grid {
   border:none;
 }
@@ -538,7 +540,7 @@ body {
 
 }
 #addProp {
-  z-index:9999 !important;
+  z-index:299 !important;
 }
 .navbar-inverse {
   background-color: #009587 !important;

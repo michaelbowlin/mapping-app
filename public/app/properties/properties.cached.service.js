@@ -12,7 +12,6 @@
                 propertyList = propertyService.query();
               }
 
-
               return propertyList;
             }
           }

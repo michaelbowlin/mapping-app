@@ -7,6 +7,9 @@ div.lightbox-main-content
           legend Legend
           .form-group
 
+            ul(style="border:red solid;")
+              li(ng-repeat="item in editData") {{item}}
+
             //- Title
             .form-group
             label.col-lg-2.control-label(for='') Title
