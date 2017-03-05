@@ -43,4 +43,8 @@ module.exports = function(app) {
       bootstrappedUser: req.user
     });
   });
-}
+};
+
+// Switching from Jade: https://ademirgabardo.wordpress.com/2016/03/04/how-to-change-the-template-system-from-jade-to-html-with-express/
+module.exports.index = function(req, res){
+  res.render('index', { title: 'Page title' });};

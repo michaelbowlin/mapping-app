@@ -1,8 +1,7 @@
 (function(){
   'use strict'
 
-  // angular.module('app', ['ngResource', 'ngRoute','geocoder-service','highcharts-ng','ui.bootstrap','uiGmapgoogle-maps']);
-  angular.module('app', ['ngResource', 'ngRoute','geocoder-service','ui.bootstrap','ngAnimate','ngTouch', 'ui.grid', 'ui.grid.pagination','ngTouch', 'ui.grid.exporter', 'ui.grid.selection', 'ui.grid.edit', 'ui.grid.cellNav','highcharts-ng']);
+  angular.module('app', ['ngResource', 'ngRoute','geocoder-service','ui.bootstrap','ngAnimate','ngTouch', 'ui.grid', 'ui.grid.pagination','ngTouch', 'ui.grid.exporter', 'ui.grid.selection', 'ui.grid.edit', 'ui.grid.cellNav']);
 
   angular.module('app').config(function ($routeProvider, $locationProvider) {
     var routeRoleChecks = {
@@ -63,11 +62,6 @@
         templateUrl: '/partials/dashboard/dashboard',
         controller: 'dashboardCtrl',
         controllerAs: 'dashboard'
-      })
-      .when('/marketing', {
-        templateUrl: '/partials/marketing/marketing',
-        controller: 'marketingCtrl',
-        controllerAs: 'marketing'
       })
       .when('/properties', {
         templateUrl: '/partials/properties/property-list',
